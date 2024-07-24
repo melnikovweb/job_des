@@ -1,0 +1,29 @@
+<hr>
+<h3>Form</h3>
+<hr>
+
+<div class="sk-form">
+
+  <form action="" method="get">
+
+    <fieldset class="sk-wrapper sk-wrapper--column">
+
+      {% set vars = {'type': 'text', 'id': 'first-name', 'label' : 'First name', 'placeholder': 'Enter your first name' } %}
+      {% include "_input.twig" with vars %}
+
+      {% set vars = {'type': 'text', 'id': 'last-name', 'label' : 'Last name', 'placeholder': 'Enter your last name' } %}
+      {% include "_input.twig" with vars %}
+
+      {% set vars = {'type': 'email', 'id': 'email', 'label' : 'Email', 'placeholder': 'Enter your email' } %}
+      {% include "_input.twig" with vars %}
+
+      {% set vars = {'type': 'number', 'id': 'number', 'label' : 'Phone', 'placeholder': 'Enter your phone' } %}
+      {% include "_input.twig" with vars %}
+
+    </fieldset>
+
+    <input type="submit" value="Submit">
+
+  </form>
+
+</div>

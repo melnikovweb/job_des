@@ -1,0 +1,52 @@
+{% set class = 'sk-form' %}
+
+<div class="{{ class }}-field">
+
+	{% if label %}
+		<label class="{{ class }}-label" for="{{ id }}">{{ label }}</label>
+	{% endif %}
+
+	{% if inputIcon %}
+		<div class="{{ class }}-wrapper-icon">
+		{% endif %}
+
+		<input id="{{ id }}" class="{{ class }}-control" type="{{ type ? type : 'text' }}" name="{{ name }}"
+			placeholder="{{ placeholder }}" value="{{ value }}" {{ required ? 'required' : '' }} {{ disabled ? 'disabled' : '' }}
+			{% if urlParams %}
+				data-url-params="keyup"
+				data-params-key="search"
+			{% endif %}
+			/>
+		{% if inputIcon %}
+			<svg>
+				<use href="#icon-{{ inputIcon }}"></use>
+			</svg>
+		{% endif %}
+
+		{% if inputIcon %}
+		</div>
+	{% endif %}
+
+	{% if helpText %}
+		<span class="{{ class }}-help-text">{{ helpText }}</span>
+	{% endif %}
+
+</div>
+
+
+{# use
+
+{% include 'parts/components/form-fields/input.twig' with {
+	'id': 'id',
+	'type': type,
+	'name': 'name',
+	'value': 'value',
+	'label': 'label',
+	'placeholder': 'placeholder',
+	'helpText': 'helpText',
+	'required': true/false,
+	'disabled': true/false,
+	'inputIcon': 'icon',
+} only %}
+
+#}

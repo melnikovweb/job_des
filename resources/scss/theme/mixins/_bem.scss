@@ -1,0 +1,13 @@
+// BEM Element
+@mixin e($element) {
+  &__#{$element} {
+    @content;
+  }
+}
+
+// BEM Modifier
+@mixin m($modifier) {
+  &_#{$modifier} {
+    @content;
+  }
+}

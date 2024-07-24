@@ -1,0 +1,41 @@
+{% set class = 'checkbox-wrapper' %}
+<label class="{{ class }}">
+	<input
+		type="{{ type }}"
+		name="{{ name }}"
+		value="{{ value }}"
+		placeholder="{{ placeholder }}"
+		{% if disableURLParams != true %}
+			data-url-params="{{ urlParams }}"
+			data-params-action="{{ action }}"
+			data-params-value="{{ term_id }}"
+			data-params-key="{{ taxonomy }}"
+		{% endif %}
+		{{ required ? 'required' : '' }}
+		{{ disabled ? 'disabled' : '' }}
+		{{ checked ? 'checked' : '' }}
+		>
+	<span class="{{ class }}__label">
+		<span class="js-{{ class }}-label">{{ placeholder }}</span>
+		{% if additText %}
+			<span class="{{ class }}__addit-text">{{ additText }}</span>
+		{% endif %}
+	</span>
+</label>
+
+{# use
+
+{% include 'parts/components/form-fields/checkbox.twig' with {
+	'type': type,
+	'id': id,
+	'action': action,
+	'name': name,
+	'value': value,
+	'placeholder': placeholder,
+	'additText': additText,
+	'required': true/false,
+	'checked': true/false,
+	'disabled': true/false,
+} only %}
+
+#}

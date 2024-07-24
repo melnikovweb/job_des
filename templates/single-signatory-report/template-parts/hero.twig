@@ -1,0 +1,65 @@
+<section class="{{ classes }}__hero">
+	<div class="sk-container {{ classes }}__hero_container">
+		{% if report_year is not empty %}
+			{% if report_year.name %}
+				<h6 class="sk-subtitle">{{ report_year.name }}</h6>
+			{% endif %}
+		{% endif %}
+
+		{% if title %}
+			<h1 class="{{ classes }}__hero_title">{{ title }}</h1>
+		{% endif %}
+
+		{% if intro %}
+			<div class="{{ classes }}__hero_content">
+				<p>{{ intro }}</p>
+			</div>
+		{% endif %}
+
+
+		<div class="{{ classes }}__hero_bottom-part">
+
+			{% include "parts/components/tooltip.twig" with {
+                'text': __( 'Download Report Signatory ' ~ title ~ ', Commitments All', THEME_TD),
+            } only %}
+
+			<div class="{{ classes }}__hero_btns">
+                {% set filename = (title ~ ' ' ~ report_year.name)|replace({' ':'-'}) %}
+                
+                <button
+                    class="sk-btn sk-btn--primary sk-btn--full-w"
+                    data-file-action="generate"
+                    data-file-type="csv"
+                    data-parent-post="{{ postID }}"
+                    data-file-name={{ filename }}
+                    >
+                    <svg><use href="#icon-download"></use></svg>
+                    {{ __( 'Download Report as CSV', THEME_TD ) }}
+                </button>
+                
+                <button
+                    class="sk-btn sk-btn--primary sk-btn--full-w {{ pdfClass }}"
+                    data-file-action="download"
+                    data-file-type="pdf"
+                    data-parent-post="{{ postID }}"
+                    data-file-name={{ filename }}
+                    >
+                    <svg><use href="#icon-download"></use></svg>
+                    {{ __( 'Download Report as PDF', THEME_TD ) }}
+                </button>
+
+                <button
+                    class="sk-btn sk-btn--primary sk-btn--full-w"
+                    data-file-action="generate"
+                    data-file-type="json"
+                    data-parent-post="{{ postID }}"
+                    data-file-name={{ filename }}
+                    >
+                    <svg><use href="#icon-download"></use></svg>
+                    {{ __( 'Download Report as JSON', THEME_TD ) }}
+                </button>
+
+			</div>
+		</div>
+	</div>
+</section>

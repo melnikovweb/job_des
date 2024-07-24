@@ -1,0 +1,5 @@
+<ul role="menu" class="dropdown-menu" id="dropdown-menu-{{ item.id }}" data-level="{{ item.level }}">
+  {% for item in items %}
+		{% include "parts/components/menu-item.twig" with {'item': item, 'type' : type} %}
+  {% endfor %}
+</ul>

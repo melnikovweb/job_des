@@ -1,0 +1,9 @@
+@mixin transition {
+  transition: 0.2s;
+  transition-timing-function: linear;
+}
+
+@mixin transitionEasy {
+  transition: 0.4s;
+  transition-timing-function: ease-in-out;
+}

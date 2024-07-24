@@ -1,0 +1,45 @@
+<div class="advanced-search__filter_form" action="{{ site.url }}">
+	{% include 'parts/components/search-input.twig' with { 'search': {
+		'enable': true,
+		'placeholder': __( 'Search by keyword', THEME_TD ),
+		'id': 'advanced_search',
+		'urlParams': true,
+		}, 
+	} only %}
+
+	<button class="sk-btn sk-btn--secondary"
+		data-url-params="click"
+		data-params-action=""
+		data-params-value=""
+		data-params-key="reset"
+	>
+		{{ __( 'Clear', THEME_TD ) }}
+		<svg>
+			<use href="#icon-refresh"></use>
+		</svg>
+	</button>
+
+	<button class="sk-btn sk-btn--primary"
+		data-url-params="click"
+		data-params-action=""
+		data-params-value=""
+		data-params-key="search"
+	>
+		{{ __( 'Search', THEME_TD ) }}
+		<svg>
+			<use href="#icon-search"></use>
+		</svg>
+	</button>
+
+	<button class="sk-btn sk-btn--secondary"
+		data-url-params=""
+		data-params-action=""
+		data-params-value=""
+		data-params-key="mobile-filter"
+	>
+		{{ __( 'More filters', THEME_TD ) }}
+		<svg>
+			<use href="#icon-filter"></use>
+		</svg>
+	</button>
+</div>

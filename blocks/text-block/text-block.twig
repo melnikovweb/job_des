@@ -1,0 +1,20 @@
+<section class="{{ class }} {{ demo ? class ~ '-' ~ fields.section_height : class ~ '-m' }} {{ classes }} {{ block_classes }}" {{ block.anchor ? 'id=' ~ block.anchor : null }}>
+  <div class="sk-container sk-container--fl">
+
+    <div class="{{ class }}-content sk-container">
+
+      {% if not (fields.text is empty) %}
+        <div class="{{ class }}-text">{{ fields.text }}</div>
+      {% endif %}
+
+      {% if not (fields.button is empty) %}
+      <div class="{{ class }}-buttons">
+          {% set target = fields.button.target ? '_blank' : '_self' %}
+          <a class="sk-btn sk-btn--primary sk-btn--2xl" href="{{ fields.button.url }}"
+             target="{{ target }}">{{ fields.button.title }}</a>
+      </div>
+      {% endif %}
+    </div>
+
+  </div>
+</section>

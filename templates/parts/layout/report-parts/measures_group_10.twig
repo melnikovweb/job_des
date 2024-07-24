@@ -1,0 +1,37 @@
+{% if measures_group_10 is not empty %}
+    {% for tableItem in measures_group_10 %}
+        {% set content = measuresGroupItem(tableItem)['content'] %}
+        {% set tables = measuresGroupItem(tableItem)['tables'] %}
+        <div class="{{ classPageContent }}__block">
+            {% if content.title %}
+                <div class="{{ classPageContent }}__wrapper">
+                    <h2 class="{{ classPageContent }}__block-title">{{content.title}}</h2>
+                </div>
+            {% endif %}
+            
+            {% if content.accordion is not empty %}
+                <div class="{{ classPageContent }}__wrapper {{ classPageContent }}__wrapper-mobile">
+                    {% include 'parts/components/accordion.twig' with content.accordion only %}
+                </div>
+            {% endif %}
+            
+            {% set itemsAccordion = [] %}
+            {% if tables is not empty %}
+                {% for item in tables %}
+                    {% if item is not empty %}
+                        {% set itemsAccordion = itemsAccordion|merge([{
+                            title: item.title,
+                            content: include( 'parts/components/table.twig', item.data.table),
+                        }]) %}
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+
+            {% for item in itemsAccordion %}
+                <div class="{{ classPageContent }}__wrapper {{ classPageContent }}__wrapper-mobile">
+                    {% include 'parts/components/accordion.twig' with item only %}
+                </div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+{% endif %}

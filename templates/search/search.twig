@@ -1,0 +1,45 @@
+{% extends "base.twig" %}
+
+{% block content %}
+  {% include "./blocks/title-block/title-block.twig" with {
+    'class': 'title-block',
+    'fields': {
+      'title': title,
+      'bg_color': 'gray-50',
+    },
+  } %}
+
+   <div class="sk-container">
+
+    <div class="search__results"
+      data-post-loop
+      data-total-pages="{{totalPages}}"
+      data-current-page="{{currentPage}}"
+      data-posts-per-page="{{postsPerPage}}"
+    >
+      {% if posts %}
+        {% for post in posts %}
+          <div class="post-item">
+            <a
+              data-post-field="post_link"
+              href="{{ post.post_link }}"
+              class="post-item__link"
+            >
+              <span data-post-field="post_title">
+                {{ post.post_title }}
+              </span>
+            </a>
+            <p data-post-field="post_excerpt" class="post-item__excerpt">{{ post.post_excerpt }}</p>
+          </div>
+        {% endfor %}
+
+        {% else %}
+          {% include 'parts/components/noresults-search.twig' with { hidden: false } %}
+
+      {% endif %}
+    </div>
+
+      <div class="advanced-search__pagination pagination">{# rendered with JS #}</div>
+
+  </div>
+{% endblock %}

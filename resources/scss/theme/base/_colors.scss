@@ -1,0 +1,82 @@
+/* stylelint-disable */
+
+/**
+  Generate colors https://gka.github.io/palettes
+ */
+
+:root {
+  /* Main colors */
+  --sk-color-black: #000;
+  --sk-color-white: #fff;
+  --sk-color-dark: #101828;
+  --sk-color-yellow-200: #feee95;
+  --sk-color-yellow-300: #fde272;
+  --sk-color-yellow-400: #fac515;
+  --sk-color-yellow-500: #eaaa08;
+  --sk-color-indigo-50: #eef4ff;
+  --sk-color-indigo-100: #e0eaff;
+  --sk-color-indigo-200: #c7d7fe;
+  --sk-color-indigo-300: #a4bcfd;
+  --sk-color-indigo-500: #6172f3;
+  --sk-color-indigo-600: #444ce7;
+  --sk-color-indigo-700: #3538cd;
+  --sk-color-indigo-800: #2d31a6;
+  --sk-color-indigo-900: #2d3282;
+  --sk-color-gray-50: #f9fafb;
+  --sk-color-gray-100: #f2f4f7;
+  --sk-color-gray-200: #eaecf0;
+  --sk-color-gray-300: #d0d5dd;
+  --sk-color-gray-400: #98a2b3;
+  --sk-color-gray-500: #667085;
+  --sk-color-gray-600: #475467;
+  --sk-color-gray-700: #344054;
+  --sk-color-gray-800: #1d2939;
+  --sk-color-gray-900: #101828;
+  --sk-color-grey-blue-800: #293056;
+  --sk-color-primary-600: #7f56d9;
+
+  --sk-text-primary: var(--sk-color-indigo-900);
+  --sk-text-primary-dark: var(--sk-color-grey-blue-800);
+  --sk-color-primary: var(--sk-color-yellow-400);
+  --sk-color-primary-light: var(--sk-color-yellow-200);
+  --sk-color-primary-dark: var(--sk-color-yellow-500);
+
+  --sk-text-second: var(--sk-color-indigo-800);
+  --sk-text-second-dark: var(--sk-color-gray-300);
+  --sk-color-second: var(--sk-color-white);
+  --sk-color-second-light: var(--sk-color-white);
+  --sk-color-second-dark: var(--sk-color-indigo-50);
+
+  --sk-color-third: var(--sk-color-indigo-700);
+  --sk-color-third-light: var(--sk-color-indigo-500);
+  --sk-color-third-dark: var(--sk-color-indigo-900);
+
+  /* Background colors */
+  --sk-color-bg-primary: var(--sk-color-second);
+  --sk-color-bg-second: var(--sk-color-indigo-800);
+
+  /* Typography */
+  --sk-color-text: var(--sk-color-gray-600);
+  --sk-color-text-heading: var(--sk-color-grey-blue-800);
+  --sk-color-text-subtle: var(--sk-color-indigo-700);
+  --sk-color-link: var(--sk-color-grey-blue-800);
+  --sk-color-link-hover: var(--sk-color-black);
+  --sk-color-link-visited: var(--sk-color-indigo-800);
+
+  /* Border */
+  --sk-color-border: var(--sk-color-gray-200);
+
+  /* Body */
+  --sk-color-body: var(--sk-color-text);
+
+  /* Feedback */
+  --sk-color-success: green;
+  --sk-color-error: red;
+  --sk-color-warning: orange;
+
+  /* Icons */
+  --sk-color-icon-primary: var(--sk-color-primary);
+  --sk-color-icon-secondary: var(--sk-color-second);
+
+  //Other colors
+}

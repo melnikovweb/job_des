@@ -1,0 +1,25 @@
+{% if thead is not empty %}
+
+	<thead>
+		<tr>
+			{% for col in thead %}
+				{% if col.sortBy %}
+					<th data-sort-by={{ col.sortBy }} data-sort-type="{{ col.sortType }}">
+						<div class="th-wrapper">
+							{{ col.title }}
+							<div class="th-wrapper-icon">
+								<svg>
+									<use href="#icon-arrow-down"></use>
+								</svg>
+							</div>
+						</div>
+					</th>
+				{% else %}
+					<th>
+						{{ col.title }}
+					</th>
+				{% endif %}
+			{% endfor %}
+		</tr>
+	</thead>
+{% endif %}

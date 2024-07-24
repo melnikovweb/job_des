@@ -1,0 +1,291 @@
+@import "resources/scss/theme/mixins/all";
+
+.wp-block .advanced-search,
+.advanced-search {
+  margin: 0 0 30px;
+
+  @include breakpoint-up(md-s) {
+    margin: 0 0 200px;
+  }
+
+  > .sk-container {
+    max-width: calc(1280px + var(--sk-container-padding) * 2);
+  }
+
+  @include e(filter) {
+    background-color: var(--sk-color-gray-50);
+    border-radius: 12px;
+    margin-top: 1px;
+
+    @include breakpoint-up(md-s) {
+      padding: 20px 30px 42px;
+      margin-bottom: 69px;
+    }
+
+    @include m(form) {
+      display: flex;
+      align-items: baseline;
+
+      @include breakpoint-down(md-s) {
+        flex-wrap: wrap;
+        margin-bottom: 12px;
+      }
+
+      @include breakpoint-up(md-s) {
+        margin-bottom: 34px;
+      }
+
+      .search-input {
+        flex: 100%;
+
+        @include breakpoint-down(md-s) {
+          margin-bottom: 12px;
+        }
+
+        @include breakpoint-up(md-s) {
+          max-width: 1040px;
+          margin-right: 10px;
+        }
+
+        .sk-form-field {
+          margin-bottom: 0;
+        }
+
+        input {
+          @include breakpoint-up(md-s) {
+            height: 45px;
+          }
+        }
+      }
+
+      button {
+        @include breakpoint-down(md-s) {
+          margin-bottom: 12px;
+        }
+
+        &[data-params-key="reset"] {
+          width: calc(50% - 6px);
+          margin-right: 6px;
+
+          @include breakpoint-up(md-s) {
+            display: none;
+          }
+        }
+
+        &[data-params-key="search"] {
+          @include breakpoint-down(md-s) {
+            width: calc(50% - 6px);
+            margin-left: 6px;
+          }
+
+          @include breakpoint-up(md-s) {
+            width: 170px;
+          }
+        }
+
+        &[data-params-key="mobile-filter"] {
+          width: 100%;
+
+          @include breakpoint-up(md-s) {
+            display: none;
+          }
+        }
+      }
+    }
+
+    @include m(bar) {
+      @include breakpoint-down(md-s) {
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+
+        @include transition;
+
+        &.opened {
+          left: 0;
+          z-index: 101;
+          background-color: var(--sk-color-white);
+        }
+
+        .sk-form-checkbox .sk-form-select .sk-form-wrapper-icon {
+          padding-left: 0;
+        }
+
+        .sk-form-select-wrapper {
+          padding-left: 0;
+          padding-top: 10px;
+        }
+
+        .sk-form-select {
+          .checkbox-wrapper {
+            padding-bottom: 6px;
+            padding-top: 6px;
+
+            input {
+              display: block;
+              flex: none;
+              margin-right: 10px;
+            }
+
+            &__label {
+              font-size: 14px;
+              line-height: 1.286em;
+            }
+
+            .sk-form-select-options li {
+              margin-bottom: 0;
+
+              .option-icon {
+                top: 6px;
+              }
+            }
+
+            .sk-form-checkbox .sk-form-select .sk-form-wrapper-icon > svg {
+              left: 14px;
+            }
+          }
+        }
+      }
+
+      @include breakpoint-down(md-s) {
+        display: grid;
+        grid-template-columns: 23px auto;
+        height: 100%;
+        padding: 0;
+      }
+    }
+
+    .filter-btn {
+      position: absolute;
+      right: 31px;
+      top: 27px;
+      background: transparent;
+      border: none;
+
+      @include breakpoint-up(md-s) {
+        display: none;
+      }
+
+      svg {
+        width: 10px;
+        height: 10px;
+        pointer-events: none;
+      }
+    }
+
+    .filter-border {
+      display: none;
+
+      @include breakpoint-down(md-s) {
+        display: block;
+        height: 100%;
+        width: 23px;
+        background: #3538cd;
+        backdrop-filter: blur(8px);
+      }
+    }
+
+    .filter-panel {
+      display: flex;
+      align-items: baseline;
+      flex-direction: column;
+      padding: 27px 16px;
+      overflow-y: scroll;
+      position: relative;
+
+      @include breakpoint-up(md-s) {
+        flex-direction: row;
+        padding: 0;
+        overflow-y: initial;
+        margin-left: -12px;
+      }
+
+      > div:not(:nth-last-child(2), :last-child) {
+        @include breakpoint-up(md-s) {
+          margin-right: 12px;
+        }
+      }
+
+      @include e(buttons) {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+
+        @include breakpoint-up(md-s) {
+          display: none;
+        }
+
+        button {
+          width: 128px;
+          margin: 0 6px;
+        }
+      }
+    }
+  }
+
+  @include e(results) {
+    position: relative;
+    min-height: 80px;
+
+    @include breakpoint-down(md-s) {
+      margin-left: calc(-1 * var(--sk-container-padding));
+      margin-right: calc(-1 * var(--sk-container-padding));
+    }
+
+    @include breakpoint-up(md-s) {
+      border: 1px solid #eaecf0;
+      box-shadow: 0 1px 3px rgba(16, 24, 40, 0.1), 0 1px 2px rgba(16, 24, 40, 0.06);
+      border-radius: 12px;
+    }
+
+    @include m(count) {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 22px;
+      letter-spacing: -0.01em;
+      color: var(--sk-color-gray-700);
+      margin-bottom: 24px;
+      height: 22px;
+    }
+
+    @include m(list) {
+      .post-item {
+        padding: 16px 24px;
+
+        @include breakpoint-down(md-s) {
+          &:nth-of-type(odd) {
+            background: var(--sk-color-gray-50);
+          }
+        }
+
+        &:not(:last-of-type) {
+          border-bottom: 1px solid #eaecf0;
+        }
+
+        a {
+          text-decoration: none;
+
+          span {
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 19px;
+            letter-spacing: -0.01em;
+            color: var(--sk-color-gray-900);
+          }
+        }
+
+        &__excerpt {
+          font-style: normal;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 19px;
+          letter-spacing: -0.01em;
+          color: var(--sk-color-gray-600);
+        }
+      }
+    }
+  }
+}

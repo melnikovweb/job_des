@@ -1,0 +1,21 @@
+{% if contentTable.table_type is not empty %}
+
+	{% set itemsAccordion = [] %}
+
+	{% for tableType in contentTable.table_type %}
+		{% set tableData = contentTable[tableType] %}
+		{% set accData = generateTable(tableData, tableType) %}
+		{% if ( accData ) %}
+			{% set itemsAccordion = itemsAccordion|merge([{
+				title: accData.titleAcc,
+				content: include( 'parts/components/table.twig', accData.table),
+			}]) %}
+		{% endif %} 
+	{% endfor %}
+
+	{% for item in itemsAccordion %}
+		<div class="{{ classPageContent }}__wrapper {{ classPageContent }}__wrapper-mobile">
+			{% include 'parts/components/accordion.twig' with item only %}
+		</div>
+	{% endfor %}
+{% endif %}

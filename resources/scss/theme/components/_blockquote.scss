@@ -1,0 +1,44 @@
+blockquote.sk-blockquote {
+  position: relative;
+  margin: 0;
+  max-width: 890px;
+
+  &::before,
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 50px;
+    height: 32px;
+
+    @include breakpoint-down(md) {
+      width: 60px;
+      height: 60px;
+    }
+  }
+
+  &::before {
+    background-image: url("../img/blockquote-start.svg"); //Todo path in admin not work
+    top: 0;
+    left: -78px;
+
+    @include breakpoint-down(md) {
+      left: 0;
+      top: -70px;
+    }
+  }
+
+  &::after {
+    background-image: url("../img/blockquote-end.svg");
+    bottom: -10px;
+    right: -78px;
+
+    @include breakpoint-down(md) {
+      right: 0;
+      bottom: -70px;
+    }
+  }
+}

@@ -1,0 +1,83 @@
+{% if sliItems is not empty %}
+
+	{% for sli in sliItems %}
+
+		{% if sli.number or sli.content %}
+			<div class="{{ classPageContent }}__wrapper">
+				<div class="{{ classPageContent }}__small-block">
+
+					{% if sli.number %}
+						<h2 
+							id="{{'sli-' ~ parentTabId ~ '-' ~ commitmentID ~ '-' ~ loop.index }}"
+							class="{{ classPageContent }}__small-block-title js-third-level-title"
+							data-title="{{ __( 'SLI ' ~ sli.number, THEME_TD ) }}">
+							{{ __( 'SLI ' ~ sli.number, THEME_TD ) }}
+						</h2>
+					{% endif %}
+
+					{% if sli.content %}
+						<div class="{{ classPageContent }}__small-block-content">
+							{{ sli.content }}
+						</div>
+					{% endif %}
+
+				</div>
+			</div>
+		{% endif %}
+
+		{% set contentTables = sli.tables %}
+
+		{% if contentTables is not empty %}
+			{% set classTabs = 'sk-tabs' %}
+			<div
+				class="{{ classTabs }} {{ classTabs ~ '--lg'}} {{ classPageContent }}__tabs js-sub-tabs" data-tabs>
+				{# tab navigation #}
+				{% set tabs = [] %}
+				{% for contentTable in contentTables %}
+					{% set type_of_action = contentTable.type_of_action ? contentTable.type_of_action : __( 'Type of Action', THEME_TD ) %}
+					{% set tabs = tabs|merge([{
+						'title': type_of_action,
+						'id': type_of_action|lower|replace({' ': '', '.': ''}),
+						'parentTabId': parentTabId
+					}]) %}
+				{% endfor %}
+				
+				{% if tabs|length > 1 %}
+					<div class="{{ classPageContent }}__wrapper {{ classPageContent }}__wrapper-tab-nav">
+						{% include "parts/components/tabs-parts/tab-nav.twig" with {
+							'class': classTabs,
+							'tabs': tabs,
+							'parentId': 'type-of-action',
+							'mobileDropdownNav': true
+						} %}
+					</div>
+				{% endif %}
+				{# END tab navigation #}
+
+				{# tab content #}
+				{% set tabs = [] %}
+
+				{% for contentTable in contentTables %}
+					{% set type_of_action = contentTable.type_of_action ?? __( 'Type of Action', THEME_TD ) %}
+					{% set tab = include( 'parts/layout/report-parts/measures-group/type-of-actions.twig', { 'contentTables': contentTables } ) %}
+					{% set tabs = tabs|merge([{
+						'content': tab,
+						'id': type_of_action|lower|replace({' ': '', '.': ''}),
+						'parentTabId': parentTabId
+					}]) %}
+				{% endfor %}
+
+				<div class="{{ classPageContent }}__tabs-content">
+					{% include "parts/components/tabs-parts/tab-content.twig" with {
+						'class': classTabs,
+						'tabs': tabs,
+						'parentId': 'type-of-action',
+						'mobileDropdownNav': true
+					} %}
+				</div>
+				{# END tab content #}
+			</div>
+		{% endif %}
+	{% endfor %}
+
+{% endif %}

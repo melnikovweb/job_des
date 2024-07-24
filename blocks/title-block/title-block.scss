@@ -1,0 +1,66 @@
+@import "resources/scss/theme/mixins/all";
+
+.wp-block .title-block,
+.title-block {
+  padding: 96px 0;
+  overflow: hidden;
+
+  @include flex_align(flex-start, center);
+
+  @include breakpoint-down(md) {
+    padding: 64px 0;
+  }
+
+  &.indigo-800 {
+    background: var(--sk-color-bg-second);
+  }
+
+  &.gray-50 {
+    background: var(--sk-color-gray-50);
+  }
+
+  &-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &-title {
+    color: var(--sk-color-white);
+    font-style: normal;
+    font-weight: 700;
+    font-size: 60px;
+    line-height: 66px;
+    text-align: center;
+
+    @include breakpoint-down(md) {
+      font-size: 36px;
+      line-height: 40px;
+      text-align: center;
+    }
+
+    .gray-50 & {
+      color: var(--sk-text-primary-dark);
+    }
+  }
+
+  &-description {
+    padding-bottom: 12px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 18px;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--sk-color-primary);
+
+    @include breakpoint-down(md) {
+      line-height: var(--sk-line-height-body);
+      margin-top: 16px;
+    }
+  }
+
+  &-buttons {
+    margin-top: 30px;
+  }
+}

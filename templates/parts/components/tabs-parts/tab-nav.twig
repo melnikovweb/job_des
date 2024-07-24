@@ -1,0 +1,37 @@
+<ul class="{{ class }}__nav {{ mobileDropdownNav ? 'sk-only-d' : '' }}">
+	{% for tab in tabs %}
+		<li>
+			<button
+				class="{{ class }}__nav-link {{ loop.index == 1 ? 'active' : '' }} {{ tab.jsClass ?: '' }}"
+				data-tab-nav="tab_0{{ loop.index }}"
+				data-tab-parent="{{ parentId }}{{parentTabId}}"
+				data-tab-title="{{ tab.title }}"
+				aria-label="{{ tab.title }}"
+				>
+				{{ tab.title }}
+			</button>
+		</li>
+	{% endfor %}
+</ul>
+
+{% if mobileDropdownNav %}
+	{% set titleActiveTab = '' %}
+	<div class="sk-only-m">
+		{% set content = '<ul>' %}
+		{% for tab in tabs %}
+			{% if loop.index == 1 %}
+				{% set titleActiveTab = tab.title %}
+			{% endif %}
+			{% set content = content ~ '<li><button href="#" data-tab-nav="tab_0' ~ loop.index ~ '" data-tab-parent="' ~ parentId ~ parentTabId ~ '" data-dropdown-label="' ~ tab.title ~ '">' ~ tab.title ~ '</button></li>' %}
+		{% endfor %}
+
+		{% set content = content ~ '</ul>' %}
+
+		{% set dropdown = {
+				'title': titleActiveTab,
+				'content': content,
+			} %}
+
+		{% include "parts/components/dropdown.twig" with dropdown %}
+	</div>
+{% endif %}

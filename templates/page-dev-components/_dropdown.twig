@@ -1,0 +1,39 @@
+<h3>Dropdown</h3>
+<br>
+
+{% set content = '<ul>
+    <li>
+        <button href="#" data-dropdown-label="title 01">
+            title 01 
+        </button>
+    </li>
+    <li>
+        <button href="#" data-dropdown-label="title 02">
+            <span>title 02</span> 
+        </button>
+    </li>
+    <li>
+        <button href="#" data-dropdown-label="title 03">
+            title 03 
+        </button>
+    </li>
+</ul>' %}
+
+{% set dropdown = {
+    'title': 'Dropdown 01',
+    'content': content,
+} %}
+
+{% include "parts/components/dropdown.twig" with dropdown %}
+
+<br>
+<br>
+
+{% set dropdown = {
+    'title': 'Dropdown 02',
+    'content': 'content',
+} %}
+
+{% include "parts/components/dropdown.twig" with dropdown %}
+
+<hr>

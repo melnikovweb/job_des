@@ -1,0 +1,20 @@
+{% if not (vars is empty) %}
+
+  <div class="sk-form-field">
+
+    <label>
+      {% if not (vars.label is empty) %}
+        <span>{{ vars.label }}</span>
+      {% endif %}
+      <input type="{{ vars.type }}" name="field-{{ vars.id }}" placeholder="{{ vars.placeholder }}">
+    </label>
+
+  </div>
+
+{% endif %}
+
+
+{# usage:
+{% set vars = {'type': 'text', 'id': 'first-name', 'label' : 'First name', 'placeholder': 'Enter first name' } %}
+{% include "_input.twig" with vars %}
+#}

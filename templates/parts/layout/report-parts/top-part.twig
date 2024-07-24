@@ -1,0 +1,62 @@
+{% set classPageContent = 'page-content' %}
+
+{% if nameTemplate == 'singleSignatoryReport' %}
+    {% if commitmentName %}
+        <div class="{{ classPageContent }}__wrapper">
+            {% include "parts/components/round-block.twig" with { title: commitmentName } %}
+        </div>
+    {% endif %}
+{% elseif nameTemplate == 'singleReport' %}
+    {% if signatoryName %}
+        <div class="{{ classPageContent }}__wrapper">
+            <h2 class="page-content__block-subtitle">{{ signatoryName }}</h2>
+        </div>
+    {% endif %}
+{% endif %}
+
+<div class="{{ classPageContent }}__wrapper">
+
+    {% if signatoryName or commitmentName %}
+        {% include "parts/components/tooltip.twig" with {
+            'text': __( 'Download Report Signatory ' ~ signatoryName ~ ', ' ~ commitmentName, THEME_TD),
+        } only %}
+    {% endif %}
+
+	<div class="{{ classPageContent }}__btns">
+		{% set filename = (signatoryName ~ ' ' ~ commitmentName)|replace({' ':'-'}) %}
+
+        <button
+            class="sk-btn sk-btn--primary sk-btn--full-w"
+            data-file-action="generate"
+            data-file-type="csv"
+            data-child-post="{{ currentPostID }}"
+            data-file-name={{ filename }}
+            >
+            <svg><use href="#icon-download"></use></svg>
+            {{ __( 'Download Report as CSV', THEME_TD ) }}
+        </button>
+        
+        <button
+            class="sk-btn sk-btn--primary sk-btn--full-w {{ pdfClass }}"
+            data-file-action="download"
+            data-file-type="pdf"
+            data-child-post="{{ currentPostID }}"
+            data-file-name={{ filename }}
+            >
+            <svg><use href="#icon-download"></use></svg>
+            {{ __( 'Download Report as PDF', THEME_TD ) }}
+        </button>
+
+        <button
+            class="sk-btn sk-btn--primary sk-btn--full-w"
+            data-file-action="generate"
+            data-file-type="json"
+            data-child-post="{{ currentPostID }}"
+            data-file-name={{ filename }}
+            >
+            <svg><use href="#icon-download"></use></svg>
+            {{ __( 'Download Report as JSON', THEME_TD ) }}
+        </button>
+
+	</div>
+</div>

@@ -1,0 +1,20 @@
+{% set class = 'sk-table' %}
+
+<div class="{{ class }} js-{{ class }}">
+
+	{% if search is not empty %}
+		<div class="search-input">
+			{% include 'parts/components/form-fields/select.twig' with search only %}
+		</div>
+	{% endif %}
+
+	<div class="{{ class }}__wrapper">
+		<table>
+			{# thead #}
+			{% include "parts/components/table-parts/thead.twig" with { 'thead': thead } only %}
+
+			{# tbody #}
+			{% include "parts/components/table-parts/tbody.twig" with { 'tbody': tbody } only %}
+		</table>
+	</div>
+</div>

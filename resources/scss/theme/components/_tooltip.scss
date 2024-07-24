@@ -1,0 +1,68 @@
+.sk-tooltip {
+  cursor: pointer;
+  display: inline-flex;
+
+  > * {
+    pointer-events: none;
+  }
+
+  > svg {
+    color: var(--sk-color-gray-400);
+    height: 24px;
+    pointer-events: none !important;
+    width: 24px;
+
+    @include breakpoint-up(sm) {
+      height: 16px;
+      width: 16px;
+    }
+  }
+
+  &__info {
+    background-color: var(--sk-color-grey-blue-800);
+    border-radius: 8px;
+    color: var(--sk-color-white);
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 1.385em;
+    letter-spacing: -0.01em;
+    max-width: 300px;
+    opacity: 0;
+    padding: 13px 12px;
+    position: fixed;
+    visibility: hidden;
+    width: 100%;
+
+    @include breakpoint-up(xs) {
+      max-width: 320px;
+    }
+
+    &::before {
+      @include triangle(down, 6px, var(--sk-color-grey-blue-800));
+
+      bottom: -11px;
+      content: "";
+      left: 14px;
+      position: absolute;
+    }
+  }
+
+  &.right-arrow &__info::before {
+    left: auto;
+    right: 14px;
+  }
+
+  &__title {
+    display: block;
+    font-size: 14px;
+    line-height: 1.357em;
+    margin-bottom: 3px;
+  }
+
+  &.openned &__info {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+    z-index: 200;
+  }
+}

@@ -1,0 +1,43 @@
+{% if link %}
+	{% set target = link.target ? 'target="' ~ link.target ~ '" rel="noopener noreferrer"' : 'target="_self"' %}
+	{% set classes = classes ? 'class="' ~ classes ~ '"' : '' %}
+	{% set linkUrl = link.url ? link.url : link %}
+	{% set setTabindex = tabindex ? tabindex : false %}
+	{% set linkTitle = showTitle ? link.title : ( title ? title : link.title ) %}
+	<a href="{{ linkUrl }}{{ partURL }}"
+		{{ data ? 'data-file-action=' ~ data.fileAction ~ ' data-file-type=' ~ data.fileType ~ '' : '' }}
+		{{ classes }} {{ target }} title="{{ linkTitle }}" {{ setTabindex ? 'tabindex='~setTabindex : '' }}>
+		{% if icon %}
+			{% include 'parts/components/image.twig' with {'id': icon, 'classes': 'img-fluid', } only %}
+		{% endif %}
+		{% if spriteSvg %}
+			<svg>
+				<use href="#{{ spriteSvg }}"></use>
+			</svg>
+		{% endif %}
+		{% if showTitle %}
+			{{ link.title }}
+		{% endif %}
+		{% if customTitle %}
+			{{ customTitle }}
+		{% endif %}
+	</a>
+{% endif %}
+
+{# use
+
+{% include 'parts/link.twig' with {
+	'link': linkArray,
+	'partURL': 'partURL',
+	'classes': 'SOME_CLASS',
+	'icon': imageID,
+	'spriteSvg': svgID,
+	'showTitle': true/false,
+	'title': __( 'Close', THEME_TD ),
+	'data': {
+		'fileAction': 'generate',
+		'fileType': 'pdf',
+	}
+} only %}
+
+#}

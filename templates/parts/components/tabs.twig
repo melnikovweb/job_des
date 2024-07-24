@@ -1,0 +1,22 @@
+{% set class = 'sk-tabs' %}
+
+{% if tabs is not empty %}
+	<div class="{{ class }} {{ type ? class ~ '--' ~ type : '' }}" data-tabs>
+		{% include "parts/components/tabs-parts/tab-nav.twig" %}
+		{% include "parts/components/tabs-parts/tab-content.twig" %}
+	</div>
+{% endif %}
+
+{# use
+
+{% include 'parts/components/tabs.twig' with {
+    'type': lg/'',
+	'tabs': [
+        {
+            'title': 'Title',
+            'content': 'Content',
+        },
+    ]
+} only %}
+
+#}

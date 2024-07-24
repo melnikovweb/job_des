@@ -1,0 +1,82 @@
+@import "../../resources/scss/theme/mixins/flexbox-mixin";
+@import "../../resources/scss/theme/mixins/breakpoints-mixin";
+@import "../../resources/scss/theme/mixins/animation-mixin";
+@import "../../resources/scss/theme/layout/report/sidebar";
+@import "../../resources/scss/theme/layout/report/content";
+
+.single-signatory-report {
+  &__hero {
+    background-color: var(--sk-color-gray-50);
+    padding: 57px 0 74px;
+    text-align: center;
+
+    @include breakpoint-up(md-s) {
+      padding: 98px 0;
+    }
+
+    &_container {
+      max-width: 846px;
+    }
+
+    .sk-subtitle {
+      @include breakpoint-up(md-s) {
+        margin-bottom: 8px !important;
+      }
+    }
+
+    &_title {
+      margin-bottom: 15px;
+
+      @include breakpoint-up(md-s) {
+        margin-bottom: 21px;
+      }
+    }
+
+    &_content {
+      font-weight: 400;
+
+      @include breakpoint-up(md-s) {
+        padding: 0 20px;
+      }
+    }
+
+    &_bottom-part {
+      padding-top: 42px;
+      text-align: left;
+
+      @include breakpoint-up(md-s) {
+        padding-top: 59px;
+      }
+    }
+
+    &_btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding-top: 5px;
+
+      .sk-btn {
+        padding-left: 15px;
+        padding-right: 15px;
+
+        svg {
+          flex: none;
+          order: 1;
+          margin-left: 9px;
+        }
+      }
+
+      @include breakpoint-up(md-s) {
+        flex-wrap: nowrap;
+        gap: 18px;
+        padding-top: 12px;
+      }
+    }
+  }
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+}

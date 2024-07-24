@@ -1,0 +1,138 @@
+@import "../../resources/scss/theme/mixins/flexbox-mixin";
+@import "../../resources/scss/theme/mixins/breakpoints-mixin";
+@import "../../resources/scss/theme/mixins/clamp-calc-function";
+
+.who-we-are {
+  color: var(--sk-color-grey-blue-800);
+  font-size: clamp-calc(18px, 20px);
+  font-weight: 400;
+  padding: 66px 0 0;
+
+  @include breakpoint-up(sm) {
+    padding: 97px 0 48px;
+  }
+
+  &-title {
+    color: var(--sk-color-indigo-700);
+    font-weight: 500;
+    margin-bottom: 15px;
+
+    @include breakpoint-up(sm) {
+      margin-bottom: 20px;
+    }
+  }
+
+  p {
+    line-height: 1.556em;
+
+    @include breakpoint-up(sm) {
+      line-height: 1.5em;
+    }
+  }
+
+  &-row {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+
+    @include breakpoint-up(md-s) {
+      display: flex;
+      flex-direction: row;
+      gap: 111px;
+    }
+  }
+
+  &-column {
+    width: 100%;
+  }
+
+  &-items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      margin-bottom: 39px;
+
+      &:last-child {
+        margin-bottom: 47px;
+      }
+
+      @include breakpoint-up(sm) {
+        margin-bottom: 49px;
+
+        &:last-child {
+          margin-bottom: 64px;
+        }
+      }
+    }
+  }
+
+  &-item {
+    @include flex_align(flex-start, flex-start, nowrap);
+
+    color: var(--sk-color-grey-blue-800);
+    font-size: 16px;
+    font-weight: 400;
+
+    p {
+      line-height: 1.3125em;
+
+      @include breakpoint-up(sm) {
+        line-height: 1.5em;
+      }
+    }
+
+    &-image {
+      flex: none;
+      margin-right: 16px;
+    }
+
+    &-title {
+      color: var(--sk-color-gray-900);
+      font-size: clamp-calc(18px, 20px);
+      font-weight: 700;
+      line-height: 1.556em;
+      margin-bottom: 5px;
+
+      @include breakpoint-up(sm) {
+        line-height: 1.5em;
+        margin-bottom: 7px;
+      }
+    }
+
+    &-content {
+      flex: 1 1 auto;
+      padding-top: 6px;
+
+      @include breakpoint-up(sm) {
+        padding-top: 10px;
+      }
+    }
+  }
+
+  &-wrap-image {
+    border-radius: 0 0 0 60px;
+    height: calc(100vw / 1.875);
+    overflow: hidden;
+
+    @include breakpoint-up(sm) {
+      height: 300px;
+    }
+
+    @include breakpoint-up(md-s) {
+      height: 400px;
+    }
+
+    @include breakpoint-up(lg) {
+      height: 516px;
+    }
+  }
+
+  @include breakpoint-down(sm) {
+    &-container-image {
+      background-color: var(--sk-color-indigo-800);
+      padding: 0;
+    }
+  }
+}

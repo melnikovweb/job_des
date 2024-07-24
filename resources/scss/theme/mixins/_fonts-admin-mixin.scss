@@ -1,0 +1,12 @@
+/* stylelint-disable */
+@mixin font-face($font-name, $file-name, $font-weight, $font-style) {
+  @font-face {
+    font-family: quote($font-name);
+    src: url("../../fonts/" + $font-name + '/' + $file-name + ".woff") format("woff"),
+    url("../../fonts/" + $font-name + '/' + $file-name + ".woff2") format("woff2"),
+    url("../../fonts/" + $font-name + '/'+ $file-name + ".ttf") format("ttf");
+    font-weight: $font-weight;
+    font-style: $font-style;
+    font-display: swap;
+  }
+}

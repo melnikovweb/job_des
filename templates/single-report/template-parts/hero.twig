@@ -1,0 +1,13 @@
+<section class="{{ classes }}__hero">
+	<div class="sk-container {{ classes }}__hero_container">
+		{% if report_year is not empty %}
+			{% if report_year.name %}
+				<h6 class="sk-subtitle">{{ report_year.name }}</h6>
+			{% endif %}
+		{% endif %}
+
+		{% if title %}
+			<h1 class="{{ classes }}__hero_title">{{ title }}</h1>
+		{% endif %}
+	</div>
+</section>

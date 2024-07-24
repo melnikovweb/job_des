@@ -1,0 +1,152 @@
+@import "resources/scss/theme/mixins/all";
+
+.wp-block .task-force,
+.task-force {
+  position: relative;
+  padding: 53px 0;
+  background: var(--sk-color-bg-primary);
+  overflow: hidden;
+
+  @include breakpoint-down(md) {
+    padding: 32px 0 0;
+  }
+
+  .sk-container {
+    @include breakpoint-down(md) {
+      padding: 0;
+    }
+  }
+
+  &-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    @include breakpoint-down(md) {
+      flex-direction: column;
+    }
+  }
+
+  &-column {
+    width: 50%;
+
+    @include breakpoint-down(md) {
+      width: 100%;
+    }
+
+    &-right {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      padding-left: 32px;
+
+      @include breakpoint-down(md) {
+        order: 1;
+        padding-left: var(--sk-container-padding);
+        padding-right: var(--sk-container-padding);
+      }
+    }
+
+    &-left {
+      padding-right: 32px;
+
+      @include breakpoint-down(md) {
+        padding-right: 0;
+        order: 3;
+        margin-top: 48px;
+      }
+    }
+
+    &-bottom {
+      @include breakpoint-down(md) {
+        order: 2;
+      }
+    }
+  }
+
+  &-content {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 2;
+  }
+
+  &-subtitle {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 18px;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: #3538cd; /* Indigo/700 */
+    margin-bottom: 32px;
+
+    @include breakpoint-down(lg) {
+      margin-bottom: 12px;
+    }
+  }
+
+  &-title {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 48px;
+    color: #3538cd; /* Indigo/700 */
+    margin-bottom: 32px;
+
+    @include breakpoint-down(lg) {
+      font-size: 24px;
+      line-height: 38px;
+      margin-bottom: 12px;
+    }
+  }
+
+  &-description p {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    color: #475467;
+
+    @include breakpoint-down(lg) {
+      font-size: 18px;
+      line-height: 28px;
+    }
+  }
+
+  img {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    border-radius: 0 64px 0 0;
+
+    @include breakpoint-down(sm) {
+      border-radius: 0 60px 0 0;
+    }
+  }
+
+  &-wrap-image {
+    line-height: 0;
+  }
+
+  &-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 64px;
+
+    a {
+      margin: 0 9px;
+
+      @include breakpoint-down(md) {
+        margin: 12px 0 0 0;
+      }
+    }
+
+    @include breakpoint-down(md) {
+      margin-top: 35px;
+      flex-direction: column;
+      padding-left: var(--sk-container-padding);
+      padding-right: var(--sk-container-padding);
+    }
+  }
+}

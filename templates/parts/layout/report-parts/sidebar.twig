@@ -1,0 +1,47 @@
+{% if sidebar is not empty %}
+	{% set class = 'page-sidebar' %}
+
+	<aside class="{{ class }}">
+
+		<div class="{{ class }}__wrap_list">
+
+			<ul class="{{ class }}__list">
+
+				{% for item in sidebar %}
+					<li>
+						<span class="{{ class }}__list-parent-item js-chapter-link {{ loop.index == 1 ? 'active' : '' }}" data-tab-nav="{{ 'chapter_' ~ item.term_id }}" data-tab-parent="chapter" data-url-params="chapter" data-params-action="replace" data-params-value="{{ item.term_id }}" data-params-key="chapter">{{ item.name }}</span>
+
+						{% if item.commitments is not empty %}
+							<ul class="{{ class }}__list-sublist">
+
+								{% for commitment in item.commitments %}
+									<li class="parent js-sidebar-commitment-nav {{ class }}__list-parent" data-acc-item>
+										<div
+											data-url-params="commitment"
+											data-params-action="replace"
+											data-params-value="{{ commitment.term_id }}"
+											data-params-key="commitment"
+											data-commitment="{{ commitment.term_id }}"
+											data-acc-question
+											>
+											{{ commitment.name }}
+											<svg>
+												<use href="#icon-chevron-down"></use>
+											</svg>
+										</div>
+										<div data-acc-answer class="js-sidebar-commitment-answer">
+											<div class="js-sidebar-commitment-content"></div>
+										</div>
+									</li>
+								{% endfor %}
+							</ul>
+						{% endif %}
+					</li>
+				{% endfor %}
+
+			</ul>
+
+		</div>
+
+	</aside>
+{% endif %}

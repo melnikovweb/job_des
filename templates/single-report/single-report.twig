@@ -1,0 +1,69 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<div class="content-wrapper">
+		<article class="post-type-{{ post.post_type }}" id="post-{{ post.ID }}">
+
+			{% include "./template-parts/hero.twig" %}
+			
+			<div class="row js-wrap-data-content js-scroll-spy-block" data-tabs>
+
+				{% include "parts/layout/loading.twig" %}
+
+				{% include "parts/layout/report-parts/sidebar.twig" with {'sidebar': chaptersData} %}
+
+				<article class="{{ classPageContent }}">
+
+					<div class="{{ classPageContent }}__wrapper {{ classPageContent }}__chapter_nav">
+						{% set classTabs = 'sk-tabs' %}
+						<ul class="{{ classTabs }}__nav">
+							{% for item in chaptersData %}
+								<li>
+									<button class="{{ classTabs }}__nav-link js-chapter-link {{ loop.index == 1 ? 'active' : '' }}" data-tab-nav="{{ 'chapter_' ~ item.term_id }}" data-tab-parent="chapter" data-url-params="chapter" data-params-action="replace" data-params-value="{{ item.term_id }}" data-params-key="chapter" aria-label="{{ tab.title }}">
+										{{ item.name }}
+									</button>
+								</li>
+							{% endfor %}
+						</ul>
+					</div>
+
+					<div class="{{ classPageContent }}__report">
+						{% for item in chaptersData %}
+							<div class="js-chapter-tab {{ loop.index == 1 ? 'active' : '' }}" data-tab="{{ 'chapter_' ~ item.term_id }}" data-tab-parent="chapter">
+
+								<div class="{{ classPageContent }}__results js-wrap-chapter-block">
+									
+									<div class="{{ classPageContent }}__wrapper {{ classPageContent }}__wrap-help-message">
+										<div class="sk-help-message">
+											{{ __( 'Please select a commitment.', THEME_TD ) }}
+										</div>
+									</div>
+									
+									<div
+										class="{{ classPageContent }}__chapter-block js-chapter-block"
+										data-endpoint="chapter"
+										data-years="{{ report_year.term_id }}"
+										>
+										{{ test }}
+									</div>
+								</div>
+
+								<div class="{{ classPageContent }}__results">
+
+									<div
+										class="js-commitment-post"
+										id="{{ 'chapter_' ~ item.term_id }}"
+										data-endpoint="commitment"
+										data-years="{{ report_year.term_id }}">
+									</div>
+
+								</div>
+							</div>
+						{% endfor %}
+					</div>
+
+				</article>
+			</div>
+		</article>
+	</div><!-- /content-wrapper -->
+{% endblock %}

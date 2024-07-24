@@ -1,0 +1,26 @@
+.search-noresults {
+  @include flex_align();
+
+  width: 100%;
+  height: 100%;
+  padding: 24px;
+  background-color: var(--color-white);
+
+  &.hidden,
+  .loading & {
+    display: none;
+  }
+
+  @include e(title) {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 28px;
+    color: var(--color-black-600);
+    margin: 0 !important;
+
+    @include breakpoint-down(sm) {
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+}

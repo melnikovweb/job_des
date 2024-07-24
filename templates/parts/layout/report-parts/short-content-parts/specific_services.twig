@@ -1,0 +1,20 @@
+{% if items %}
+	{% for item in items %}
+		<tr>
+			<th>
+				{{ item.services }}
+			</th>
+			<td>
+				<ul>
+					{% if item.measures is iterable %}
+						{% for measure in item.measures %}
+							<li>{{ measure }}</li>
+						{% endfor %}
+					{% else %}
+						<li>{{ item.measures }}</li>
+					{% endif %}
+				</ul>
+			</td>
+		</tr>
+	{% endfor %}
+{% endif %}

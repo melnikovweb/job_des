@@ -1,0 +1,86 @@
+{
+    "key": "group_63a439026ab42",
+    "title": "Menu",
+    "fields": [
+        {
+            "key": "field_63a588409cec9",
+            "label": "Link type",
+            "name": "link_type",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "wpml_cf_preferences": 2,
+            "choices": {
+                "default": "Default",
+                "add-line": "Add line",
+                "mobile-only": "Mobile only",
+                "sk-btn": "Button mobile"
+            },
+            "default_value": "default",
+            "return_format": "value",
+            "allow_null": 0,
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_63a439024abeb",
+            "label": "Button type",
+            "name": "button_type",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_63a588409cec9",
+                        "operator": "==",
+                        "value": "sk-btn"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "wpml_cf_preferences": 2,
+            "choices": {
+                "sk-btn--primary": "Primary",
+                "sk-btn--secondary": "Secondary"
+            },
+            "default_value": "sk-btn--primary",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "nav_menu_item",
+                "operator": "==",
+                "value": "2"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1674818628
+}

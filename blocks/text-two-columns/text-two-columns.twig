@@ -1,0 +1,25 @@
+<section class="{{ classes }} {{ classes ~ '__' ~ fields.type.value }}">
+  <div class="{{ classes }}-inner-section">
+    <div class="sk-container">
+      <div class="{{ classes }}-content">
+        {% if subtitle or title %}
+        <div class="{{ classes }}-heading">
+          {% if subtitle %}
+          <h2 class="{{ classes }}-subtitle">{{ subtitle }}</h2>
+          {% endif %} {% if title %}
+          <h3 class="{{ classes }}-title">{{ title }}</h3>
+          {% endif %}
+        </div>
+        <div class="{{ classes }}-row">
+          {% endif %} {% if left_column_text %}
+
+          <div class="{{ classes }}-text">{{ left_column_text }}</div>
+
+          {% endif %} {% if right_column_text %}
+          <div class="{{ classes }}-text">{{ right_column_text }}</div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

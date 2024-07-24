@@ -1,0 +1,30 @@
+{% if qreItems is not empty %}
+
+	{% for qreItem in qreItems %}
+
+		{% if qreItem.number or qreItem.content %}
+			<div class="{{ classPageContent }}__wrapper">
+				<div class="{{ classPageContent }}__small-block">
+
+					{% if qreItem.number %}
+						<h2
+							id="{{'qre-' ~ parentTabId ~ '-' ~ commitmentID ~ '-' ~ loop.index }}"
+							class="{{ classPageContent }}__small-block-title js-third-level-title"
+							data-title="{{ __( 'QRE ' ~ qreItem.number, THEME_TD ) }}"
+							>
+							{{ __( 'QRE ' ~ qreItem.number, THEME_TD ) }}
+						</h2>
+					{% endif %}
+
+					{% if qreItem.content %}
+						<div class="{{ classPageContent }}__small-block-content">
+							{{ qreItem.content }}
+						</div>
+					{% endif %}
+				</div>
+			</div>
+		{% endif %}
+
+	{% endfor %}
+
+{% endif %}

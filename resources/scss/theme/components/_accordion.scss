@@ -1,0 +1,104 @@
+.sk-accordion {
+  &__item {
+    background: var(--sk-color-white);
+    box-shadow: 0 1px 3px rgba(16, 24, 40, 0.1), 0 1px 2px rgba(16, 24, 40, 0.06);
+    border-radius: 16px;
+    margin-bottom: 16px;
+    overflow: hidden;
+    padding: 20px;
+    width: 100%;
+
+    @include transition;
+
+    @include breakpoint-up(sm) {
+      padding: 32px;
+    }
+
+    &:hover {
+      background: var(--sk-color-gray-50);
+      box-shadow: 0 1px 3px rgba(16, 24, 40, 0.1), 0 1px 2px rgba(16, 24, 40, 0.06), 0 0 0 4px var(--sk-color-gray-100);
+    }
+
+    // question
+    &-question {
+      @include flex_align(space-between, flex-start, nowrap);
+      @include transition;
+
+      cursor: pointer;
+      position: relative;
+      width: 100%;
+
+      > * {
+        pointer-events: none;
+      }
+    }
+
+    &-icon {
+      color: var(--sk-color-gray-400);
+      height: 24px;
+      flex: none;
+      margin: 2px 1px 0 10px;
+      position: relative;
+      width: 24px;
+
+      @include breakpoint-up(md-s) {
+        margin-left: 16px;
+      }
+
+      svg {
+        bottom: 0;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
+
+        @include transition;
+      }
+    }
+
+    &.shown {
+      padding-bottom: 11px;
+    }
+
+    &.shown &-icon svg {
+      transform: rotate(200grad);
+    }
+
+    &.shown &-icon-open {
+      visibility: visible;
+    }
+
+    &-icon-open,
+    &.shown &-icon-close {
+      visibility: hidden;
+    }
+    // END question
+
+    // answer
+    &-answer {
+      > div {
+        padding: 13px 32px 0 0;
+
+        @include breakpoint-up(sm) {
+          padding: 30px 60px 10px 0;
+        }
+      }
+    }
+    // END answer
+  }
+}
+
+[data-acc-answer] {
+  @include transition;
+
+  height: 0;
+  opacity: 0;
+  visibility: hidden;
+
+  &.shown {
+    visibility: visible;
+    opacity: 1;
+  }
+}

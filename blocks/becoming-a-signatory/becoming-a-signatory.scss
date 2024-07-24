@@ -1,0 +1,150 @@
+@import "resources/scss/theme/mixins/all";
+
+.wp-block .becoming-a-signatory,
+.becoming-a-signatory {
+  position: relative;
+  padding: 51px 0 49px;
+  background: var(--sk-color-bg-primary);
+  overflow: hidden;
+
+  @include breakpoint-down(sm) {
+    padding: 32px 0 0;
+  }
+
+  .sk-container {
+    padding: 0;
+  }
+
+  &-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 62px;
+    padding-left: var(--sk-container-padding);
+    padding-right: var(--sk-container-padding);
+
+    @include breakpoint-down(md) {
+      flex-direction: column;
+      gap: 0;
+      padding: 0;
+    }
+  }
+
+  &-column {
+    width: 100%;
+
+    @include breakpoint-down(md) {
+      width: 100%;
+    }
+
+    &-left {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+
+      @include breakpoint-down(md) {
+        order: 1;
+        padding-left: var(--sk-container-padding);
+        padding-right: var(--sk-container-padding);
+      }
+    }
+
+    &-right {
+      @include breakpoint-down(md) {
+        order: 3;
+        margin-top: 48px;
+      }
+    }
+
+    &-bottom {
+      @include breakpoint-down(md) {
+        order: 2;
+      }
+    }
+  }
+
+  &-content {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 2;
+  }
+
+  &-subtitle {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 18px;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: #3538cd; /* Indigo/700 */
+    margin-bottom: 12px;
+  }
+
+  &-title {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 40px;
+    color: #3538cd; /* Indigo/700 */
+    margin-bottom: 40px;
+
+    @include breakpoint-down(lg) {
+      font-size: 30px;
+      line-height: 38px;
+      margin-bottom: 12px;
+    }
+  }
+
+  &-descriptions {
+    display: flex;
+    gap: 18px;
+    flex-direction: column;
+  }
+
+  &-description p {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 28px;
+    color: #293056;
+
+    @include breakpoint-down(lg) {
+      font-size: 18px;
+      line-height: 28px;
+    }
+  }
+
+  img {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    border-radius: 0 64px;
+
+    @include breakpoint-down(sm) {
+      margin: 0;
+    }
+  }
+
+  &-wrap-image {
+    line-height: 0;
+
+    @include breakpoint-down(sm) {
+      background: var(--sk-color-yellow-300);
+      border-top-right-radius: 70px;
+    }
+  }
+
+  &-buttons {
+    margin-top: 40px;
+
+    @include breakpoint-down(md) {
+      margin-top: 12px;
+    }
+  }
+
+  .sk-btn--secondary.sk-btn--sm {
+    padding: 10px 17px 9px 14px;
+    font-size: 14px;
+  }
+}

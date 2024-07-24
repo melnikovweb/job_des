@@ -1,0 +1,53 @@
+{% extends "base.twig" %}
+
+{% block content %}
+  {% include "./blocks/title-block/title-block.twig" with {
+    'class': 'title-block',
+    'fields': {
+      'title': __('Reports Archive', THEME_TD),
+      'bg_color': 'gray-50',
+    },
+  } %}
+
+  <div class="sk-container sk-wp-editor">
+    {% if terms %}
+      <ul class="report-filter">
+        <li class="report-filter__item active" data-url-params="filter" data-params-action="preserve" data-params-value="{{ terms|last.term_id }}" data-params-key="years">{{ __( 'Latest Reports', THEME_TD ) }}</li>
+        {% for term in terms %}
+          <li class="report-filter__item" data-url-params="filter" data-params-action="preserve" data-params-value="{{ term.term_id }}" data-params-key="years">{{ term.name }}</li>
+        {% endfor %}
+      </ul>
+
+      {% include 'parts/components/search-input.twig' with { 'search': {
+        'enable': true,
+        'placeholder': __( 'Search', THEME_TD ),
+        'id': 'report_archive_search',
+        }, 
+      } only %}
+
+      <div class="report-table">
+        <div class="report-table__header">
+          <p data-action="sort">
+            <span>{{ __( 'Title', THEME_TD ) }}</span>
+            <svg><use href="#icon-arrow-down"></use></svg>
+          </p>
+          <p data-action="sort">
+            <span>{{ __( 'Date', THEME_TD ) }}</span>
+            <svg><use href="#icon-arrow-down"></use></svg>
+          </p>
+          <p>{{ __( 'Download Dataset', THEME_TD ) }}</p>
+          <p class="report-table__header_link">{{ __( 'Links', THEME_TD ) }}</p>
+        </div>
+
+        <div class="report-table__body">
+          <div class="report-table__body_list"></div>
+
+          {% include 'parts/components/noresults-search.twig' with { hidden: true } %}
+          {% include "parts/components/loader.twig" only %}
+
+        </div>
+      </div>
+    {% endif %}
+
+   </div>
+{% endblock %}

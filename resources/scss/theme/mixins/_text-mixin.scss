@@ -1,0 +1,14 @@
+//Text that does not fit in the field is cut off.
+//Example: Hello...
+@mixin ellipsis($lines: 2, $lineHeight: 1.5em) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  max-height: $lines * $lineHeight;
+  overflow: hidden;
+}
+
+@mixin fontSmooth {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

@@ -1,0 +1,28 @@
+<section class="{{ class }} {{ demo ? class ~ '-' ~ fields.section_height : class ~ '-m' }} {{ classes }} {{ block_classes }}" {{ block.anchor ? 'id=' ~ block.anchor : null }}>
+  <div class="sk-container">
+
+    <div class="{{ class }}-content">
+
+      {% if not (fields.subtitle is empty) %}
+      <div class="{{ class }}-subtitle">{{ fields.subtitle }}</div>
+      {% endif %}
+
+      {% if not (fields.title is empty) %}
+        <h1 class="{{ class }}-title">{{ fields.title }}</h1>
+      {% endif %}
+
+      {% if not (fields.description is empty) %}
+        <div class="{{ class }}-description">{{ fields.description }}</div>
+      {% endif %}
+
+      <div class="{{ class }}-buttons">
+        {% if not (fields.button is empty) %}
+          {% set target = fields.button.target ? '_blank' : '_self' %}
+          <a class="sk-btn sk-btn--primary" href="{{ fields.button.url }}"
+             target="{{ target }}">{{ fields.button.title }}<svg><use href="#icon-download"></use></svg></a>
+        {% endif %}
+      </div>
+    </div>
+
+  </div>
+</section>

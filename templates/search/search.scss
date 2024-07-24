@@ -1,0 +1,56 @@
+@import "./../../resources/scss/theme/mixins/all.scss";
+@import "./../../blocks/title-block/title-block.scss";
+
+.search {
+  @include e(results) {
+    position: relative;
+    min-height: 80px;
+    margin: 40px 0;
+
+    @include breakpoint-down(md-s) {
+      margin-left: calc(-1 * var(--sk-container-padding));
+      margin-right: calc(-1 * var(--sk-container-padding));
+    }
+
+    @include breakpoint-up(md-s) {
+      border: 1px solid #eaecf0;
+      box-shadow: 0 1px 3px rgba(16, 24, 40, 0.1), 0 1px 2px rgba(16, 24, 40, 0.06);
+      border-radius: 12px;
+    }
+  }
+
+  .post-item {
+    padding: 16px 24px;
+
+    @include breakpoint-down(md-s) {
+      &:nth-of-type(odd) {
+        background: var(--sk-color-gray-50);
+      }
+    }
+
+    &:not(:last-of-type) {
+      border-bottom: 1px solid #eaecf0;
+    }
+
+    a {
+      text-decoration: none;
+
+      span {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 19px;
+        letter-spacing: -0.01em;
+        color: var(--sk-color-gray-900);
+      }
+    }
+
+    &__excerpt {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 19px;
+      letter-spacing: -0.01em;
+      color: var(--sk-color-gray-600);
+    }
+  }
+}

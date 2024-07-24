@@ -1,0 +1,7 @@
+{% if menu %}
+	<ul>
+	{% for item in primary_menu.items %}
+		{% include "parts/components/menu-item.twig" with {'item': item} %}
+	{% endfor %}
+	</ul>
+{% endif %}

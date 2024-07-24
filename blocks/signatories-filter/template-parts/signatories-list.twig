@@ -1,0 +1,38 @@
+{% set classes = 'signatories-filter' %}
+
+{% if signatories is not empty %}
+    <div class="{{ classes }}__row">
+        {% for signatory in signatories %}
+            {% if signatory.title %}
+            <div class="{{ classes }}__col">
+                <div class="{{ classes }}__post">
+                {% if signatory.imageID %}
+                    <div class="{{ classes }}__post-image">
+                    {% include 'parts/components/image.twig' with {'id': signatory.imageID, 'classes': 'img-fluid', 'sizes': '(max-width: 767px) 207px, 162px'} only %}
+                    </div>
+                {% endif %}
+
+                {% if signatory.title %}
+                    <h2 class="{{ classes }}__post-title">
+                    {{ signatory.title }}
+                    </h2>
+                {% endif %}
+                
+                {% if signatory.link %}
+                    {% set linkArray = {
+                        'url': signatory.link,
+                        'title': __( 'View signatory page', THEME_TD )
+                    } %}
+                    {% include 'parts/components/link.twig' with {
+                        'link': linkArray,
+                        'classes': 'sk-btn sk-btn--link sk-btn--sm',
+                        'spriteSvg': 'icon-arrow-right',
+                        'showTitle': true,
+                    } only %}
+                {% endif %}
+                </div>
+            </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endif %}

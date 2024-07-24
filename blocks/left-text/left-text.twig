@@ -1,0 +1,56 @@
+<section class="{{ class }} {{ demo ? class ~ '-' ~ fields.section_height : class ~ '-m' }} {{ class }} {{ block_class }}" {{ block.anchor ? 'id=' ~ block.anchor : null }}>
+ 
+
+    <div class="{{ class }}-content">
+      <div class="{{ class }}-row">
+
+
+    {% if title or description %}
+    <div class="{{ class }}-column {{ class }}-column-left">
+
+      {% if icon %}
+      <div class="{{ class }}-item-image circle-icon">
+        {% include 'parts/components/image.twig' with {'id': icon, 'class': 'img-fluid', 'sizes': '24px'} only %}
+      </div>
+    {% endif %}
+
+    <div class="{{ class }}-text">
+      {% if not (title is empty) %}
+        <h2 class="{{ class }}-title">{{ title }}</h2>
+      {% endif %}
+
+      {% if not (description is empty) %}
+        <div class="{{ class }}-description">{{ description }}</div>
+      {% endif %}
+    </div>
+
+    </div>
+    {% endif %}
+    {% if img_desktop or img_mobile %}
+
+		<div class="{{ class }}-column {{ class }}-column-right">
+
+      <div class="{{ class }}-container-image">
+        {% if img_desktop %}
+          <div class="{{ class }}-wrap-image sk-only-d">
+            {% include 'parts/components/image.twig' with {'id': img_desktop, 'class': 'object-fit', 'sizes': '(max-width: 991px) 710px, (max-width: 1279px) 940px, 1216px'} only %}
+          </div>
+        {% endif %}
+        {% if img_mobile %}
+          <div class="{{ class }}-wrap-image sk-only-m">
+            {% include 'parts/components/image.twig' with {'id': img_mobile, 'class': 'object-fit', 'sizes': '100vw'} only %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+    {% endif %}
+
+    </div>
+
+
+
+
+    </div>
+
+
+</section>

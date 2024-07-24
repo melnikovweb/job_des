@@ -1,0 +1,22 @@
+{% if title %}
+	{% set class = 'sk-accordion' %}
+	<div class="{{ class }}__item" data-acc-item>
+		<div class="{{ class }}__item-question" data-acc-question>
+			{{ title }}
+
+			<div class="{{ class }}__item-icon">
+				<svg class="{{ class }}__item-icon-close">
+					<use xlink:href="#icon-plus-circle"></use>
+				</svg>
+				<svg class="{{ class }}__item-icon-open">
+					<use xlink:href="#icon-minus-circle"></use>
+				</svg>
+			</div>
+		</div>
+		<div class="{{ class }}__item-answer" data-acc-answer>
+			<div>
+				{{ content }}
+			</div>
+		</div>
+	</div>
+{% endif %}

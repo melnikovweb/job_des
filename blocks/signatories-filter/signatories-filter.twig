@@ -1,0 +1,25 @@
+<section id="{{ classes }}" class="{{ classes }} {{ classes ~ '__' ~ fields.type.value }}">
+  <div class="sk-container">
+    <div class="{{ classes }}__wrap-search">
+      {% include 'parts/components/form-fields/input.twig' with {
+        'id': 'search-signatories',
+        'type': 'text',
+        'name': 'search-signatories',
+        'placeholder': 'Type or select the name of the signatory',
+        'inputIcon': 'search-input',
+        'urlParams': true
+      } only %}
+    </div>
+
+    <div class="{{ classes }}__results js-{{ classes }}-wrap-results">
+
+      {% include "parts/layout/loading.twig" %}
+
+      <div class="js-{{ classes }}-results" data-endpoint="signatories">
+        {% if signatories %}
+          {{ signatories }}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>

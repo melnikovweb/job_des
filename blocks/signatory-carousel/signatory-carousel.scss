@@ -1,0 +1,70 @@
+@import "resources/scss/theme/mixins/all";
+
+.wp-block .signatory-carousel,
+.signatory-carousel {
+  position: relative;
+  padding: 72px 0 96px;
+  overflow: hidden;
+  background-color: var(--sk-color-bg-second);
+
+  @include breakpoint-down(md) {
+    padding: 48px 0 42px;
+  }
+
+  &-content {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 2;
+  }
+
+  &-title {
+    margin-bottom: 40px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: center;
+    letter-spacing: -0.01em;
+    color: var(--sk-color-primary);
+
+    @include breakpoint-down(md) {
+      margin-bottom: 22px;
+    }
+  }
+
+  .swiper {
+    width: 100%;
+    height: 100%;
+    max-height: 46px;
+  }
+
+  .swiper-slide {
+    text-align: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+  }
+
+  .swiper-slide img,
+  .swiper-slide svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-height: 46px;
+    object-fit: cover;
+    filter: brightness(0) invert(1);
+  }
+
+  .swiper-wrapper {
+    align-items: center;
+  }
+}

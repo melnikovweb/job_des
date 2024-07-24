@@ -1,0 +1,35 @@
+<section class="{{ class }} {{ demo ? class ~ '-' ~ fields.section_height : class ~ '-m' }} {{ classes }} {{ block_classes }}" {{ block.anchor ? 'id=' ~ block.anchor : null }}>
+ 
+
+    <div class="{{ class }}-content sk-container">
+      {% if not (title is empty) %}
+        <div class="{{ class }}-title">{{ __( 'Join ' ~ signatories_count ~ '+ signatories', THEME_TD ) }}</h1>
+      {% endif %}
+    </div>
+
+  </div>
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      
+      {% for signatory in signatories_arr %}
+   
+          {% if not (signatory.image is empty) %}
+          <div class="swiper-slide">
+            {% if not (signatory.url is empty) %}
+            <a href="{{signatory.url}}">
+          {% include 'parts/components/image.twig' with {'id': signatory.image, 'classes': 'signatories-list-image', 'sizes': '480px'} only %}
+            </a>
+            {% else %}
+            <span>
+              {% include 'parts/components/image.twig' with {'id': signatory.image, 'classes': 'signatories-list-image', 'sizes': '480px'} only %}
+            </span>
+            {% endif %}
+          </div>
+          {% endif %}
+
+    {% endfor %}
+   
+    </div>
+
+
+</section>

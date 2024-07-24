@@ -1,0 +1,75 @@
+{% if measuresGroup is not empty %}
+	{% for group in measuresGroup %}
+		{% if (group.measure_by_services is not empty) %}
+			{% set measureTitle = group.measures_number ?? '' %}
+			{% set groupID = measureTitle|lower|replace({' ': '', '.': '', '_': '-'}) %}
+
+			<div class="{{ classPageContent }}__block js-sub-report-block">
+				<div class="{{ classPageContent }}__wrapper">
+					<h2 id="{{ groupID }}" class="{{ classPageContent }}__block-title js-first-level-title" data-title="{{ measureTitle }}">{{ measureTitle }}</h2>
+				</div>
+
+				{% if signatoryName %}
+					<div class="{{ classPageContent }}__wrapper">
+						<h2 class="{{ classPageContent }}__block-subtitle">{{ signatoryName }}</h2>
+					</div>
+				{% endif %}
+
+
+				{% set classTabs = 'sk-tabs' %}
+				<div
+					class="{{ classTabs }} {{ classTabs ~ '--lg'}} {{ classPageContent }}__tabs" data-tabs>
+					{# tab navigation #}
+					{% set tabsNavServices = [] %}
+					{% for measure in group.measure_by_services %}
+						{% if (measure.qre or measure.sli or measure.content) %}
+							{% set tabsNavServices = tabsNavServices|merge([{
+                                'title': measure.services ?: __( 'Service', THEME_TD ),
+                                'jsClass': 'js-second-level-title',
+                            }]) %}
+						{% endif %}
+					{% endfor %}
+
+					{% if tabsNavServices|length > 1 %}
+						<div class="{{ classPageContent }}__wrapper {{ classPageContent }}__wrapper-tab-nav">
+							{% include "parts/components/tabs-parts/tab-nav.twig" with {
+								'class': classTabs,
+								'tabs': tabsNavServices,
+								'parentId': 'services' ~ groupID,
+								'mobileDropdownNav': true
+							} %}
+						</div>
+					{% endif %}
+					{# END tab navigation #}
+
+					{# tab content #}
+					{% set tabsContentServices = [] %}
+					{% for measure in group.measure_by_services %}
+						{% if (measure.qre or measure.sli or measure.content) %}
+							{% set measureID = measure.services|lower|replace({' ': '', '.': ''}) %}
+							{% set tab = include( 'parts/layout/report-parts/measures-group/measure.twig', {
+								'qreItems': measure.qre,
+								'sliItems': measure.sli,
+								'content': measure.content,
+								'parentTabId': measureID ~ groupID
+							} ) %}
+						{% endif %}
+						{% set tabsContentServices = tabsContentServices|merge([{
+							'content': tab
+						}]) %}
+					{% endfor %}
+
+					<div class="{{ classPageContent }}__tabs-content">
+						{% include "parts/components/tabs-parts/tab-content.twig" with {
+							'class': classTabs,
+							'tabs': tabsContentServices,
+							'parentId': 'services' ~ groupID,
+							'mobileDropdownNav': true
+						} %}
+					</div>
+					{# END tab content #}
+				</div>
+			</div>
+		{% endif %}
+	{% endfor %}
+{% endif %}

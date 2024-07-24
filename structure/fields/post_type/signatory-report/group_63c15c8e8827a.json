@@ -1,0 +1,2880 @@
+{
+    "key": "group_63c15c8e8827a",
+    "title": "CPT: Signatory Report (Commitment)",
+    "fields": [
+        {
+            "key": "field_63c15c8e90929",
+            "label": "Signatory",
+            "name": "signatory",
+            "aria-label": "",
+            "type": "taxonomy",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "wpml_cf_preferences": 0,
+            "taxonomy": "signatory",
+            "add_term": 0,
+            "save_terms": 1,
+            "load_terms": 1,
+            "return_format": "object",
+            "field_type": "select",
+            "allow_null": 1,
+            "multiple": 0
+        },
+        {
+            "key": "field_63c15c8e90960",
+            "label": "Report year",
+            "name": "report_year",
+            "aria-label": "",
+            "type": "taxonomy",
+            "instructions": "Select a year in the following format: January 2023",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_63c15c8e90929",
+                        "operator": "!=empty"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "wpml_cf_preferences": 0,
+            "taxonomy": "years",
+            "add_term": 0,
+            "save_terms": 1,
+            "load_terms": 1,
+            "return_format": "object",
+            "field_type": "select",
+            "allow_null": 1,
+            "multiple": 0
+        },
+        {
+            "key": "field_63ce6ce0a61b5",
+            "label": "PDF file",
+            "name": "pdf_file",
+            "aria-label": "",
+            "type": "file",
+            "instructions": "Please add file with current commitment",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_63c15c8e90960",
+                        "operator": "!=empty"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "wpml_cf_preferences": 1,
+            "return_format": "array",
+            "library": "all",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": "pdf"
+        },
+        {
+            "key": "field_63c15c8e90996",
+            "label": "Chapter",
+            "name": "chapter",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_63c15c8e90960",
+                        "operator": "!=empty"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "wpml_cf_preferences": 1,
+            "layout": "block",
+            "pagination": 0,
+            "min": 0,
+            "max": 1,
+            "collapsed": "",
+            "button_label": "Add Chapter",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_63c15c8e94778",
+                    "label": "Chapter Number",
+                    "name": "chapter_number",
+                    "aria-label": "",
+                    "type": "taxonomy",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "wpml_cf_preferences": 0,
+                    "taxonomy": "chapter",
+                    "add_term": 0,
+                    "save_terms": 1,
+                    "load_terms": 1,
+                    "return_format": "object",
+                    "field_type": "select",
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "parent_repeater": "field_63c15c8e90996"
+                },
+                {
+                    "key": "field_63c15c8e947ae",
+                    "label": "Commitment Number",
+                    "name": "commitment_number",
+                    "aria-label": "",
+                    "type": "taxonomy",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_63c15c8e94778",
+                                "operator": "!=empty"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "wpml_cf_preferences": 0,
+                    "taxonomy": "commitment",
+                    "add_term": 0,
+                    "save_terms": 1,
+                    "load_terms": 1,
+                    "return_format": "object",
+                    "field_type": "select",
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "parent_repeater": "field_63c15c8e90996"
+                },
+                {
+                    "key": "field_63c15c8e947e4",
+                    "label": "Short report",
+                    "name": "short_report",
+                    "aria-label": "",
+                    "type": "repeater",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_63c15c8e947ae",
+                                "operator": "!=empty"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "wpml_cf_preferences": 1,
+                    "layout": "block",
+                    "min": 0,
+                    "max": 0,
+                    "collapsed": "",
+                    "button_label": "Add Short Report",
+                    "rows_per_page": 20,
+                    "parent_repeater": "field_63c15c8e90996",
+                    "sub_fields": [
+                        {
+                            "key": "field_63c15c8ea9955",
+                            "label": "Specific Measures",
+                            "name": "",
+                            "aria-label": "",
+                            "type": "accordion",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": "",
+                            "open": 0,
+                            "multi_expand": 0,
+                            "endpoint": 0,
+                            "parent_repeater": "field_63c15c8e947e4"
+                        },
+                        {
+                            "key": "field_63c15c8ea998d",
+                            "label": "Question",
+                            "name": "question",
+                            "aria-label": "",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": 1,
+                            "choices": {
+                                "question-01": "We signed up to the following measures of this commitment",
+                                "question-02": "In line with this commitment, did you deploy new implementation measures (e.g. changes to your terms of service, new tools, new policies, etc)?",
+                                "question-03": "If yes, list these implementation measures here",
+                                "question-04": "Do you plan to put further implementation measures in place in the next 6 months to substantially improve the maturity of the implementation of this commitment?",
+                                "question-05": "If yes, which further implementation measures do you plan to put in place in the next 6 months?"
+                            },
+                            "default_value": false,
+                            "return_format": "array",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "ui": 0,
+                            "ajax": 0,
+                            "placeholder": "",
+                            "parent_repeater": "field_63c15c8e947e4"
+                        },
+                        {
+                            "key": "field_63c15c8ea99c4",
+                            "label": "Answer",
+                            "name": "answer",
+                            "aria-label": "",
+                            "type": "checkbox",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_63c15c8ea998d",
+                                        "operator": "!=",
+                                        "value": "question-03"
+                                    },
+                                    {
+                                        "field": "field_63c15c8ea998d",
+                                        "operator": "!=",
+                                        "value": "question-05"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": 1,
+                            "choices": {
+                                "commitments": "commitments",
+                                "measures": "measures",
+                                "services-measures": "services\/measures",
+                                "services-yn": "services Y\/n"
+                            },
+                            "default_value": [],
+                            "return_format": "value",
+                            "allow_custom": 0,
+                            "layout": "horizontal",
+                            "toggle": 1,
+                            "save_custom": 0,
+                            "parent_repeater": "field_63c15c8e947e4"
+                        },
+                        {
+                            "key": "field_63c15c8ea99fc",
+                            "label": "Specific Commitments",
+                            "name": "specific_commitments",
+                            "aria-label": "",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_63c15c8ea99c4",
+                                        "operator": "==",
+                                        "value": "commitments"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": 1,
+                            "layout": "table",
+                            "min": 0,
+                            "max": 0,
+                            "collapsed": "",
+                            "button_label": "Add Commitments",
+                            "rows_per_page": 20,
+                            "parent_repeater": "field_63c15c8e947e4",
+                            "sub_fields": [
+                                {
+                                    "key": "field_63c15c8ebd6de",
+                                    "label": "Commitments",
+                                    "name": "commitments",
+                                    "aria-label": "",
+                                    "type": "taxonomy",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "wpml_cf_preferences": 1,
+                                    "taxonomy": "commitment",
+                                    "add_term": 0,
+                                    "save_terms": 0,
+                                    "load_terms": 0,
+                                    "return_format": "object",
+                                    "field_type": "select",
+                                    "allow_null": 0,
+                                    "multiple": 0,
+                                    "parent_repeater": "field_63c15c8ea99fc"
+                                },
+                                {
+                                    "key": "field_63c15c8ebd714",
+                                    "label": "Services",
+                                    "name": "services",
+                                    "aria-label": "",
+                                    "type": "taxonomy",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "wpml_cf_preferences": 1,
+                                    "taxonomy": "signatory",
+                                    "add_term": 0,
+                                    "save_terms": 0,
+                                    "load_terms": 0,
+                                    "return_format": "object",
+                                    "field_type": "multi_select",
+                                    "allow_null": 0,
+                                    "multiple": 0,
+                                    "parent_repeater": "field_63c15c8ea99fc"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_63c15c8ea9a33",
+                            "label": "Specific Measures",
+                            "name": "specific_measures",
+                            "aria-label": "",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_63c15c8ea99c4",
+                                        "operator": "==",
+                                        "value": "measures"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": 1,
+                            "layout": "table",
+                            "min": 0,
+                            "max": 0,
+                            "collapsed": "",
+                            "button_label": "Add Measures",
+                            "rows_per_page": 20,
+                            "parent_repeater": "field_63c15c8e947e4",
+                            "sub_fields": [
+                                {
+                                    "key": "field_63c15c8edae86",
+                                    "label": "Measures",
+                                    "name": "measures",
+                                    "aria-label": "",
+                                    "type": "taxonomy",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "wpml_cf_preferences": 1,
+                                    "taxonomy": "measure",
+                                    "add_term": 0,
+                                    "save_terms": 0,
+                                    "load_terms": 0,
+                                    "return_format": "object",
+                                    "field_type": "select",
+                                    "allow_null": 0,
+                                    "multiple": 0,
+                                    "parent_repeater": "field_63c15c8ea9a33"
+                                },
+                                {
+                                    "key": "field_63c15c8edaec0",
+                                    "label": "Services",
+                                    "name": "services",
+                                    "aria-label": "",
+                                    "type": "taxonomy",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "wpml_cf_preferences": 1,
+                                    "taxonomy": "signatory",
+                                    "add_term": 0,
+                                    "save_terms": 0,
+                                    "load_terms": 0,
+                                    "return_format": "object",
+                                    "field_type": "multi_select",
+                                    "allow_null": 0,
+                                    "multiple": 0,
+                                    "parent_repeater": "field_63c15c8ea9a33"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_63c15c8ea9a6a",
+                            "label": "Specific Services",
+                            "name": "specific_services",
+                            "aria-label": "",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_63c15c8ea99c4",
+                                        "operator": "==",
+                                        "value": "services-measures"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": 1,
+                            "layout": "table",
+                            "min": 0,
+                            "max": 0,
+                            "collapsed": "",
+                            "button_label": "Add Services",
+                            "rows_per_page": 20,
+                            "parent_repeater": "field_63c15c8e947e4",
+                            "sub_fields": [
+                                {
+                                    "key": "field_63c15c8f025dd",
+                                    "label": "Services",
+                                    "name": "services",
+                                    "aria-label": "",
+                                    "type": "taxonomy",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "wpml_cf_preferences": 0,
+                                    "taxonomy": "signatory",
+                                    "add_term": 0,
+                                    "save_terms": 0,
+                                    "load_terms": 0,
+                                    "return_format": "object",
+                                    "field_type": "select",
+                                    "allow_null": 0,
+                                    "multiple": 0,
+                                    "parent_repeater": "field_63c15c8ea9a6a"
+                                },
+                                {
+                                    "key": "field_63c15c8f02613",
+                                    "label": "Measures",
+                                    "name": "measures",
+                                    "aria-label": "",
+                                    "type": "taxonomy",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "wpml_cf_preferences": 1,
+                                    "taxonomy": "measure",
+                                    "add_term": 0,
+                                    "save_terms": 0,
+                                    "load_terms": 0,
+                                    "return_format": "object",
+                                    "field_type": "multi_select",
+                                    "allow_null": 0,
+                                    "multiple": 0,
+                                    "parent_repeater": "field_63c15c8ea9a6a"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_63c15c8ea9aa2",
+                            "label": "Services Yes\/No",
+                            "name": "services_yn",
+                            "aria-label": "",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_63c15c8ea99c4",
+                                        "operator": "==",
+                                        "value": "services-yn"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": 1,
+                            "layout": "table",
+                            "min": 0,
+                            "max": 0,
+                            "collapsed": "",
+                            "button_label": "Add Services",
+                            "rows_per_page": 20,
+                            "parent_repeater": "field_63c15c8e947e4",
+                            "sub_fields": [
+                                {
+                                    "key": "field_63c15c8f2140d",
+                                    "label": "Services",
+                                    "name": "services",
+                                    "aria-label": "",
+                                    "type": "taxonomy",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "wpml_cf_preferences": 0,
+                                    "taxonomy": "signatory",
+                                    "add_term": 0,
+                                    "save_terms": 0,
+                                    "load_terms": 0,
+                                    "return_format": "object",
+                                    "field_type": "select",
+                                    "allow_null": 0,
+                                    "multiple": 0,
+                                    "parent_repeater": "field_63c15c8ea9aa2"
+                                },
+                                {
+                                    "key": "field_63c15c8f21444",
+                                    "label": "Yes\/No",
+                                    "name": "yesno",
+                                    "aria-label": "",
+                                    "type": "true_false",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "wpml_cf_preferences": 1,
+                                    "message": "",
+                                    "default_value": 0,
+                                    "ui_on_text": "",
+                                    "ui_off_text": "",
+                                    "ui": 1,
+                                    "parent_repeater": "field_63c15c8ea9aa2"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_63d27330e234a",
+                            "label": "Specific Content",
+                            "name": "specific_content",
+                            "aria-label": "",
+                            "type": "wysiwyg",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_63c15c8ea998d",
+                                        "operator": "==",
+                                        "value": "question-03"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "field": "field_63c15c8ea998d",
+                                        "operator": "==",
+                                        "value": "question-05"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": 1,
+                            "default_value": "",
+                            "tabs": "all",
+                            "toolbar": "full",
+                            "media_upload": 1,
+                            "delay": 0,
+                            "parent_repeater": "field_63c15c8e947e4"
+                        }
+                    ]
+                },
+                {
+                    "key": "field_63d2d8df316ec",
+                    "label": "Template Type",
+                    "name": "template_type",
+                    "aria-label": "",
+                    "type": "button_group",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "wpml_cf_preferences": 1,
+                    "choices": {
+                        "Chapter 1-9": "Chapter 1-9",
+                        "Chapter 10": "Chapter 10"
+                    },
+                    "default_value": "Chapter 1-9",
+                    "return_format": "value",
+                    "allow_null": 0,
+                    "layout": "horizontal",
+                    "parent_repeater": "field_63c15c8e90996"
+                },
+                {
+                    "key": "field_63c15c8e9481a",
+                    "label": "Measure Chapter 1 - 9",
+                    "name": "measure_group",
+                    "aria-label": "",
+                    "type": "repeater",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_63c15c8e947ae",
+                                "operator": "!=empty"
+                            },
+                            {
+                                "field": "field_63d2d8df316ec",
+                                "operator": "==",
+                                "value": "Chapter 1-9"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "wpml_cf_preferences": 2,
+                    "layout": "block",
+                    "min": 0,
+                    "max": 0,
+                    "collapsed": "",
+                    "button_label": "Add Measure",
+                    "rows_per_page": 20,
+                    "parent_repeater": "field_63c15c8e90996",
+                    "sub_fields": [
+                        {
+                            "key": "field_63c15c8f43746",
+                            "label": "Measure item",
+                            "name": "",
+                            "aria-label": "",
+                            "type": "accordion",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": 0,
+                            "open": 0,
+                            "multi_expand": 0,
+                            "endpoint": 0,
+                            "parent_repeater": "field_63c15c8e9481a"
+                        },
+                        {
+                            "key": "field_63c15c8f4377d",
+                            "label": "Measure Number",
+                            "name": "measure_number",
+                            "aria-label": "",
+                            "type": "taxonomy",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": 1,
+                            "taxonomy": "measure",
+                            "add_term": 0,
+                            "save_terms": 0,
+                            "load_terms": 0,
+                            "return_format": "object",
+                            "field_type": "select",
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "parent_repeater": "field_63c15c8e9481a"
+                        },
+                        {
+                            "key": "field_63c15c8f437e7",
+                            "label": "Measure by Services",
+                            "name": "measure_by_services",
+                            "aria-label": "",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_63c15c8f437b2",
+                                        "operator": "!=empty"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": 0,
+                            "layout": "block",
+                            "min": 0,
+                            "max": 0,
+                            "collapsed": "",
+                            "button_label": "Add Services",
+                            "rows_per_page": 20,
+                            "parent_repeater": "field_63c15c8e9481a",
+                            "sub_fields": [
+                                {
+                                    "key": "field_63c16302e1b72",
+                                    "label": "Measure by Services Item",
+                                    "name": "",
+                                    "aria-label": "",
+                                    "type": "accordion",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "wpml_cf_preferences": 0,
+                                    "open": 0,
+                                    "multi_expand": 0,
+                                    "endpoint": 0,
+                                    "parent_repeater": "field_63c15c8f437e7"
+                                },
+                                {
+                                    "key": "field_63c15c8f5875c",
+                                    "label": "Services",
+                                    "name": "services",
+                                    "aria-label": "",
+                                    "type": "taxonomy",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "100",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "wpml_cf_preferences": 0,
+                                    "taxonomy": "signatory",
+                                    "add_term": 0,
+                                    "save_terms": 0,
+                                    "load_terms": 0,
+                                    "return_format": "object",
+                                    "field_type": "select",
+                                    "allow_null": 0,
+                                    "multiple": 0,
+                                    "parent_repeater": "field_63c15c8f437e7"
+                                },
+                                {
+                                    "key": "field_63c15cdf703c1",
+                                    "label": "QRE Group",
+                                    "name": "qre_group",
+                                    "aria-label": "",
+                                    "type": "repeater",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "wpml_cf_preferences": 1,
+                                    "layout": "block",
+                                    "min": 0,
+                                    "max": 0,
+                                    "collapsed": "",
+                                    "button_label": "Add QRE Group",
+                                    "rows_per_page": 20,
+                                    "parent_repeater": "field_63c15c8f437e7",
+                                    "sub_fields": [
+                                        {
+                                            "key": "field_63c15f5d1b092",
+                                            "label": "QRE Group item",
+                                            "name": "",
+                                            "aria-label": "",
+                                            "type": "accordion",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "wpml_cf_preferences": "",
+                                            "open": 0,
+                                            "multi_expand": 0,
+                                            "endpoint": 0,
+                                            "parent_repeater": "field_63c15cdf703c1"
+                                        },
+                                        {
+                                            "key": "field_63c15d17703c3",
+                                            "label": "QRE Number",
+                                            "name": "qre_number",
+                                            "aria-label": "",
+                                            "type": "taxonomy",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": [
+                                                [
+                                                    {
+                                                        "field": "field_63c15c8f4377d",
+                                                        "operator": "!=empty"
+                                                    }
+                                                ]
+                                            ],
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "wpml_cf_preferences": 0,
+                                            "taxonomy": "qrenumbers",
+                                            "add_term": 0,
+                                            "save_terms": 0,
+                                            "load_terms": 0,
+                                            "return_format": "object",
+                                            "field_type": "select",
+                                            "allow_null": 0,
+                                            "multiple": 0,
+                                            "parent_repeater": "field_63c15cdf703c1"
+                                        },
+                                        {
+                                            "key": "field_63c15c8f58793",
+                                            "label": "QRE Content",
+                                            "name": "qre_content",
+                                            "aria-label": "",
+                                            "type": "wysiwyg",
+                                            "instructions": "3000 character limit",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "wpml_cf_preferences": 0,
+                                            "default_value": "",
+                                            "tabs": "all",
+                                            "toolbar": "full",
+                                            "media_upload": 1,
+                                            "delay": 0,
+                                            "parent_repeater": "field_63c15cdf703c1"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "key": "field_63d2b07f76f6f",
+                                    "label": "SLI \/ TTP OR ACTION",
+                                    "name": "grouptype",
+                                    "aria-label": "",
+                                    "type": "button_group",
+                                    "instructions": "TTP OR ACTION - used for Commitment 14",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "wpml_cf_preferences": 1,
+                                    "choices": {
+                                        "SLI Group": "SLI Group",
+                                        "TTP OR ACTION Group": "TTP OR ACTION Group"
+                                    },
+                                    "default_value": "",
+                                    "return_format": "value",
+                                    "allow_null": 0,
+                                    "layout": "horizontal",
+                                    "parent_repeater": "field_63c15c8f437e7"
+                                },
+                                {
+                                    "key": "field_63c15e29c2b25",
+                                    "label": "SLI Group",
+                                    "name": "sli_group",
+                                    "aria-label": "",
+                                    "type": "repeater",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_63d2b07f76f6f",
+                                                "operator": "==",
+                                                "value": "SLI Group"
+                                            }
+                                        ]
+                                    ],
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "wpml_cf_preferences": 1,
+                                    "layout": "block",
+                                    "min": 0,
+                                    "max": 0,
+                                    "collapsed": "",
+                                    "button_label": "Add SLI Group",
+                                    "rows_per_page": 20,
+                                    "parent_repeater": "field_63c15c8f437e7",
+                                    "sub_fields": [
+                                        {
+                                            "key": "field_63c15f411b091",
+                                            "label": "SLI Group item",
+                                            "name": "",
+                                            "aria-label": "",
+                                            "type": "accordion",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "wpml_cf_preferences": "",
+                                            "open": 0,
+                                            "multi_expand": 0,
+                                            "endpoint": 0,
+                                            "parent_repeater": "field_63c15e29c2b25"
+                                        },
+                                        {
+                                            "key": "field_63c15e29c2b28",
+                                            "label": "SLI Number",
+                                            "name": "sli_number",
+                                            "aria-label": "",
+                                            "type": "taxonomy",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": [
+                                                [
+                                                    {
+                                                        "field": "field_63c15c8f4377d",
+                                                        "operator": "!=empty"
+                                                    }
+                                                ]
+                                            ],
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "wpml_cf_preferences": 0,
+                                            "taxonomy": "slinumbers",
+                                            "add_term": 0,
+                                            "save_terms": 0,
+                                            "load_terms": 0,
+                                            "return_format": "object",
+                                            "field_type": "select",
+                                            "allow_null": 0,
+                                            "multiple": 0,
+                                            "parent_repeater": "field_63c15e29c2b25"
+                                        },
+                                        {
+                                            "key": "field_63c15e29c2b29",
+                                            "label": "SLI Content",
+                                            "name": "sli_content",
+                                            "aria-label": "",
+                                            "type": "wysiwyg",
+                                            "instructions": "500 character limit",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "wpml_cf_preferences": 0,
+                                            "default_value": "",
+                                            "tabs": "all",
+                                            "toolbar": "full",
+                                            "media_upload": 1,
+                                            "delay": 0,
+                                            "parent_repeater": "field_63c15e29c2b25"
+                                        },
+                                        {
+                                            "key": "field_63c15c8f587fe",
+                                            "label": "Tables",
+                                            "name": "tables",
+                                            "aria-label": "",
+                                            "type": "repeater",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "wpml_cf_preferences": 1,
+                                            "layout": "block",
+                                            "min": 0,
+                                            "max": 0,
+                                            "collapsed": "",
+                                            "button_label": "Add Table",
+                                            "rows_per_page": 20,
+                                            "parent_repeater": "field_63c15e29c2b25",
+                                            "sub_fields": [
+                                                {
+                                                    "key": "field_63c15c8f721b4",
+                                                    "label": "Tables",
+                                                    "name": "",
+                                                    "aria-label": "",
+                                                    "type": "accordion",
+                                                    "instructions": "",
+                                                    "required": 0,
+                                                    "conditional_logic": 0,
+                                                    "wrapper": {
+                                                        "width": "",
+                                                        "class": "",
+                                                        "id": ""
+                                                    },
+                                                    "wpml_cf_preferences": "",
+                                                    "open": 0,
+                                                    "multi_expand": 0,
+                                                    "endpoint": 0,
+                                                    "parent_repeater": "field_63c15c8f587fe"
+                                                },
+                                                {
+                                                    "key": "field_63c15c8f721ef",
+                                                    "label": "Type of Action",
+                                                    "name": "type_of_action",
+                                                    "aria-label": "",
+                                                    "type": "text",
+                                                    "instructions": "Tab with tables",
+                                                    "required": 0,
+                                                    "conditional_logic": 0,
+                                                    "wrapper": {
+                                                        "width": "",
+                                                        "class": "",
+                                                        "id": ""
+                                                    },
+                                                    "wpml_cf_preferences": 1,
+                                                    "default_value": "",
+                                                    "maxlength": "",
+                                                    "placeholder": "Type of Action 1",
+                                                    "prepend": "",
+                                                    "append": "",
+                                                    "parent_repeater": "field_63c15c8f587fe"
+                                                },
+                                                {
+                                                    "key": "field_63c15c8f72225",
+                                                    "label": "Table type",
+                                                    "name": "table_type",
+                                                    "aria-label": "",
+                                                    "type": "checkbox",
+                                                    "instructions": "",
+                                                    "required": 0,
+                                                    "conditional_logic": 0,
+                                                    "wrapper": {
+                                                        "width": "",
+                                                        "class": "",
+                                                        "id": ""
+                                                    },
+                                                    "wpml_cf_preferences": 0,
+                                                    "choices": {
+                                                        "per_language": "Per Language",
+                                                        "per_member_states": "Per Member States"
+                                                    },
+                                                    "default_value": [],
+                                                    "return_format": "value",
+                                                    "allow_custom": 0,
+                                                    "layout": "horizontal",
+                                                    "toggle": 1,
+                                                    "save_custom": 0,
+                                                    "parent_repeater": "field_63c15c8f587fe"
+                                                },
+                                                {
+                                                    "key": "field_63d268c0e157a",
+                                                    "label": "Per language Thead",
+                                                    "name": "per_language_thead",
+                                                    "aria-label": "",
+                                                    "type": "repeater",
+                                                    "instructions": "",
+                                                    "required": 0,
+                                                    "conditional_logic": [
+                                                        [
+                                                            {
+                                                                "field": "field_63c15c8f72225",
+                                                                "operator": "==",
+                                                                "value": "per_language"
+                                                            }
+                                                        ]
+                                                    ],
+                                                    "wrapper": {
+                                                        "width": "",
+                                                        "class": "",
+                                                        "id": ""
+                                                    },
+                                                    "wpml_cf_preferences": 1,
+                                                    "layout": "table",
+                                                    "min": 1,
+                                                    "max": 1,
+                                                    "collapsed": "",
+                                                    "button_label": "Add Country",
+                                                    "rows_per_page": 20,
+                                                    "parent_repeater": "field_63c15c8f587fe",
+                                                    "sub_fields": [
+                                                        {
+                                                            "key": "field_63d26af8e1580",
+                                                            "label": "Language",
+                                                            "name": "",
+                                                            "aria-label": "",
+                                                            "type": "message",
+                                                            "instructions": "",
+                                                            "required": 0,
+                                                            "conditional_logic": 0,
+                                                            "wrapper": {
+                                                                "width": "",
+                                                                "class": "",
+                                                                "id": ""
+                                                            },
+                                                            "wpml_cf_preferences": "",
+                                                            "message": "",
+                                                            "new_lines": "wpautop",
+                                                            "esc_html": 0,
+                                                            "parent_repeater": "field_63d268c0e157a"
+                                                        },
+                                                        {
+                                                            "key": "field_63d268c0e157c",
+                                                            "label": "Title Column 1",
+                                                            "name": "title_column_1",
+                                                            "aria-label": "",
+                                                            "type": "text",
+                                                            "instructions": "",
+                                                            "required": 0,
+                                                            "conditional_logic": 0,
+                                                            "wrapper": {
+                                                                "width": "",
+                                                                "class": "",
+                                                                "id": ""
+                                                            },
+                                                            "wpml_cf_preferences": 1,
+                                                            "default_value": "",
+                                                            "maxlength": "",
+                                                            "placeholder": "",
+                                                            "prepend": "",
+                                                            "append": "",
+                                                            "parent_repeater": "field_63d268c0e157a"
+                                                        },
+                                                        {
+                                                            "key": "field_63d26b7f6a038",
+                                                            "label": "Title Column 2",
+                                                            "name": "title_column_2",
+                                                            "aria-label": "",
+                                                            "type": "text",
+                                                            "instructions": "",
+                                                            "required": 0,
+                                                            "conditional_logic": 0,
+                                                            "wrapper": {
+                                                                "width": "",
+                                                                "class": "",
+                                                                "id": ""
+                                                            },
+                                                            "wpml_cf_preferences": 1,
+                                                            "default_value": "",
+                                                            "maxlength": "",
+                                                            "placeholder": "",
+                                                            "prepend": "",
+                                                            "append": "",
+                                                            "parent_repeater": "field_63d268c0e157a"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "key": "field_63c15c8f72294",
+                                                    "label": "Per language",
+                                                    "name": "per_language",
+                                                    "aria-label": "",
+                                                    "type": "repeater",
+                                                    "instructions": "",
+                                                    "required": 0,
+                                                    "conditional_logic": [
+                                                        [
+                                                            {
+                                                                "field": "field_63c15c8f72225",
+                                                                "operator": "==",
+                                                                "value": "per_language"
+                                                            }
+                                                        ]
+                                                    ],
+                                                    "wrapper": {
+                                                        "width": "",
+                                                        "class": "",
+                                                        "id": ""
+                                                    },
+                                                    "wpml_cf_preferences": 1,
+                                                    "layout": "table",
+                                                    "min": 0,
+                                                    "max": 0,
+                                                    "collapsed": "",
+                                                    "button_label": "Add Language",
+                                                    "rows_per_page": 20,
+                                                    "parent_repeater": "field_63c15c8f587fe",
+                                                    "sub_fields": [
+                                                        {
+                                                            "key": "field_63c15c8faa78b",
+                                                            "label": "Language",
+                                                            "name": "language",
+                                                            "aria-label": "",
+                                                            "type": "taxonomy",
+                                                            "instructions": "",
+                                                            "required": 0,
+                                                            "conditional_logic": 0,
+                                                            "wrapper": {
+                                                                "width": "",
+                                                                "class": "",
+                                                                "id": ""
+                                                            },
+                                                            "wpml_cf_preferences": 1,
+                                                            "taxonomy": "language",
+                                                            "add_term": 0,
+                                                            "save_terms": 1,
+                                                            "load_terms": 0,
+                                                            "return_format": "object",
+                                                            "field_type": "select",
+                                                            "allow_null": 0,
+                                                            "multiple": 0,
+                                                            "parent_repeater": "field_63c15c8f72294"
+                                                        },
+                                                        {
+                                                            "key": "field_63c15c8faa7c2",
+                                                            "label": "Body Column 1",
+                                                            "name": "body_column_1",
+                                                            "aria-label": "",
+                                                            "type": "number",
+                                                            "instructions": "",
+                                                            "required": 0,
+                                                            "conditional_logic": 0,
+                                                            "wrapper": {
+                                                                "width": "",
+                                                                "class": "",
+                                                                "id": ""
+                                                            },
+                                                            "wpml_cf_preferences": 2,
+                                                            "default_value": "",
+                                                            "min": 0,
+                                                            "max": "",
+                                                            "placeholder": "",
+                                                            "step": "",
+                                                            "prepend": "",
+                                                            "append": "",
+                                                            "parent_repeater": "field_63c15c8f72294"
+                                                        },
+                                                        {
+                                                            "key": "field_63d2830f28fd3",
+                                                            "label": "Body Column 2",
+                                                            "name": "body_column_2",
+                                                            "aria-label": "",
+                                                            "type": "number",
+                                                            "instructions": "",
+                                                            "required": 0,
+                                                            "conditional_logic": 0,
+                                                            "wrapper": {
+                                                                "width": "",
+                                                                "class": "",
+                                                                "id": ""
+                                                            },
+                                                            "wpml_cf_preferences": 2,
+                                                            "default_value": "",
+                                                            "min": 0,
+                                                            "max": "",
+                                                            "placeholder": "",
+                                                            "step": "",
+                                                            "prepend": "",
+                                                            "append": "",
+                                                            "parent_repeater": "field_63c15c8f72294"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "key": "field_63d2702d08c80",
+                                                    "label": "Per Member States Thead",
+                                                    "name": "per_member_states_thead",
+                                                    "aria-label": "",
+                                                    "type": "repeater",
+                                                    "instructions": "",
+                                                    "required": 0,
+                                                    "conditional_logic": [
+                                                        [
+                                                            {
+                                                                "field": "field_63c15c8f72225",
+                                                                "operator": "==",
+                                                                "value": "per_member_states"
+                                                            }
+                                                        ]
+                                                    ],
+                                                    "wrapper": {
+                                                        "width": "",
+                                                        "class": "",
+                                                        "id": ""
+                                                    },
+                                                    "wpml_cf_preferences": 1,
+                                                    "layout": "table",
+                                                    "min": 1,
+                                                    "max": 1,
+                                                    "collapsed": "",
+                                                    "button_label": "Add Country",
+                                                    "rows_per_page": 20,
+                                                    "parent_repeater": "field_63c15c8f587fe",
+                                                    "sub_fields": [
+                                                        {
+                                                            "key": "field_63d2702d08c81",
+                                                            "label": "Country",
+                                                            "name": "",
+                                                            "aria-label": "",
+                                                            "type": "message",
+                                                            "instructions": "",
+                                                            "required": 0,
+                                                            "conditional_logic": 0,
+                                                            "wrapper": {
+                                                                "width": "",
+                                                                "class": "",
+                                                                "id": ""
+                                                            },
+                                                            "wpml_cf_preferences": 1,
+                                                            "message": "",
+                                                            "new_lines": "wpautop",
+                                                            "esc_html": 0,
+                                                            "parent_repeater": "field_63d2702d08c80"
+                                                        },
+                                                        {
+                                                            "key": "field_63d2702d08c82",
+                                                            "label": "Title Column 1",
+                                                            "name": "title_column_1",
+                                                            "aria-label": "",
+                                                            "type": "text",
+                                                            "instructions": "",
+                                                            "required": 0,
+                                                            "conditional_logic": 0,
+                                                            "wrapper": {
+                                                                "width": "",
+                                                                "class": "",
+                                                                "id": ""
+                                                            },
+                                                            "wpml_cf_preferences": 1,
+                                                            "default_value": "",
+                                                            "maxlength": "",
+                                                            "placeholder": "",
+                                                            "prepend": "",
+                                                            "append": "",
+                                                            "parent_repeater": "field_63d2702d08c80"
+                                                        },
+                                                        {
+                                                            "key": "field_63d2702d08c83",
+                                                            "label": "Title Column 2",
+                                                            "name": "title_column_2",
+                                                            "aria-label": "",
+                                                            "type": "text",
+                                                            "instructions": "",
+                                                            "required": 0,
+                                                            "conditional_logic": 0,
+                                                            "wrapper": {
+                                                                "width": "",
+                                                                "class": "",
+                                                                "id": ""
+                                                            },
+                                                            "wpml_cf_preferences": 1,
+                                                            "default_value": "",
+                                                            "maxlength": "",
+                                                            "placeholder": "",
+                                                            "prepend": "",
+                                                            "append": "",
+                                                            "parent_repeater": "field_63d2702d08c80"
+                                                        },
+                                                        {
+                                                            "key": "field_63d2702d08c84",
+                                                            "label": "Title Column 3",
+                                                            "name": "title_column_3",
+                                                            "aria-label": "",
+                                                            "type": "text",
+                                                            "instructions": "",
+                                                            "required": 0,
+                                                            "conditional_logic": 0,
+                                                            "wrapper": {
+                                                                "width": "",
+                                                                "class": "",
+                                                                "id": ""
+                                                            },
+                                                            "wpml_cf_preferences": 1,
+                                                            "default_value": "",
+                                                            "maxlength": "",
+                                                            "placeholder": "",
+                                                            "prepend": "",
+                                                            "append": "",
+                                                            "parent_repeater": "field_63d2702d08c80"
+                                                        },
+                                                        {
+                                                            "key": "field_63d28aea57501",
+                                                            "label": "Title Column 4",
+                                                            "name": "title_column_4",
+                                                            "aria-label": "",
+                                                            "type": "text",
+                                                            "instructions": "",
+                                                            "required": 0,
+                                                            "conditional_logic": 0,
+                                                            "wrapper": {
+                                                                "width": "",
+                                                                "class": "",
+                                                                "id": ""
+                                                            },
+                                                            "wpml_cf_preferences": 1,
+                                                            "default_value": "",
+                                                            "maxlength": "",
+                                                            "placeholder": "",
+                                                            "prepend": "",
+                                                            "append": "",
+                                                            "parent_repeater": "field_63d2702d08c80"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "key": "field_63c15c8f722c9",
+                                                    "label": "Per Member States",
+                                                    "name": "per_member_states",
+                                                    "aria-label": "",
+                                                    "type": "repeater",
+                                                    "instructions": "",
+                                                    "required": 0,
+                                                    "conditional_logic": [
+                                                        [
+                                                            {
+                                                                "field": "field_63c15c8f72225",
+                                                                "operator": "==",
+                                                                "value": "per_member_states"
+                                                            }
+                                                        ]
+                                                    ],
+                                                    "wrapper": {
+                                                        "width": "",
+                                                        "class": "",
+                                                        "id": ""
+                                                    },
+                                                    "wpml_cf_preferences": 1,
+                                                    "layout": "table",
+                                                    "min": 0,
+                                                    "max": 0,
+                                                    "collapsed": "",
+                                                    "button_label": "Add Country",
+                                                    "rows_per_page": 20,
+                                                    "parent_repeater": "field_63c15c8f587fe",
+                                                    "sub_fields": [
+                                                        {
+                                                            "key": "field_63c15c8fcbc9a",
+                                                            "label": "Country",
+                                                            "name": "country",
+                                                            "aria-label": "",
+                                                            "type": "taxonomy",
+                                                            "instructions": "",
+                                                            "required": 0,
+                                                            "conditional_logic": 0,
+                                                            "wrapper": {
+                                                                "width": "",
+                                                                "class": "",
+                                                                "id": ""
+                                                            },
+                                                            "wpml_cf_preferences": 1,
+                                                            "taxonomy": "country",
+                                                            "add_term": 0,
+                                                            "save_terms": 1,
+                                                            "load_terms": 0,
+                                                            "return_format": "object",
+                                                            "field_type": "select",
+                                                            "allow_null": 0,
+                                                            "multiple": 0,
+                                                            "parent_repeater": "field_63c15c8f722c9"
+                                                        },
+                                                        {
+                                                            "key": "field_63c15c8fcbcd4",
+                                                            "label": "Body Column 1",
+                                                            "name": "body_column_1",
+                                                            "aria-label": "",
+                                                            "type": "number",
+                                                            "instructions": "",
+                                                            "required": 0,
+                                                            "conditional_logic": 0,
+                                                            "wrapper": {
+                                                                "width": "",
+                                                                "class": "",
+                                                                "id": ""
+                                                            },
+                                                            "wpml_cf_preferences": 1,
+                                                            "default_value": "",
+                                                            "min": 0,
+                                                            "max": "",
+                                                            "placeholder": "",
+                                                            "step": "",
+                                                            "prepend": "",
+                                                            "append": "",
+                                                            "parent_repeater": "field_63c15c8f722c9"
+                                                        },
+                                                        {
+                                                            "key": "field_63d26bd8dbbfc",
+                                                            "label": "Body Column 2",
+                                                            "name": "body_column_2",
+                                                            "aria-label": "",
+                                                            "type": "number",
+                                                            "instructions": "",
+                                                            "required": 0,
+                                                            "conditional_logic": 0,
+                                                            "wrapper": {
+                                                                "width": "",
+                                                                "class": "",
+                                                                "id": ""
+                                                            },
+                                                            "wpml_cf_preferences": 1,
+                                                            "default_value": "",
+                                                            "min": 0,
+                                                            "max": "",
+                                                            "placeholder": "",
+                                                            "step": "",
+                                                            "prepend": "",
+                                                            "append": "",
+                                                            "parent_repeater": "field_63c15c8f722c9"
+                                                        },
+                                                        {
+                                                            "key": "field_63d26bdadbbfd",
+                                                            "label": "Body Column 3",
+                                                            "name": "body_column_3",
+                                                            "aria-label": "",
+                                                            "type": "number",
+                                                            "instructions": "",
+                                                            "required": 0,
+                                                            "conditional_logic": 0,
+                                                            "wrapper": {
+                                                                "width": "",
+                                                                "class": "",
+                                                                "id": ""
+                                                            },
+                                                            "wpml_cf_preferences": 1,
+                                                            "default_value": "",
+                                                            "min": 0,
+                                                            "max": "",
+                                                            "placeholder": "",
+                                                            "step": "",
+                                                            "prepend": "",
+                                                            "append": "",
+                                                            "parent_repeater": "field_63c15c8f722c9"
+                                                        },
+                                                        {
+                                                            "key": "field_63d288fe65756",
+                                                            "label": "Body Column 4",
+                                                            "name": "body_column_4",
+                                                            "aria-label": "",
+                                                            "type": "number",
+                                                            "instructions": "",
+                                                            "required": 0,
+                                                            "conditional_logic": 0,
+                                                            "wrapper": {
+                                                                "width": "",
+                                                                "class": "",
+                                                                "id": ""
+                                                            },
+                                                            "wpml_cf_preferences": 1,
+                                                            "default_value": "",
+                                                            "min": 0,
+                                                            "max": "",
+                                                            "placeholder": "",
+                                                            "step": "",
+                                                            "prepend": "",
+                                                            "append": "",
+                                                            "parent_repeater": "field_63c15c8f722c9"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "key": "field_63d2b00276f53",
+                                    "label": "TTP OR ACTION Group",
+                                    "name": "ttp_or_action_group",
+                                    "aria-label": "",
+                                    "type": "repeater",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_63d2b07f76f6f",
+                                                "operator": "==",
+                                                "value": "TTP OR ACTION Group"
+                                            }
+                                        ]
+                                    ],
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "wpml_cf_preferences": 1,
+                                    "layout": "block",
+                                    "min": 0,
+                                    "max": 0,
+                                    "collapsed": "",
+                                    "button_label": "Add TTP Group",
+                                    "rows_per_page": 20,
+                                    "parent_repeater": "field_63c15c8f437e7",
+                                    "sub_fields": [
+                                        {
+                                            "key": "field_63d2b00276f54",
+                                            "label": "Group item",
+                                            "name": "",
+                                            "aria-label": "",
+                                            "type": "accordion",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "wpml_cf_preferences": 0,
+                                            "open": 0,
+                                            "multi_expand": 0,
+                                            "endpoint": 0,
+                                            "parent_repeater": "field_63d2b00276f53"
+                                        },
+                                        {
+                                            "key": "field_63d2b00276f55",
+                                            "label": "Number",
+                                            "name": "sli_number",
+                                            "aria-label": "",
+                                            "type": "taxonomy",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": [
+                                                [
+                                                    {
+                                                        "field": "field_63c15c8f4377d",
+                                                        "operator": "!=empty"
+                                                    }
+                                                ]
+                                            ],
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "wpml_cf_preferences": 0,
+                                            "taxonomy": "ttpnumbers",
+                                            "add_term": 0,
+                                            "save_terms": 0,
+                                            "load_terms": 0,
+                                            "return_format": "object",
+                                            "field_type": "select",
+                                            "allow_null": 0,
+                                            "multiple": 0,
+                                            "parent_repeater": "field_63d2b00276f53"
+                                        },
+                                        {
+                                            "key": "field_63d2b00276f56",
+                                            "label": "Content",
+                                            "name": "sli_content",
+                                            "aria-label": "",
+                                            "type": "wysiwyg",
+                                            "instructions": "500 character limit",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "wpml_cf_preferences": 0,
+                                            "default_value": "",
+                                            "tabs": "all",
+                                            "toolbar": "full",
+                                            "media_upload": 1,
+                                            "delay": 0,
+                                            "parent_repeater": "field_63d2b00276f53"
+                                        },
+                                        {
+                                            "key": "field_63d2b00276f57",
+                                            "label": "Tables",
+                                            "name": "tables",
+                                            "aria-label": "",
+                                            "type": "repeater",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "wpml_cf_preferences": 1,
+                                            "layout": "block",
+                                            "min": 0,
+                                            "max": 0,
+                                            "collapsed": "",
+                                            "button_label": "Add Table",
+                                            "rows_per_page": 20,
+                                            "parent_repeater": "field_63d2b00276f53",
+                                            "sub_fields": [
+                                                {
+                                                    "key": "field_63d2b00376f58",
+                                                    "label": "Tables",
+                                                    "name": "",
+                                                    "aria-label": "",
+                                                    "type": "accordion",
+                                                    "instructions": "",
+                                                    "required": 0,
+                                                    "conditional_logic": 0,
+                                                    "wrapper": {
+                                                        "width": "",
+                                                        "class": "",
+                                                        "id": ""
+                                                    },
+                                                    "wpml_cf_preferences": 0,
+                                                    "open": 0,
+                                                    "multi_expand": 0,
+                                                    "endpoint": 0,
+                                                    "parent_repeater": "field_63d2b00276f57"
+                                                },
+                                                {
+                                                    "key": "field_63d2b00376f59",
+                                                    "label": "SLI Number",
+                                                    "name": "type_of_action",
+                                                    "aria-label": "",
+                                                    "type": "taxonomy",
+                                                    "instructions": "Tab with tables",
+                                                    "required": 0,
+                                                    "conditional_logic": 0,
+                                                    "wrapper": {
+                                                        "width": "",
+                                                        "class": "",
+                                                        "id": ""
+                                                    },
+                                                    "wpml_cf_preferences": 1,
+                                                    "taxonomy": "slinumbers",
+                                                    "add_term": 0,
+                                                    "save_terms": 0,
+                                                    "load_terms": 0,
+                                                    "return_format": "object",
+                                                    "field_type": "select",
+                                                    "allow_null": 0,
+                                                    "multiple": 0,
+                                                    "parent_repeater": "field_63d2b00276f57"
+                                                },
+                                                {
+                                                    "key": "field_63d2b00376f5a",
+                                                    "label": "Table type",
+                                                    "name": "table_type",
+                                                    "aria-label": "",
+                                                    "type": "checkbox",
+                                                    "instructions": "",
+                                                    "required": 0,
+                                                    "conditional_logic": 0,
+                                                    "wrapper": {
+                                                        "width": "",
+                                                        "class": "",
+                                                        "id": ""
+                                                    },
+                                                    "wpml_cf_preferences": 0,
+                                                    "choices": {
+                                                        "per_language": "Per Language",
+                                                        "per_member_states": "Per Member States"
+                                                    },
+                                                    "default_value": [],
+                                                    "return_format": "value",
+                                                    "allow_custom": 0,
+                                                    "layout": "horizontal",
+                                                    "toggle": 1,
+                                                    "save_custom": 0,
+                                                    "parent_repeater": "field_63d2b00276f57"
+                                                },
+                                                {
+                                                    "key": "field_63d2b00376f5b",
+                                                    "label": "Per language Thead",
+                                                    "name": "per_language_thead",
+                                                    "aria-label": "",
+                                                    "type": "repeater",
+                                                    "instructions": "",
+                                                    "required": 0,
+                                                    "conditional_logic": [
+                                                        [
+                                                            {
+                                                                "field": "field_63d2b00376f5a",
+                                                                "operator": "==",
+                                                                "value": "per_language"
+                                                            }
+                                                        ]
+                                                    ],
+                                                    "wrapper": {
+                                                        "width": "",
+                                                        "class": "",
+                                                        "id": ""
+                                                    },
+                                                    "wpml_cf_preferences": 1,
+                                                    "layout": "table",
+                                                    "min": 1,
+                                                    "max": 1,
+                                                    "collapsed": "",
+                                                    "button_label": "Add Country",
+                                                    "rows_per_page": 20,
+                                                    "parent_repeater": "field_63d2b00276f57",
+                                                    "sub_fields": [
+                                                        {
+                                                            "key": "field_63d2b00376f5c",
+                                                            "label": "Language",
+                                                            "name": "",
+                                                            "aria-label": "",
+                                                            "type": "message",
+                                                            "instructions": "",
+                                                            "required": 0,
+                                                            "conditional_logic": 0,
+                                                            "wrapper": {
+                                                                "width": "",
+                                                                "class": "",
+                                                                "id": ""
+                                                            },
+                                                            "wpml_cf_preferences": 0,
+                                                            "message": "",
+                                                            "new_lines": "wpautop",
+                                                            "esc_html": 0,
+                                                            "parent_repeater": "field_63d2b00376f5b"
+                                                        },
+                                                        {
+                                                            "key": "field_63d2b00376f5d",
+                                                            "label": "Title Column 1",
+                                                            "name": "title_column_1",
+                                                            "aria-label": "",
+                                                            "type": "text",
+                                                            "instructions": "",
+                                                            "required": 0,
+                                                            "conditional_logic": 0,
+                                                            "wrapper": {
+                                                                "width": "",
+                                                                "class": "",
+                                                                "id": ""
+                                                            },
+                                                            "wpml_cf_preferences": 1,
+                                                            "default_value": "",
+                                                            "maxlength": "",
+                                                            "placeholder": "",
+                                                            "prepend": "",
+                                                            "append": "",
+                                                            "parent_repeater": "field_63d2b00376f5b"
+                                                        },
+                                                        {
+                                                            "key": "field_63d2b00376f5e",
+                                                            "label": "Title Column 2",
+                                                            "name": "title_column_2",
+                                                            "aria-label": "",
+                                                            "type": "text",
+                                                            "instructions": "",
+                                                            "required": 0,
+                                                            "conditional_logic": 0,
+                                                            "wrapper": {
+                                                                "width": "",
+                                                                "class": "",
+                                                                "id": ""
+                                                            },
+                                                            "wpml_cf_preferences": 1,
+                                                            "default_value": "",
+                                                            "maxlength": "",
+                                                            "placeholder": "",
+                                                            "prepend": "",
+                                                            "append": "",
+                                                            "parent_repeater": "field_63d2b00376f5b"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "key": "field_63d2b00376f5f",
+                                                    "label": "Per language",
+                                                    "name": "per_language",
+                                                    "aria-label": "",
+                                                    "type": "repeater",
+                                                    "instructions": "",
+                                                    "required": 0,
+                                                    "conditional_logic": [
+                                                        [
+                                                            {
+                                                                "field": "field_63d2b00376f5a",
+                                                                "operator": "==",
+                                                                "value": "per_language"
+                                                            }
+                                                        ]
+                                                    ],
+                                                    "wrapper": {
+                                                        "width": "",
+                                                        "class": "",
+                                                        "id": ""
+                                                    },
+                                                    "wpml_cf_preferences": 1,
+                                                    "layout": "table",
+                                                    "min": 0,
+                                                    "max": 0,
+                                                    "collapsed": "",
+                                                    "button_label": "Add Language",
+                                                    "rows_per_page": 20,
+                                                    "parent_repeater": "field_63d2b00276f57",
+                                                    "sub_fields": [
+                                                        {
+                                                            "key": "field_63d2b00376f60",
+                                                            "label": "Language",
+                                                            "name": "language",
+                                                            "aria-label": "",
+                                                            "type": "taxonomy",
+                                                            "instructions": "",
+                                                            "required": 0,
+                                                            "conditional_logic": 0,
+                                                            "wrapper": {
+                                                                "width": "",
+                                                                "class": "",
+                                                                "id": ""
+                                                            },
+                                                            "wpml_cf_preferences": 1,
+                                                            "taxonomy": "language",
+                                                            "add_term": 0,
+                                                            "save_terms": 1,
+                                                            "load_terms": 0,
+                                                            "return_format": "object",
+                                                            "field_type": "select",
+                                                            "allow_null": 0,
+                                                            "multiple": 0,
+                                                            "parent_repeater": "field_63d2b00376f5f"
+                                                        },
+                                                        {
+                                                            "key": "field_63d2b00376f61",
+                                                            "label": "Body Column 1",
+                                                            "name": "body_column_1",
+                                                            "aria-label": "",
+                                                            "type": "number",
+                                                            "instructions": "",
+                                                            "required": 0,
+                                                            "conditional_logic": 0,
+                                                            "wrapper": {
+                                                                "width": "",
+                                                                "class": "",
+                                                                "id": ""
+                                                            },
+                                                            "wpml_cf_preferences": 2,
+                                                            "default_value": "",
+                                                            "min": 0,
+                                                            "max": "",
+                                                            "placeholder": "",
+                                                            "step": "",
+                                                            "prepend": "",
+                                                            "append": "",
+                                                            "parent_repeater": "field_63d2b00376f5f"
+                                                        },
+                                                        {
+                                                            "key": "field_63d2b00376f62",
+                                                            "label": "Body Column 2",
+                                                            "name": "body_column_2",
+                                                            "aria-label": "",
+                                                            "type": "number",
+                                                            "instructions": "",
+                                                            "required": 0,
+                                                            "conditional_logic": 0,
+                                                            "wrapper": {
+                                                                "width": "",
+                                                                "class": "",
+                                                                "id": ""
+                                                            },
+                                                            "wpml_cf_preferences": 2,
+                                                            "default_value": "",
+                                                            "min": 0,
+                                                            "max": "",
+                                                            "placeholder": "",
+                                                            "step": "",
+                                                            "prepend": "",
+                                                            "append": "",
+                                                            "parent_repeater": "field_63d2b00376f5f"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "key": "field_63d2b00376f63",
+                                                    "label": "Per Member States Thead",
+                                                    "name": "per_member_states_thead",
+                                                    "aria-label": "",
+                                                    "type": "repeater",
+                                                    "instructions": "",
+                                                    "required": 0,
+                                                    "conditional_logic": [
+                                                        [
+                                                            {
+                                                                "field": "field_63d2b00376f5a",
+                                                                "operator": "==",
+                                                                "value": "per_member_states"
+                                                            }
+                                                        ]
+                                                    ],
+                                                    "wrapper": {
+                                                        "width": "",
+                                                        "class": "",
+                                                        "id": ""
+                                                    },
+                                                    "wpml_cf_preferences": 1,
+                                                    "layout": "table",
+                                                    "min": 1,
+                                                    "max": 1,
+                                                    "collapsed": "",
+                                                    "button_label": "Add Country",
+                                                    "rows_per_page": 20,
+                                                    "parent_repeater": "field_63d2b00276f57",
+                                                    "sub_fields": [
+                                                        {
+                                                            "key": "field_63d2b00376f64",
+                                                            "label": "Country",
+                                                            "name": "",
+                                                            "aria-label": "",
+                                                            "type": "message",
+                                                            "instructions": "",
+                                                            "required": 0,
+                                                            "conditional_logic": 0,
+                                                            "wrapper": {
+                                                                "width": "",
+                                                                "class": "",
+                                                                "id": ""
+                                                            },
+                                                            "wpml_cf_preferences": 1,
+                                                            "message": "",
+                                                            "new_lines": "wpautop",
+                                                            "esc_html": 0,
+                                                            "parent_repeater": "field_63d2b00376f63"
+                                                        },
+                                                        {
+                                                            "key": "field_63d2b00376f65",
+                                                            "label": "Title Column 1",
+                                                            "name": "title_column_1",
+                                                            "aria-label": "",
+                                                            "type": "text",
+                                                            "instructions": "",
+                                                            "required": 0,
+                                                            "conditional_logic": 0,
+                                                            "wrapper": {
+                                                                "width": "",
+                                                                "class": "",
+                                                                "id": ""
+                                                            },
+                                                            "wpml_cf_preferences": 1,
+                                                            "default_value": "",
+                                                            "maxlength": "",
+                                                            "placeholder": "",
+                                                            "prepend": "",
+                                                            "append": "",
+                                                            "parent_repeater": "field_63d2b00376f63"
+                                                        },
+                                                        {
+                                                            "key": "field_63d2b00376f66",
+                                                            "label": "Title Column 2",
+                                                            "name": "title_column_2",
+                                                            "aria-label": "",
+                                                            "type": "text",
+                                                            "instructions": "",
+                                                            "required": 0,
+                                                            "conditional_logic": 0,
+                                                            "wrapper": {
+                                                                "width": "",
+                                                                "class": "",
+                                                                "id": ""
+                                                            },
+                                                            "wpml_cf_preferences": 1,
+                                                            "default_value": "",
+                                                            "maxlength": "",
+                                                            "placeholder": "",
+                                                            "prepend": "",
+                                                            "append": "",
+                                                            "parent_repeater": "field_63d2b00376f63"
+                                                        },
+                                                        {
+                                                            "key": "field_63d2b00376f67",
+                                                            "label": "Title Column 3",
+                                                            "name": "title_column_3",
+                                                            "aria-label": "",
+                                                            "type": "text",
+                                                            "instructions": "",
+                                                            "required": 0,
+                                                            "conditional_logic": 0,
+                                                            "wrapper": {
+                                                                "width": "",
+                                                                "class": "",
+                                                                "id": ""
+                                                            },
+                                                            "wpml_cf_preferences": 1,
+                                                            "default_value": "",
+                                                            "maxlength": "",
+                                                            "placeholder": "",
+                                                            "prepend": "",
+                                                            "append": "",
+                                                            "parent_repeater": "field_63d2b00376f63"
+                                                        },
+                                                        {
+                                                            "key": "field_63d2b00376f68",
+                                                            "label": "Title Column 4",
+                                                            "name": "title_column_4",
+                                                            "aria-label": "",
+                                                            "type": "text",
+                                                            "instructions": "",
+                                                            "required": 0,
+                                                            "conditional_logic": 0,
+                                                            "wrapper": {
+                                                                "width": "",
+                                                                "class": "",
+                                                                "id": ""
+                                                            },
+                                                            "wpml_cf_preferences": 1,
+                                                            "default_value": "",
+                                                            "maxlength": "",
+                                                            "placeholder": "",
+                                                            "prepend": "",
+                                                            "append": "",
+                                                            "parent_repeater": "field_63d2b00376f63"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "key": "field_63d2b00376f69",
+                                                    "label": "Per Member States",
+                                                    "name": "per_member_states",
+                                                    "aria-label": "",
+                                                    "type": "repeater",
+                                                    "instructions": "",
+                                                    "required": 0,
+                                                    "conditional_logic": [
+                                                        [
+                                                            {
+                                                                "field": "field_63d2b00376f5a",
+                                                                "operator": "==",
+                                                                "value": "per_member_states"
+                                                            }
+                                                        ]
+                                                    ],
+                                                    "wrapper": {
+                                                        "width": "",
+                                                        "class": "",
+                                                        "id": ""
+                                                    },
+                                                    "wpml_cf_preferences": 1,
+                                                    "layout": "table",
+                                                    "min": 0,
+                                                    "max": 0,
+                                                    "collapsed": "",
+                                                    "button_label": "Add Country",
+                                                    "rows_per_page": 20,
+                                                    "parent_repeater": "field_63d2b00276f57",
+                                                    "sub_fields": [
+                                                        {
+                                                            "key": "field_63d2b00376f6a",
+                                                            "label": "Country",
+                                                            "name": "country",
+                                                            "aria-label": "",
+                                                            "type": "taxonomy",
+                                                            "instructions": "",
+                                                            "required": 0,
+                                                            "conditional_logic": 0,
+                                                            "wrapper": {
+                                                                "width": "",
+                                                                "class": "",
+                                                                "id": ""
+                                                            },
+                                                            "wpml_cf_preferences": 1,
+                                                            "taxonomy": "country",
+                                                            "add_term": 0,
+                                                            "save_terms": 1,
+                                                            "load_terms": 0,
+                                                            "return_format": "object",
+                                                            "field_type": "select",
+                                                            "allow_null": 0,
+                                                            "multiple": 0,
+                                                            "parent_repeater": "field_63d2b00376f69"
+                                                        },
+                                                        {
+                                                            "key": "field_63d2b00376f6b",
+                                                            "label": "Body Column 1",
+                                                            "name": "body_column_1",
+                                                            "aria-label": "",
+                                                            "type": "number",
+                                                            "instructions": "",
+                                                            "required": 0,
+                                                            "conditional_logic": 0,
+                                                            "wrapper": {
+                                                                "width": "",
+                                                                "class": "",
+                                                                "id": ""
+                                                            },
+                                                            "wpml_cf_preferences": 1,
+                                                            "default_value": "",
+                                                            "min": 0,
+                                                            "max": "",
+                                                            "placeholder": "",
+                                                            "step": "",
+                                                            "prepend": "",
+                                                            "append": "",
+                                                            "parent_repeater": "field_63d2b00376f69"
+                                                        },
+                                                        {
+                                                            "key": "field_63d2b00376f6c",
+                                                            "label": "Body Column 2",
+                                                            "name": "body_column_2",
+                                                            "aria-label": "",
+                                                            "type": "number",
+                                                            "instructions": "",
+                                                            "required": 0,
+                                                            "conditional_logic": 0,
+                                                            "wrapper": {
+                                                                "width": "",
+                                                                "class": "",
+                                                                "id": ""
+                                                            },
+                                                            "wpml_cf_preferences": 1,
+                                                            "default_value": "",
+                                                            "min": 0,
+                                                            "max": "",
+                                                            "placeholder": "",
+                                                            "step": "",
+                                                            "prepend": "",
+                                                            "append": "",
+                                                            "parent_repeater": "field_63d2b00376f69"
+                                                        },
+                                                        {
+                                                            "key": "field_63d2b00376f6d",
+                                                            "label": "Body Column 3",
+                                                            "name": "body_column_3",
+                                                            "aria-label": "",
+                                                            "type": "number",
+                                                            "instructions": "",
+                                                            "required": 0,
+                                                            "conditional_logic": 0,
+                                                            "wrapper": {
+                                                                "width": "",
+                                                                "class": "",
+                                                                "id": ""
+                                                            },
+                                                            "wpml_cf_preferences": 1,
+                                                            "default_value": "",
+                                                            "min": 0,
+                                                            "max": "",
+                                                            "placeholder": "",
+                                                            "step": "",
+                                                            "prepend": "",
+                                                            "append": "",
+                                                            "parent_repeater": "field_63d2b00376f69"
+                                                        },
+                                                        {
+                                                            "key": "field_63d2b00376f6e",
+                                                            "label": "Body Column 4",
+                                                            "name": "body_column_4",
+                                                            "aria-label": "",
+                                                            "type": "number",
+                                                            "instructions": "",
+                                                            "required": 0,
+                                                            "conditional_logic": 0,
+                                                            "wrapper": {
+                                                                "width": "",
+                                                                "class": "",
+                                                                "id": ""
+                                                            },
+                                                            "wpml_cf_preferences": 1,
+                                                            "default_value": "",
+                                                            "min": 0,
+                                                            "max": "",
+                                                            "placeholder": "",
+                                                            "step": "",
+                                                            "prepend": "",
+                                                            "append": "",
+                                                            "parent_repeater": "field_63d2b00376f69"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "key": "field_63c15c8f58834",
+                                    "label": "Content",
+                                    "name": "content",
+                                    "aria-label": "",
+                                    "type": "wysiwyg",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "show_prefix": 0,
+                                    "maxlength": 2000,
+                                    "wpml_cf_preferences": 1,
+                                    "default_value": "",
+                                    "tabs": "all",
+                                    "toolbar": "full",
+                                    "media_upload": 1,
+                                    "delay": 0,
+                                    "parent_repeater": "field_63c15c8f437e7"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "key": "field_63d2e05b49c2e",
+                    "label": "Measure Chapter 10",
+                    "name": "measure_chapter_10",
+                    "aria-label": "",
+                    "type": "repeater",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_63d2d8df316ec",
+                                "operator": "==",
+                                "value": "Chapter 10"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "wpml_cf_preferences": 1,
+                    "layout": "block",
+                    "min": 0,
+                    "max": 0,
+                    "collapsed": "",
+                    "button_label": "Add Measure",
+                    "rows_per_page": 20,
+                    "parent_repeater": "field_63c15c8e90996",
+                    "sub_fields": [
+                        {
+                            "key": "field_63d2e02195525",
+                            "label": "Measure item",
+                            "name": "",
+                            "aria-label": "",
+                            "type": "accordion",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": "",
+                            "open": 0,
+                            "multi_expand": 0,
+                            "endpoint": 0,
+                            "parent_repeater": "field_63d2e05b49c2e"
+                        },
+                        {
+                            "key": "field_63d2db3e37643",
+                            "label": "Title",
+                            "name": "title",
+                            "aria-label": "",
+                            "type": "repeater",
+                            "instructions": "1 Row - Title <\/br>\r\n2 Row - Subtitle <\/br>\r\nNext Rows - Content",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": 1,
+                            "layout": "block",
+                            "min": 0,
+                            "max": 0,
+                            "collapsed": "",
+                            "button_label": "Add Title",
+                            "rows_per_page": 20,
+                            "parent_repeater": "field_63d2e05b49c2e",
+                            "sub_fields": [
+                                {
+                                    "key": "field_63d2e0d288fab",
+                                    "label": "Item",
+                                    "name": "",
+                                    "aria-label": "",
+                                    "type": "accordion",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "wpml_cf_preferences": 0,
+                                    "open": 0,
+                                    "multi_expand": 0,
+                                    "endpoint": 0,
+                                    "parent_repeater": "field_63d2db3e37643"
+                                },
+                                {
+                                    "key": "field_63d2de0d18194",
+                                    "label": "Title \/ Content",
+                                    "name": "title_content",
+                                    "aria-label": "",
+                                    "type": "wysiwyg",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "wpml_cf_preferences": 1,
+                                    "default_value": "",
+                                    "tabs": "all",
+                                    "toolbar": "full",
+                                    "media_upload": 1,
+                                    "delay": 0,
+                                    "parent_repeater": "field_63d2db3e37643"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_63d2dbf3f5d78",
+                            "label": "Tables",
+                            "name": "tables",
+                            "aria-label": "",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": 1,
+                            "layout": "block",
+                            "min": 0,
+                            "max": 0,
+                            "collapsed": "",
+                            "button_label": "Add Table",
+                            "rows_per_page": 20,
+                            "parent_repeater": "field_63d2e05b49c2e",
+                            "sub_fields": [
+                                {
+                                    "key": "field_63d2dbf3f5d79",
+                                    "label": "Tables",
+                                    "name": "",
+                                    "aria-label": "",
+                                    "type": "accordion",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "wpml_cf_preferences": 0,
+                                    "open": 0,
+                                    "multi_expand": 0,
+                                    "endpoint": 0,
+                                    "parent_repeater": "field_63d2dbf3f5d78"
+                                },
+                                {
+                                    "key": "field_63d2dbf3f5d7b",
+                                    "label": "Table type",
+                                    "name": "table_type",
+                                    "aria-label": "",
+                                    "type": "checkbox",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "wpml_cf_preferences": 0,
+                                    "choices": {
+                                        "per_language": "Per Language",
+                                        "per_member_states": "Per Member States"
+                                    },
+                                    "default_value": [],
+                                    "return_format": "value",
+                                    "allow_custom": 0,
+                                    "save_custom": 0,
+                                    "layout": "horizontal",
+                                    "toggle": 1,
+                                    "parent_repeater": "field_63d2dbf3f5d78"
+                                },
+                                {
+                                    "key": "field_63d2dcb1f5d90",
+                                    "label": "Table Title",
+                                    "name": "table_title",
+                                    "aria-label": "",
+                                    "type": "textarea",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "wpml_cf_preferences": 2,
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "rows": "",
+                                    "placeholder": "",
+                                    "new_lines": "br",
+                                    "parent_repeater": "field_63d2dbf3f5d78"
+                                },
+                                {
+                                    "key": "field_63d2dbf3f5d7c",
+                                    "label": "Table head",
+                                    "name": "table_head",
+                                    "aria-label": "",
+                                    "type": "repeater",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "wpml_cf_preferences": 2,
+                                    "layout": "table",
+                                    "min": 1,
+                                    "max": 1,
+                                    "collapsed": "",
+                                    "button_label": "Add Row",
+                                    "rows_per_page": 20,
+                                    "parent_repeater": "field_63d2dbf3f5d78",
+                                    "sub_fields": [
+                                        {
+                                            "key": "field_63d2dbf3f5d7e",
+                                            "label": "Title Column 1",
+                                            "name": "table_title_column_1",
+                                            "aria-label": "",
+                                            "type": "textarea",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "wpml_cf_preferences": 2,
+                                            "default_value": "",
+                                            "maxlength": "",
+                                            "rows": "",
+                                            "placeholder": "",
+                                            "new_lines": "",
+                                            "parent_repeater": "field_63d2dbf3f5d7c"
+                                        },
+                                        {
+                                            "key": "field_63d2e3b24cfac",
+                                            "label": "Title Column 2",
+                                            "name": "table_title_column_2",
+                                            "aria-label": "",
+                                            "type": "textarea",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "wpml_cf_preferences": 2,
+                                            "default_value": "",
+                                            "maxlength": "",
+                                            "rows": "",
+                                            "placeholder": "",
+                                            "new_lines": "",
+                                            "parent_repeater": "field_63d2dbf3f5d7c"
+                                        },
+                                        {
+                                            "key": "field_63d2e3b54cfad",
+                                            "label": "Title Column 3",
+                                            "name": "table_title_column_3",
+                                            "aria-label": "",
+                                            "type": "textarea",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "wpml_cf_preferences": 2,
+                                            "default_value": "",
+                                            "maxlength": "",
+                                            "rows": "",
+                                            "placeholder": "",
+                                            "new_lines": "",
+                                            "parent_repeater": "field_63d2dbf3f5d7c"
+                                        },
+                                        {
+                                            "key": "field_63d2e417597d8",
+                                            "label": "Title Column 4",
+                                            "name": "table_title_column_4",
+                                            "aria-label": "",
+                                            "type": "textarea",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "wpml_cf_preferences": 2,
+                                            "default_value": "",
+                                            "maxlength": "",
+                                            "rows": "",
+                                            "placeholder": "",
+                                            "new_lines": "",
+                                            "parent_repeater": "field_63d2dbf3f5d7c"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "key": "field_63d2dbf3f5d80",
+                                    "label": "Table body",
+                                    "name": "table_body",
+                                    "aria-label": "",
+                                    "type": "repeater",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "wpml_cf_preferences": 2,
+                                    "layout": "table",
+                                    "min": 0,
+                                    "max": 0,
+                                    "collapsed": "",
+                                    "button_label": "Add Row",
+                                    "rows_per_page": 20,
+                                    "parent_repeater": "field_63d2dbf3f5d78",
+                                    "sub_fields": [
+                                        {
+                                            "key": "field_63d2dbf3f5d82",
+                                            "label": "Body Column 1",
+                                            "name": "table_body_column_1",
+                                            "aria-label": "",
+                                            "type": "textarea",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "wpml_cf_preferences": 2,
+                                            "default_value": "",
+                                            "maxlength": "",
+                                            "rows": "",
+                                            "placeholder": "",
+                                            "new_lines": "",
+                                            "parent_repeater": "field_63d2dbf3f5d80"
+                                        },
+                                        {
+                                            "key": "field_63d2e2e08595c",
+                                            "label": "Body Column 2",
+                                            "name": "table_body_column_2",
+                                            "aria-label": "",
+                                            "type": "textarea",
+                                            "instructions": "500 character limit",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "wpml_cf_preferences": 2,
+                                            "default_value": "",
+                                            "maxlength": "",
+                                            "rows": "",
+                                            "placeholder": "",
+                                            "new_lines": "",
+                                            "parent_repeater": "field_63d2dbf3f5d80"
+                                        },
+                                        {
+                                            "key": "field_63d2e2e28595d",
+                                            "label": "Body Column 3",
+                                            "name": "table_body_column_3",
+                                            "aria-label": "",
+                                            "type": "textarea",
+                                            "instructions": "2000 character limit",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "wpml_cf_preferences": 2,
+                                            "default_value": "",
+                                            "maxlength": "",
+                                            "rows": "",
+                                            "placeholder": "",
+                                            "new_lines": "",
+                                            "parent_repeater": "field_63d2dbf3f5d80"
+                                        },
+                                        {
+                                            "key": "field_63d2e41e597d9",
+                                            "label": "Body Column 4",
+                                            "name": "table_body_column_4",
+                                            "aria-label": "",
+                                            "type": "textarea",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "wpml_cf_preferences": 2,
+                                            "default_value": "",
+                                            "maxlength": "",
+                                            "rows": "",
+                                            "placeholder": "",
+                                            "new_lines": "",
+                                            "parent_repeater": "field_63d2dbf3f5d80"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "signatory-report"
+            },
+            {
+                "param": "page_type",
+                "operator": "==",
+                "value": "child"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+        "permalink",
+        "the_content",
+        "excerpt",
+        "discussion",
+        "comments",
+        "revisions",
+        "slug",
+        "author",
+        "format",
+        "featured_image",
+        "categories",
+        "tags",
+        "send-trackbacks"
+    ],
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1674817597
+}

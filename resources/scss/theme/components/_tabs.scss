@@ -1,0 +1,72 @@
+[data-tabs] {
+  [data-tab] {
+    display: none;
+
+    &.active {
+      display: block;
+    }
+  }
+}
+
+.sk-tabs {
+  &--lg &__nav {
+    li {
+      flex: 1 1 auto;
+    }
+
+    &-link {
+      font-size: 16px;
+      line-height: 1.5em;
+      padding: 12px 4px;
+    }
+  }
+
+  &__nav {
+    @include flex_align(flex-start);
+
+    border-bottom: 1px solid var(--sk-color-gray-200);
+    gap: 17px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    &-link {
+      background-color: transparent;
+      border: none;
+      color: var(--sk-color-gray-500);
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: -0.01em;
+      line-height: 1.357em;
+      padding: 10px 4px;
+      position: relative;
+      text-align: center;
+      width: 100%;
+
+      @include transition;
+
+      &::before {
+        background-color: transparent;
+        bottom: 0;
+        content: "";
+        height: 2px;
+        left: 0;
+        position: absolute;
+        right: 0;
+
+        @include transition;
+      }
+
+      &:hover,
+      &:focus,
+      &.active {
+        color: var(--sk-color-indigo-700);
+      }
+
+      &.active::before {
+        background-color: currentColor;
+      }
+    }
+  }
+}

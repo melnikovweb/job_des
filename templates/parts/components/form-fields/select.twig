@@ -1,0 +1,88 @@
+{% set class = 'sk-form' %}
+
+{% set select = select is not empty ? true : false %}
+
+{% if options is not empty %}
+	<div class="{{ class }}-field {{ class }}-select js-{{ class }}-select {{ single ? 'js-' ~ class ~ '-select-single' : '' }}">
+
+		{% if label %}
+			<label class="{{ class }}-label" for="{{ id }}">{{ label }}</label>
+		{% endif %}
+
+		<div class="{{ class }}-wrapper-icon">
+
+			<div class="{{ class }}-select-default-label">
+				<span>{{ defaultLabel ?? __( 'All', THEME_TD ) }}</span>
+				<svg>
+					<use href="#icon-chevron-down"></use>
+				</svg>
+			</div>
+
+			<div class="{{ class }}-select-selected js-{{ class }}-select-selected"></div>
+
+			<input class="{{ class }}-select-control js-{{ class }}-select-control" name="search" type="text" placeholder="{{ placeholder }}"/>
+			{% if inputIcon %}
+				<svg>
+					<use href="#icon-{{ inputIcon }}"></use>
+				</svg>
+			{% endif %}
+
+			<div class="{{ class }}-select-wrapper">
+				<ul class="{{ class }}-select-options js-{{ class }}-select-result">
+					{% for index, option in options %}
+						{% if option %}
+							<li class="{{ class }}-select-option js-{{ class }}-select-option {{ maxVisible and index > maxVisible ? 'hidden' : ''  }}">
+								{% include 'parts/components/form-fields/checkbox.twig' with {
+                                    'type': type ?? 'checkbox',
+                                    'action': action,
+                                    'name': name ~ '[]',
+                                    'taxonomy': id,
+                                    'term_id': option.term_id,
+                                    'value': option.name,
+                                    'placeholder': option.name,
+                                    'dataLabel': option.name,
+                                    'disableURLParams': disableURLParams,
+									'urlParams': urlParams
+                                } only %}
+								<svg class="option-icon">
+									<use href="#icon-check"></use>
+								</svg>
+							</li>
+						{% endif %}
+					{% endfor %}
+
+					{% if maxVisible and options|length > maxVisible %}
+						{% set textMore = 'Show '~offset~' more' %}
+						<li class="sk-form-more js-sk-form-noresults-text" data-action="loadmore" data-offset={{ offset }} data-count={{ offset }}>
+							{{ __(textMore, THEME_TD ) }}
+						</li>
+					{% endif %}
+				</ul>
+				<div class="{{ class }}-select-noresult js-{{ class }}-select-noresult">
+					{{ __( 'Sorry, nothing found', THEME_TD ) }}
+					<span class="js-{{ class }}-noresults-text"></span>
+				</div>
+			</div>
+		</div>
+
+		{% if helpText %}
+			<span class="{{ class }}-help-text">{{ helpText }}</span>
+		{% endif %}
+
+	</div>
+{% endif %}
+
+{# use
+
+{% include 'parts/components/form-fields/select.twig' with {
+	'id': 'id',
+	'name': 'name',
+    'label': __( 'Search', THEME_TD ),
+    'placeholder': __( 'Search', THEME_TD ),
+    'helpText': __( 'This is a hint text to help user.', THEME_TD ),
+    'defaultLabel': __( 'All', THEME_TD ),
+	'inputIcon': 'search-input',
+    'options': [],
+} only %}
+
+#}

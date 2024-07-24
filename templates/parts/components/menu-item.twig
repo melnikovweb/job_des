@@ -1,0 +1,20 @@
+<li class="{{ item.classes | join(' ') }} {{ item.children ? "dropdown custom-submenu has-submenu" : "" }} depth-{{ item.level }} {{ item.link_type }} {{ item.link_type == "sk-btn" ? item.button_type : "" }}">
+	{% if item.link == '#' %}
+		<a  class="no-link dropdown-toggle" href="javascript:void(0)">
+		{% elseif item.children == true %}
+			<a class="dropdown-toggle" href="{{ item.link }}">
+		{% else %}
+			<a target="{{ item.target }}" href="{{ item.link }}">
+		{% endif %}
+
+		{{ item.title }}
+	</a>
+
+	{% if item.children %}
+		{% include "parts/components/menu-dropdown.twig" with {'items': item.children, 'level': item.level } %}
+		<button id="menu-item-{{ item.id }}" class="caret" aria-controls="dropdown-menu-{{ item.id }}" aria-expanded="false" title="Toggle menu">
+			<span class="caret-text">Toggle menu</span>
+		</button>
+	{% endif %}
+
+</li>

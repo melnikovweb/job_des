@@ -1,0 +1,91 @@
+.sk-wp-editor {
+  h1,
+  .sk-text--h1 {
+    margin-bottom: 30px;
+
+    @include breakpoint-down(sm) {
+      margin-bottom: 24px;
+    }
+  }
+
+  h2,
+  .sk-text--h2 {
+    margin-bottom: 30px;
+
+    @include breakpoint-down(sm) {
+      margin-bottom: 24px;
+    }
+  }
+
+  h3,
+  .sk-text--h3 {
+    margin-bottom: 30px;
+
+    @include breakpoint-down(sm) {
+      margin-bottom: 24px;
+    }
+  }
+
+  h4,
+  .sk-text--h4 {
+    margin-bottom: 30px;
+
+    @include breakpoint-down(sm) {
+      margin-bottom: 24px;
+    }
+  }
+
+  h5,
+  .sk-text--h5 {
+    margin-bottom: 30px;
+
+    @include breakpoint-down(sm) {
+      margin-bottom: 24px;
+    }
+  }
+
+  h6,
+  .sk-text--h6 {
+    margin-bottom: 30px;
+
+    @include breakpoint-down(sm) {
+      margin-bottom: 24px;
+    }
+  }
+
+  p {
+    margin-bottom: 30px;
+
+    @include breakpoint-down(sm) {
+      margin-bottom: 24px;
+    }
+
+    & + h1,
+    & + h2,
+    & + h3,
+    & + h4,
+    & + h5,
+    & + h6 {
+      margin-top: 50px;
+
+      @include breakpoint-down(sm) {
+        margin-top: 40px;
+      }
+    }
+  }
+
+  br {
+    @include breakpoint-down(md) {
+      display: none;
+    }
+  }
+
+  ul {
+    padding-left: 20px;
+    margin: 40px 0;
+
+    @include breakpoint-down(sm) {
+      margin: 30px 0;
+    }
+  }
+}

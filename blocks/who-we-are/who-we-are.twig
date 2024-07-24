@@ -1,0 +1,64 @@
+<section id="{{ classes }}" class="{{ classes }} {{ classes ~ '__' ~ fields.type.value }}">
+
+  <div class="sk-container">
+    <div class="{{ classes }}-row">
+      {% if subtitle or title or description %}
+        <div class="{{ classes }}-column">
+          {% if subtitle %}
+            <h2 class="sk-subtitle">{{ subtitle }}</h2>
+          {% endif %}
+          {% if title %}
+            <h3 class="{{ classes }}-title sk-text--h2">{{ title }}</h3>
+          {% endif %}
+          {% if description %}
+            {{ description }}
+          {% endif %}
+        </div>
+      {% endif %}
+
+
+      {% if list_items is not empty %}
+        <div class="{{ classes }}-column">
+          <ul class="{{ classes }}-items">
+            {% for item in list_items %}
+              <li>
+                <div class="{{ classes }}-item">
+                  {% if item.icon %}
+                    <div class="{{ classes }}-item-image circle-icon">
+                      {% include 'parts/components/image.twig' with {'id': item.icon, 'classes': 'img-fluid', 'sizes': '24px'} only %}
+                    </div>
+                  {% endif %}
+                  {% if item.title or item.content %}
+                    <div class="{{ classes }}-item-content">
+                      {% if item.title %}
+                        <h3 class="{{ classes }}-item-title">{{ item.title }}</h3>
+                      {% endif %}
+                      {% if item.content %}
+                        {{ item.content }}
+                      {% endif %}
+                    </div>
+                  {% endif %}
+                </div>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+
+  {% if img_desktop or img_mobile %}
+    <div class="sk-container {{ classes }}-container-image">
+      {% if img_desktop %}
+        <div class="{{ classes }}-wrap-image sk-only-d">
+          {% include 'parts/components/image.twig' with {'id': img_desktop, 'classes': 'object-fit', 'sizes': '(max-width: 991px) 710px, (max-width: 1279px) 940px, 1216px'} only %}
+        </div>
+      {% endif %}
+      {% if img_mobile %}
+        <div class="{{ classes }}-wrap-image sk-only-m">
+          {% include 'parts/components/image.twig' with {'id': img_mobile, 'classes': 'object-fit', 'sizes': '100vw'} only %}
+        </div>
+      {% endif %}
+    </div>
+  {% endif %}
+</section>

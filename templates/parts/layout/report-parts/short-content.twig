@@ -1,0 +1,21 @@
+{% if shortContent is not empty %}
+	<div class="{{ classPageContent }}__block js-sub-report-block">
+		<div class="{{ classPageContent }}__wrapper">
+			<h2 id="{{'specific-measures-' ~ commitmentID}}" class="{{ classPageContent }}__block-title js-first-level-title" data-title="{{ __( 'Specific measures', THEME_TD ) }}">
+				{{ __( 'Specific measures', THEME_TD ) }}
+			</h2>
+		</div>
+
+		{% for content in shortContent %}
+			{% set accContent = include( 'parts/layout/report-parts/short-content-parts/acc-content.twig', { 'content': content } ) %}
+			{% set title = content.title ? content.title.label ? content.title.label : '' %}
+			{% set accItem = {
+				'title': title,
+				'content': accContent
+			} %}
+			<div class="{{ classPageContent }}__wrapper {{ classPageContent }}__wrapper-mobile">
+				{% include 'parts/components/accordion.twig' with accItem only %}
+			</div>
+		{% endfor %}
+	</div>
+{% endif %}

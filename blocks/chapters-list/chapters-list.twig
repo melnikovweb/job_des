@@ -1,0 +1,61 @@
+<section id="{{ class }}" class="{{ class }} {{ demo ? class ~ '-' ~ fields.section_height : class ~ '-m' }} {{ classes }} {{ block_classes }}" {{ block.anchor ? 'id=' ~ block.anchor : null }}>
+  <div class="sk-container">
+
+    {% if not (fields.blockdescription is empty) %}
+    <div class="{{ class }}-block-description">
+    {{fields.blockdescription}}
+  </div> 
+
+  {% endif %}
+
+    <div class="{{ class }}-content">
+
+  {% for chapter in chapters_arr %}
+    
+      <div class="{{ class }}-card">
+        <div class="{{ class }}-card-inner">
+          <div class="{{ class }}-card-overlay"></div>
+        <a href="{{chapter.url}}">
+          
+          {% if not (chapter.image is empty) %}
+          {% include 'parts/components/image.twig' with {'id': chapter.image, 'classes': 'chapters-list-image', 'sizes': '480px'} only %}
+          {% endif %}
+
+          <div class="{{ class }}-inner">
+
+          {% if not (chapter.title is empty) %}
+          <svg ><use href="#icon-arrow-top"></use></svg>
+          <div class="{{ class }}-title">{{chapter.title}}</div>
+          {% endif %}
+
+          {% if not (chapter.description is empty) %}
+            <div class="{{ class }}-description">{{ chapter.description }}</div>
+          {% endif %}
+           </div> 
+
+        </a>
+      </div> 
+    </div> 
+    {% endfor %}
+    </div>
+ 
+      {% if not (fields.button is empty) %}
+    <div class="{{ class }}-buttons">
+
+        {% set target = fields.button.target ? '_blank' : '_self' %}
+        <a class="sk-btn sk-btn--secondary" href="{{ fields.button.url }}"
+           target="{{ target }}">{{ fields.button.title }}<svg><use href="#icon-arrow-right"></use></svg></a>
+          </div>
+      {% endif %}
+
+      {% if not (fields.button_second is empty) %}
+    <div class="{{ class }}-buttons">
+
+        {% set target = fields.button_second.target ? '_blank' : '_self' %}
+        <a class="sk-btn sk-btn--primary" href="{{ fields.button_second.url }}"
+           target="{{ target }}">{{ fields.button_second.title }}<svg><use href="#icon-download"></use></svg></a>
+          </div>
+      {% endif %}
+
+</div>
+</section>

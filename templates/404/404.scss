@@ -1,0 +1,20 @@
+@import "./../../resources/scss/theme/mixins/all.scss";
+@import "./../../blocks/title-block/title-block.scss";
+
+.error404 .wrapper {
+  padding: calc(var(--sk-container-padding) * 3) 0;
+  text-align: center;
+
+  p {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 28px;
+    color: var(--color-black-600);
+    margin: 30px !important;
+
+    @include breakpoint-down(sm) {
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+}

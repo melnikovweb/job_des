@@ -1,0 +1,50 @@
+<section class="{{ class }} {{ classes }} {{ block_classes }}">
+  <div class="sk-container">
+    
+    <div class="advanced-search__filter">
+      {% include "./parts/search-form.twig" %}
+
+      {% include "./parts/search-bar.twig" %}
+    </div>
+
+
+    <div class="advanced-search__body">
+      <p class="advanced-search__results_count"></p>
+
+      <div class="advanced-search__results">
+
+        <div class="advanced-search__results_list"
+          data-post-loop
+          data-total-pages="{{totalPages}}"
+          data-current-page="{{currentPage}}"
+          data-posts-per-page="{{postsPerPage}}"
+        >
+          
+        </div>
+        
+        {% include 'parts/components/noresults-search.twig' with { hidden: true } %}
+        {% include "parts/components/loader.twig" only %}
+
+      </div>
+    </div>
+
+    {# template for JS loading #}
+    <template class="advanced-search__template">
+        <div class="post-item">
+          <a
+            data-post-field="post_link"
+            href="{{ post.post_link }}"
+            class="post-item__link"
+          >
+            <span data-post-field="post_title">
+              {{ post.post_title }}
+            </span>
+          </a>
+          <p data-post-field="post_excerpt" class="post-item__excerpt">{{ post.post_excerpt }}</p>
+      </div>
+    </template>
+
+    <div class="advanced-search__pagination pagination">{# rendered with JS #}</div>
+
+  </div>
+</section>

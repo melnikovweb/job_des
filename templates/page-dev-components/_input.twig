@@ -1,0 +1,31 @@
+{% include 'parts/components/form-fields/input.twig' with {
+	'id': 'id_01',
+	'name': 'name',
+	'type': 'text',
+	'value': '',
+	'placeholder': 'Placeholder',
+	'required': true,
+	'disabled': false,
+} only %}
+
+{% include 'parts/components/form-fields/input.twig' with {
+	'id': 'search',
+	'type': 'text',
+	'name': 'name',
+	'placeholder': 'Search',
+	'label': 'Search',
+	'helpText': 'This is a hint text to help user.',
+	'required': true,
+	'disabled': false,
+	'inputIcon': 'search-input',
+} only %}
+
+{% include 'parts/components/form-fields/input.twig' with {
+	'id': 'name',
+	'type': 'text',
+	'name': 'name',
+	'placeholder': 'Signatory name',
+	'label': 'Signatory Name',
+} only %}
+
+<hr>

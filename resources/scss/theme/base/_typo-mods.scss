@@ -1,0 +1,57 @@
+.sk-typo-mod {
+  &-color-primary {
+    color: var(--sk-color-primary);
+  }
+
+  &-color-second {
+    color: var(--sk-color-second);
+  }
+
+  &-color-third {
+    color: var(--sk-color-third);
+  }
+
+  &-bg-color-primary {
+    background: var(--sk-color-primary);
+  }
+
+  &-bg-color-second {
+    background: var(--sk-color-second);
+  }
+
+  &-bg-color-third {
+    background: var(--sk-color-third);
+  }
+
+  &-font-100 {
+    font-weight: 100;
+  }
+
+  &-font-200 {
+    font-weight: 200;
+  }
+
+  &-font-300 {
+    font-weight: 300;
+  }
+
+  &-font-400 {
+    font-weight: 400;
+  }
+
+  &-font-500 {
+    font-weight: 500;
+  }
+
+  &-font-600 {
+    font-weight: 600;
+  }
+
+  &-font-700 {
+    font-weight: 700;
+  }
+
+  &-font-900 {
+    font-weight: 900;
+  }
+}

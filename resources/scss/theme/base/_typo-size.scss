@@ -1,0 +1,42 @@
+/* stylelint-disable */
+:root {
+  //line height / font size
+  --sk-line-height--body: #{(27/20)};
+  --sk-line-height--h1: #{(72/60)};
+  --sk-line-height--h2: #{(40/36)};
+  --sk-line-height--h3: #{(48/32)};
+  --sk-line-height--h4: #{(33/30)};
+  --sk-line-height--subtitle: #{(18/13)};
+
+  --sk-line-height--h5: #{(38/24)};
+  --sk-line-height--h6: #{(38/24)};
+
+  --sk-text-base-size: #{clamp-calc(18px, 20px)};
+
+  --sk-text--h1-up: #{clamp-calc(40px, 80px)};
+  --sk-text--h1: #{clamp-calc(36px, 60px)};
+  --sk-text--h2: #{clamp-calc(30px, 36px)};
+  --sk-text--h3: #{clamp-calc(24px, 32px)};
+  --sk-text--h4: #{clamp-calc(26px, 30px)};
+  --sk-text--subtitle: 13px;
+
+  --sk-text--h5: #{clamp-calc(20px, 24px)};
+  --sk-text--h6: #{clamp-calc(20px, 22px)};
+  --sk-text-btn--xs: 14px;
+  --sk-text-btn--lg: 20px;
+  --sk-text--xs: 14px;
+  --sk-text--2xs: 12px;
+}
+
+@include breakpoint-down(sm) {
+  :root {
+    --sk-line-height--body: #{(28/18)};
+    --sk-line-height--h1: #{(40/36)};
+    --sk-line-height--h2: #{(38/30)};
+    --sk-line-height--h3: #{(38/24)};
+    --sk-line-height--h4: #{(32/26)};
+
+    --sk-line-height--h5: #{(32/20)};
+    --sk-line-height--h6: #{(28/20)};
+  }
+}

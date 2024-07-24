@@ -1,0 +1,12 @@
+{% if tbody is not empty %}
+	<tbody data-sort-table>
+		{% set rows = tbody %}
+		{% for row in rows %}
+			<tr class="{{ row.sort ? 'sort' : 'not-sort' }}">
+				{% for col in row.cols %}
+					<td data-sort-key="{{ col.sortBy }}" data-sort-value="{{ col.title }}">{{ col.title }}</td>
+				{% endfor %}
+			</tr>
+		{% endfor %}
+	</tbody>
+{% endif %}

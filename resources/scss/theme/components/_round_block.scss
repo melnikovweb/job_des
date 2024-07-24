@@ -1,0 +1,22 @@
+.sk-round-block {
+  border: 1px solid var(--sk-color-grey-blue-800);
+  border-radius: 30px;
+  color: var(--sk-color-grey-blue-800);
+  display: inline-block;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.35em;
+  min-width: 90px;
+  padding: 9px 19px;
+  text-align: center;
+
+  &--sm {
+    @include breakpoint-down(sm) {
+      font-size: 13px;
+      letter-spacing: 0.07em;
+      line-height: 1.385em;
+      min-width: 54px;
+      padding: 9px 10px;
+    }
+  }
+}

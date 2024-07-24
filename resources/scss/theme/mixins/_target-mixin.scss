@@ -1,0 +1,18 @@
+/* stylelint-disable */
+@mixin target-ie11 {
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    @content;
+  }
+}
+
+@mixin target-edge {
+  @supports (-ms-ime-align: auto) {
+    @content;
+  }
+}
+
+@mixin target-safari {
+  @media not all and (min-resolution: .001dpcm) {
+    @content;
+  }
+}

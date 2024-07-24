@@ -1,0 +1,5 @@
+{% for tab in tabs %}
+	<div class="{{ loop.index == 1 ? 'active' : '' }}" data-tab="tab_0{{ loop.index }}" data-tab-parent="{{ parentId }}{{parentTabId}}">
+		{{ tab.content }}
+	</div>
+{% endfor %}

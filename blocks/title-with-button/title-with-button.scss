@@ -1,0 +1,78 @@
+@import "resources/scss/theme/mixins/all";
+
+.wp-block .title-with-button,
+.title-with-button {
+  padding: 96px 0;
+  background: var(--sk-color-gray-50);
+  overflow: hidden;
+
+  @include flex_align(flex-start, center);
+
+  @include breakpoint-down(sm) {
+    padding: 64px 0 0;
+  }
+
+  &-content {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 2;
+    align-items: center;
+  }
+
+  &-title {
+    text-align: center;
+    font-weight: 700;
+    font-size: 60px;
+    line-height: 66px;
+    margin-bottom: 24px;
+    color: var(--sk-text-primary-dark);
+
+    @include breakpoint-down(md) {
+      font-size: 36px;
+      line-height: 40px;
+      padding: 0 50px;
+      margin-bottom: 16px;
+    }
+  }
+
+  &-subtitle {
+    text-align: center;
+    margin-bottom: 12px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 18px;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--sk-color-text-subtle);
+  }
+
+  &-description,
+  &-description p {
+    color: var(--sk-text-primary-dark);
+    text-align: center;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 27px;
+    max-width: 771px;
+    padding-bottom: 64px;
+
+    @include breakpoint-down(md) {
+      font-size: 18px;
+      line-height: 28px;
+      padding-bottom: 32px;
+    }
+  }
+
+  &-buttons {
+    text-align: center;
+  }
+
+  a.sk-btn svg {
+    height: 20px;
+    margin-left: 7px;
+    margin-top: -2px;
+    width: 20px;
+  }
+}

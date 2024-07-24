@@ -1,0 +1,124 @@
+<h3>Accordion</h3>
+<br>
+
+{% set table = {
+    'search': {
+        'id': 'table_search',
+		'name': 'table_search',
+		'label': __( 'Search by Country', THEME_TD ),
+		'placeholder': __( 'Search', THEME_TD ),
+		'helpText': __( 'Search below to find out more on individual countries, or click on columns to sort data.', THEME_TD ),
+		'inputIcon': 'search-input',
+		'options': [
+            'Austria',
+            'Belgium',
+            'Croatia',
+            'Latvia',
+        ],
+    },
+    'thead': [
+        {
+            title: 'Country',
+            sortBy: 'title',
+            sortType: 'text',
+        },
+        {
+            title: 'Number by actions enforcing policies (Page)',
+            sortBy: 'number-actions-page',
+            sortType: 'number',
+        },
+        {
+            title: 'Number by actions enforcing policies (Domain)',
+            sortBy: 'number-actions-domain',
+            sortType: 'number',
+        },
+    ],
+    'tbody': [
+        [
+            {
+                title: 'Austria',
+                sortKey: 'title'
+            },
+            {
+                title: '100',
+                sortKey: 'number-actions-page'
+            },
+            {
+                title: '100',
+                sortKey: 'number-actions-domain'
+            },
+        ],
+        [
+            {
+                title: 'Belgium',
+                sortKey: 'title'
+            },
+            {
+                title: '150',
+                sortKey: 'number-actions-page'
+            },
+            {
+                title: '20',
+                sortKey: 'number-actions-domain'
+            },
+        ],
+        [
+            {
+                title: 'Croatia',
+                sortKey: 'title'
+            },
+            {
+                title: '200',
+                sortKey: 'number-actions-page'
+            },
+            {
+                title: '10',
+                sortKey: 'number-actions-domain'
+            },
+        ],
+        [
+            {
+                title: 'Latvia',
+                sortKey: 'title'
+            },
+            {
+                title: '160',
+                sortKey: 'number-actions-page'
+            },
+            {
+                title: '200',
+                sortKey: 'number-actions-domain'
+            },
+        ],
+    ],
+} %}
+
+{% set items = [
+    {
+        title: 'We signed up to the following measures of this commitment',
+        content: '<div><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p><p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div>',
+    },
+    {
+        title: 'In line with this commitment, did you deploy new implementation measures (e.g. changes to your terms of service, new tools, new policies, etc)?',
+        content: include( 'parts/components/form-fields/checkbox.twig', {
+            'type': 'radio',
+            'value': 'value',
+            'additText': 'Save my login details for next time.',
+            'placeholder': 'Remember me'
+        }),
+    },
+    {
+        title: 'If yes, list these implementation measures here',
+        content: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p><p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>',
+    },
+    {
+        title: 'Number by actions enforcing policies above (per country)',
+        content: include( 'parts/components/table.twig', table),
+    },
+] %}
+
+{% for item in items %}
+	{% include 'parts/components/accordion.twig' with item only %}
+{% endfor %}
+
+<hr>

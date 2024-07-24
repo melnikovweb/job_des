@@ -1,0 +1,26 @@
+.sk-list {
+  @include flex_align(flex-start, flex-start);
+
+  flex-direction: column;
+  list-style: none;
+  padding-left: 0;
+
+  > li {
+    @include flex_align();
+
+    margin: 0 0 10px;
+
+    &::before {
+      content: "\007E";
+      margin: 0 8px;
+    }
+
+    &::after {
+      content: "";
+    }
+
+    &:last-child::after {
+      display: none !important;
+    }
+  }
+}

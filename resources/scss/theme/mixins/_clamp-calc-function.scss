@@ -1,0 +1,9 @@
+// Min/Max resize fonts by media variables from resources/scss/theme/variables/_breakpoints.scss (xxs, xl)
+//Example usage: clamp-calc(20px, 60px)
+@function clamp-calc($size-at-min-width, $size-at-max-width, $min-width: get-media(xxs), $max-width: get-media(xl)) {
+
+  $slope: ($size-at-max-width - $size-at-min-width) / ($max-width - $min-width);
+  $y-axis-intersection: -1 * $min-width * $slope + $size-at-min-width;
+
+  @return clamp(#{$size-at-min-width}, #{$y-axis-intersection} + #{$slope} * 100vw, #{$size-at-max-width});
+}

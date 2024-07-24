@@ -1,0 +1,23 @@
+.circle-icon {
+  @include flex_align();
+
+  background-color: var(--sk-color-indigo-100);
+  border-radius: 24px;
+  height: 40px;
+  width: 40px;
+
+  svg {
+    height: 20px;
+    width: 20px;
+  }
+
+  @include breakpoint-up(sm) {
+    height: 48px;
+    width: 48px;
+
+    svg {
+      height: 24px;
+      width: 24px;
+    }
+  }
+}

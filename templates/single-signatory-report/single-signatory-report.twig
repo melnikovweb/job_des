@@ -1,0 +1,74 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+	<div class="content-wrapper">
+		<div class="post-type-{{ post.post_type }} {{ classes }}" id="post-{{ post.ID }}">
+
+			{% include "./template-parts/hero.twig" %}
+
+			<div class="row js-wrap-data-content js-scroll-spy-block" data-tabs>
+
+				{% include "parts/layout/loading.twig" %}
+
+				{% include "parts/layout/report-parts/sidebar.twig" with sidebar %}
+
+				<article class="{{ classPageContent }}">
+
+					<div class="{{ classPageContent }}__wrapper {{ classPageContent }}__chapter_nav">
+						{% set classTabs = 'sk-tabs' %}
+						<ul class="{{ classTabs }}__nav">
+							{% for item in sidebar %}
+								<li>
+									<button class="{{ classTabs }}__nav-link js-chapter-link {{ loop.index == 1 ? 'active' : '' }}" data-tab-nav="{{ 'chapter_' ~ item.term_id }}" data-tab-parent="chapter" data-url-params="chapter" data-params-action="replace" data-params-value="{{ item.term_id }}" data-params-key="chapter" aria-label="{{ tab.title }}">
+										{{ item.name }}
+									</button>
+								</li>
+							{% endfor %}
+						</ul>
+					</div>
+
+					<div class="{{ classPageContent }}__report">
+						{% for item in sidebar %}
+							<div class="js-chapter-tab {{ loop.index == 1 ? 'active' : '' }}" data-tab="{{ 'chapter_' ~ item.term_id }}" data-tab-parent="chapter">
+								<div class="{{ classPageContent }}__wrapper js-search-commitment">
+									{% if item.commitments %}
+										{% set select = {
+											'id': 'commitment',
+											'action': 'replace',
+											'name': 'commitment',
+											'label': __( 'Search by Commitment', THEME_TD ),
+											'placeholder': __( 'Search', THEME_TD ),
+											'helpText': __( 'Type or select commitment.', THEME_TD ),
+											'inputIcon': 'search-input',
+											'options': item.commitments,
+											'disableURLParams': false,
+											'single': true,
+											'urlParams': 'commitment'
+										} %}
+
+										{% include 'parts/components/form-fields/select.twig' with select only %}
+									{% endif %}
+								</div>
+
+								<div class="{{ classPageContent }}__results">
+
+									<div
+										class="js-commitment-post"
+										id="{{ 'chapter_' ~ item.term_id }}"
+										data-endpoint="commitment"
+										data-parent-post="{{ postID }}"
+										data-years="{{ report_year.term_id }}">
+									</div>
+
+								</div>
+							</div>
+
+						{% endfor %}
+					</div>
+				</article>
+			</div>
+		</div>
+	</div>
+	<!-- /content-wrapper -->
+{% endblock %}

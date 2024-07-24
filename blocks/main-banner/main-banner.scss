@@ -1,0 +1,218 @@
+@import "resources/scss/theme/mixins/all";
+
+.wp-block .main-banner,
+.main-banner {
+  position: relative;
+  padding: 64px 0 96px;
+  background: var(--sk-color-bg-primary);
+  overflow: hidden;
+
+  @include breakpoint-down(md) {
+    padding: 32px 0 0;
+  }
+
+  .sk-container {
+    @include breakpoint-down(sm) {
+      padding: 0;
+      background: #f9fafb;
+    }
+  }
+
+  &-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 64px;
+
+    @include breakpoint-down(md) {
+      flex-direction: column;
+      gap: 0;
+    }
+  }
+
+  &-column {
+    width: 100%;
+
+    &-left {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      padding-bottom: 65px;
+
+      @include breakpoint-down(md) {
+        order: 1;
+        padding-bottom: 0;
+        padding-left: var(--sk-container-padding);
+        padding-right: var(--sk-container-padding);
+      }
+    }
+
+    &-right {
+      padding-left: 20px;
+
+      @include breakpoint-down(md) {
+        order: 3;
+        padding-top: 33px;
+        padding-left: 0;
+      }
+    }
+
+    &-bottom {
+      @include breakpoint-down(md) {
+        order: 2;
+      }
+    }
+  }
+
+  &-content {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 2;
+  }
+
+  &-title {
+    font-weight: 700;
+    font-size: 60px;
+    line-height: 72px;
+    letter-spacing: -0.02em;
+    color: #293056; /* Grey Blue/800 */
+    margin-bottom: 24px;
+    max-width: 540px;
+
+    strong {
+      font-weight: 700;
+      color: #3538cd;
+    }
+
+    @include breakpoint-down(lg) {
+      font-size: 36px;
+      line-height: 40px;
+      padding-top: 25px;
+      margin-bottom: 15px;
+      letter-spacing: 0;
+      order: 1;
+    }
+  }
+
+  &-description p {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 27px;
+    color: #1d2939; /* Gray/800 */
+
+    @include breakpoint-down(lg) {
+      font-size: 18px;
+      line-height: 28px;
+    }
+  }
+
+  &-description {
+    @include breakpoint-down(lg) {
+      order: 2;
+    }
+  }
+
+  img {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    border-radius: 0 60px 0 0;
+
+    @include breakpoint-down(sm) {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+
+  &-wrap-image {
+    line-height: 0;
+  }
+
+  &-buttons {
+    display: flex;
+    margin-top: 48px;
+
+    a {
+      margin: 0 9px;
+
+      &:first-child {
+        margin: 0 9px 0 0;
+      }
+
+      @include breakpoint-down(lg) {
+        margin: 12px 0 0 0;
+
+        &:first-child {
+          margin: 0;
+        }
+      }
+    }
+
+    @include breakpoint-down(lg) {
+      margin-top: 32px;
+      flex-direction: column;
+      order: 3;
+    }
+  }
+
+  &-scroll-wrapper {
+    text-decoration: none;
+
+    @include breakpoint-down(md) {
+      margin-top: 30px;
+      margin-bottom: 32px;
+      order: 4;
+    }
+  }
+
+  &-scroll {
+    position: absolute;
+    bottom: 30px;
+
+    @include breakpoint-down(md) {
+      position: relative;
+      text-align: center;
+      bottom: 0;
+    }
+
+    a {
+      color: #3538cd;
+      text-decoration: none;
+
+      &::before {
+        content: "↓";
+        position: absolute;
+        bottom: -28px;
+        font-weight: 700;
+        left: 3px;
+        font-size: 21px;
+        color: #3538cd;
+
+        @include breakpoint-down(md) {
+          left: calc(50% - 9px);
+        }
+      }
+    }
+
+    svg {
+      color: #3538cd;
+      margin-top: 10px;
+      margin-left: 3px;
+      width: 18px;
+      height: 18px;
+    }
+
+    &-text {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 13px;
+      line-height: 18px;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: #3538cd; /* Indigo/700 */
+      text-decoration: none;
+    }
+  }
+}

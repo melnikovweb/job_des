@@ -1,0 +1,56 @@
+<h3>Tabs</h3>
+<br>
+
+{% include 'parts/components/tabs.twig' with {
+	'tabs': [
+        {
+            'title': 'Chapter 2',
+            'content': 'Content 01',
+        },
+        {
+            'title': 'Chapter 3',
+            'content': 'Content 02',
+        },
+        {
+            'title': 'Chapter 4',
+            'content': 'Content 03',
+        },
+        {
+            'title': 'Chapter 5',
+            'content': 'Content 04',
+        },
+    ]
+} only %}
+
+
+<br>
+
+
+<h4>Tabs (dropdown mobile)</h4>
+<br>
+
+{% include 'parts/components/tabs.twig' with {
+    'type': 'lg',
+    'mobileDropdownNav': true,
+	'tabs': [
+        {
+            'title': 'Service A',
+            'content': 'Content 01',
+        },
+        {
+            'title': 'Service B',
+            'content': 'Content 02',
+        },
+        {
+            'title': 'Service C',
+            'content': 'Content 03',
+        },
+        {
+            'title': 'Service D',
+            'content': 'Content 04',
+        },
+    ]
+} only %}
+
+
+<hr>

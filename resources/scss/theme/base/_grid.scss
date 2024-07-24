@@ -1,0 +1,44 @@
+/* stylelint-disable */
+:root {
+  --sk-container-padding: 16px;
+
+  --sk-container-width: calc(1216px + var(--sk-container-padding) * 2);
+  --sk-container-width-lg: calc(1216px + var(--sk-container-padding) * 2);
+  --sk-container-width--md: calc(960px + var(--sk-container-padding) * 2);
+  --sk-container-width--sm: calc(928px + var(--sk-container-padding) * 2);
+}
+
+:root {
+  @include breakpoint-up(sm) {
+    --sk-container-width: calc(710px + var(--sk-container-padding) * 2);
+  }
+
+  @include breakpoint-up(md-s) {
+    --sk-container-width: calc(940px + var(--sk-container-padding) * 2);
+  }
+
+  @include breakpoint-up(lg) {
+    --sk-container-width: calc(1216px + var(--sk-container-padding) * 2);
+  }
+}
+
+.sk-container {
+  max-width: var(--sk-container-width);
+  margin: 0 auto;
+  width: 100%;
+  padding-left: var(--sk-container-padding);
+  padding-right: var(--sk-container-padding);
+
+  &--md {
+    max-width: var(--sk-container-width--md);
+  }
+
+  &--sm {
+    max-width: var(--sk-container-width--sm);
+  }
+
+  &--fl {
+    max-width: 100%;
+    width: 100%;
+  }
+}

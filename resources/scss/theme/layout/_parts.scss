@@ -1,0 +1,25 @@
+.sk-not-found,
+.sk-help-message {
+  background-color: var(--sk-color-white);
+  border: 1px solid var(--sk-color-gray-200);
+  box-shadow: 0 1px 3px rgb(16 24 40 / 10%), 0 1px 2px rgb(16 24 40 / 6%);
+  border-radius: 12px;
+  min-height: 80px;
+  padding: 24px;
+  text-align: center;
+}
+
+.sk-loading {
+  background-color: rgba(#fff, 0.8);
+  bottom: 0;
+  display: none;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1001;
+
+  .loading & {
+    display: block;
+  }
+}

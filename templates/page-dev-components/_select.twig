@@ -1,0 +1,49 @@
+<h3>Custom select</h3>
+
+{% set select = {
+    'id': 'table_search',
+	'name': 'table_search',
+    'label': __( 'Search', THEME_TD ),
+    'placeholder': __( 'Search', THEME_TD ),
+    'helpText': __( 'This is a hint text to help user.', THEME_TD ),
+	'inputIcon': 'search-input',
+    'options': [
+        'Meta',
+        'Microsoft',
+        'Signatory 1',
+        'Signatory 2',
+        'Signatory 3',
+        'Signatory 4',
+        'Signatory 5',
+        'Signatory 6',
+        'Signatory 7',
+    ]
+} %}
+
+{% include 'parts/components/form-fields/select.twig' with select only %}
+
+<br>
+
+{% set select = {
+    'id': 'table_search',
+	'name': 'table_search',
+    'label': __( 'Search', THEME_TD ),
+    'placeholder': __( 'Search', THEME_TD ),
+    'helpText': __( 'This is a hint text to help user.', THEME_TD ),
+    'defaultLabel': __( 'Default label', THEME_TD ),
+	'inputIcon': 'search-input',
+    'options': [
+        'Meta',
+        'Microsoft',
+        'Signatory 1',
+        'Signatory 2',
+        'Signatory 3',
+        'Signatory 4',
+        'Signatory 5',
+        'Signatory 6',
+        'Signatory 7',
+    ]
+} %}
+{% include 'parts/components/form-fields/select.twig' with select only %}
+
+<hr>

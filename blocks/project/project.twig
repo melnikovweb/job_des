@@ -1,0 +1,60 @@
+<section class="{{ class }} {{ demo ? class ~ '-' ~ fields.section_height : class ~ '-m' }} {{ class }} {{ block_class }}" {{ block.anchor ? 'id=' ~ block.anchor : null }}>
+  <div class="{{ class }}-inner-section">
+    <div class="sk-container">
+     
+        {% if subtitle or title or description %}
+          
+            {% if subtitle %}
+              <h2 class="{{ class }}-subtitle sk-subtitle">{{ subtitle }}</h2>
+            {% endif %}
+            {% if title %}
+              <h3 class="{{ class }}-title sk-text--h2">{{ title }}</h3>
+            {% endif %}
+            {% if description %}
+              {{ description }}
+            {% endif %}
+        
+        {% endif %}
+  
+
+        {% if list_items is not empty %}
+
+            <ul class="{{ class }}-items">
+              {% for item in list_items %}
+                <li>
+                  <div class="{{ class }}-item">
+                    {% if item.icon %}
+                      <div class="{{ class }}-item-image circle-icon">
+                        {% include 'parts/components/image.twig' with {'id': item.icon, 'class': 'img-fluid', 'sizes': '24px'} only %}
+                      </div>
+                    {% endif %}
+                    {% if item.title or item.content %}
+                      <div class="{{ class }}-item-content">
+                        {% if item.title %}
+                          <h3 class="{{ class }}-item-title">{{ item.title }}</h3>
+                        {% endif %}
+                        {% if item.content %}
+                          {{ item.content }}
+                        {% endif %}
+
+                        {% if item.button %}
+                        <div class="{{ class }}-item-button">
+                          {% set target = item.button.target ? '_blank' : '_self' %}
+                          <a class="" href="{{ item.button.url }}" target="{{ target }}">{{ item.button.title }}<svg><use href="#icon-arrow-right"></use></svg></a>
+                        </div>
+                      {% endif %}
+                      </div>
+                    {% endif %}
+
+
+
+                  </div>
+                </li>
+              {% endfor %}
+            </ul>
+
+        {% endif %}
+      </div>
+    </div>
+  </section>
+  

@@ -1,0 +1,22 @@
+<section id="{{ class }}" class="{{ class }} {{ demo ? class ~ '-' ~ fields.section_height : class ~ '-m' }} {{ classes }} {{ block_classes }}" {{ block.anchor ? 'id=' ~ block.anchor : null }}>
+  <div class="sk-container">
+
+    <div class="{{ class }}-content">
+      <div class="{{ class }}-left-col">
+      {% if not (fields.title is empty) %}
+        <div class="{{ class }}-title">{{ fields.title }}</div>
+      {% endif %}
+
+      {% if not (fields.description is empty) %}
+        <div class="{{ class }}-description">{{ fields.description }}</div>
+      {% endif %}
+
+      {% if not (fields.signatories_form_id is empty) %}
+        <div class="{{ class }}-signatories_form_id">[contact-form-7 id="{{ fields.signatories_form_id }}" title="false"]</div>
+      {% endif %}
+    </div>
+    <div  class="{{ class }}-right-col" style="background-image: url({{site.url}}/wp-content/themes/transparency-centre/resources/img/form-side.jpg);">
+      </div>
+</div>
+</div>
+</section>

@@ -1,0 +1,98 @@
+<h3>Table</h3>
+<br>
+
+{% set table = {
+    'search': {
+        'id': 'table_search',
+		'name': 'table_search',
+		'label': __( 'Search by Country', THEME_TD ),
+		'placeholder': __( 'Search', THEME_TD ),
+		'helpText': __( 'Search below to find out more on individual countries, or click on columns to sort data.', THEME_TD ),
+		'inputIcon': 'search-input',
+		'options': [
+            'Austria',
+            'Belgium',
+            'Croatia',
+            'Latvia',
+        ],
+    },
+    'thead': [
+        {
+            title: 'Country',
+            sortBy: 'title',
+            sortType: 'text',
+        },
+        {
+            title: 'Number by actions<br> enforcing policies (Page)',
+            sortBy: 'number-actions-page',
+            sortType: 'number',
+        },
+        {
+            title: 'Number by actions<br> enforcing policies (Domain)',
+            sortBy: 'number-actions-domain',
+            sortType: 'number',
+        },
+    ],
+    'tbody': [
+        [
+            {
+                title: 'Austria',
+                sortKey: 'title'
+            },
+            {
+                title: '100',
+                sortKey: 'number-actions-page'
+            },
+            {
+                title: '100',
+                sortKey: 'number-actions-domain'
+            },
+        ],
+        [
+            {
+                title: 'Belgium',
+                sortKey: 'title'
+            },
+            {
+                title: '150',
+                sortKey: 'number-actions-page'
+            },
+            {
+                title: '20',
+                sortKey: 'number-actions-domain'
+            },
+        ],
+        [
+            {
+                title: 'Croatia',
+                sortKey: 'title'
+            },
+            {
+                title: '200',
+                sortKey: 'number-actions-page'
+            },
+            {
+                title: '10',
+                sortKey: 'number-actions-domain'
+            },
+        ],
+        [
+            {
+                title: 'Latvia',
+                sortKey: 'title'
+            },
+            {
+                title: '160',
+                sortKey: 'number-actions-page'
+            },
+            {
+                title: '200',
+                sortKey: 'number-actions-domain'
+            },
+        ],
+    ],
+} %}
+
+{% include "parts/components/table.twig" with table %}
+
+<hr>

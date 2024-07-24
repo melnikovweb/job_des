@@ -1,0 +1,195 @@
+<div class="advanced-search__filter_bar">
+	<div class="filter-border"></div>
+
+	<div class="filter-panel sk-form-checkbox">
+		<button class="filter-btn" data-params-key="mobile-filter">
+			<svg class="filter-close">
+				<use href="#icon-menu-close"></use>
+			</svg>
+		</button>
+
+		<div>
+			{% set content = '<ul>
+    <li>
+        <button href="#" data-dropdown-label="title 01">
+            title 01 
+        </button>
+    </li>
+    <li>
+        <button href="#" data-dropdown-label="title 02">
+            <span>title 02</span> 
+        </button>
+    </li>
+    <li>
+        <button href="#" data-dropdown-label="title 03">
+            title 03 
+        </button>
+    </li>
+</ul>' %}
+
+{% set dropdown = {
+    'title': 'Dropdown 01',
+    'content': content,
+} %}
+
+{# {% include "parts/components/dropdown.twig" with dropdown %} #}
+
+			{# {% set select = {
+			'id': 'years',
+			'action': 'add',
+			'name': 'years_search',
+			'label': __( 'Years', THEME_TD ),
+			'placeholder': __( 'Search', THEME_TD ),
+			'inputIcon': 'icon-filter',
+			'options': [
+				{ 'name': 'Years', },
+				{ 'name': 'Signatories', },
+			],
+			'maxVisible': 10,
+			'offset': 5,
+			} %}
+
+			{% include 'parts/components/form-fields/select.twig' with select only %} #}
+		</div>
+
+		{% if years %}
+			{% set select = {
+			'id': 'years',
+			'action': 'add',
+			'name': 'years_search',
+			'label': __( 'Years', THEME_TD ),
+			'placeholder': __( 'Search', THEME_TD ),
+			'inputIcon': 'search-input',
+			'options': years,
+			'maxVisible': 10,
+			'offset': 5,
+			'urlParams': 'filter'
+			} %}
+
+			{% include 'parts/components/form-fields/select.twig' with select only %}
+		{% endif %}
+
+		{% if signatories %}
+			{% set select = {
+			'id': 'signatory',
+			'action': 'add',
+			'name': 'signatories_search',
+			'label': __( 'Signatories', THEME_TD ),
+			'placeholder': __( 'Search', THEME_TD ),
+			'inputIcon': 'search-input',
+			'options': signatories,
+			'maxVisible': 10,
+			'offset': 25,
+			'urlParams': 'filter'
+			} %}
+
+			{% include 'parts/components/form-fields/select.twig' with select only %}
+		{% endif %}
+
+		{% if chapters %}
+			{% set select = {
+			'id': 'chapter',
+			'action': 'add',
+			'name': 'chapters_search',
+			'label': __( 'Chapters', THEME_TD ),
+			'placeholder': __( 'Search', THEME_TD ),
+			'inputIcon': 'search-input',
+			'options': chapters,
+			'maxVisible': 10,
+			'offset': 10,
+			'urlParams': 'filter'
+			} %}
+
+			{% include 'parts/components/form-fields/select.twig' with select only %}
+		{% endif %}
+
+
+		{% if commitments %}
+			{% set select = {
+			'id': 'commitment',
+			'action': 'add',
+			'name': 'commitments_search',
+			'label': __( 'Commitments', THEME_TD ),
+			'placeholder': __( 'Search', THEME_TD ),
+			'inputIcon': 'search-input',
+			'options': commitments,
+			'maxVisible': 10,
+			'offset': 25,
+			'urlParams': 'filter'
+			} %}
+
+			{% include 'parts/components/form-fields/select.twig' with select only %}
+		{% endif %}
+
+		{% if signatory_types %}
+			{% set select = {
+			'id': 'signatory-type',
+			'action': 'add',
+			'name': 'signatory_types_search',
+			'label': __( 'Type of Signatory', THEME_TD ),
+			'placeholder': __( 'Search', THEME_TD ),
+			'inputIcon': 'search-input',
+			'options': signatory_types,
+			'maxVisible': 10,
+			'offset': 25,
+			'urlParams': 'filter'
+			} %}
+
+			{% include 'parts/components/form-fields/select.twig' with select only %}
+		{% endif %}
+
+		{% if countries %}
+			{% set select = {
+			'id': 'country',
+			'action': 'add',
+			'name': 'countries_search',
+			'label': __( 'Country', THEME_TD ),
+			'placeholder': __( 'Search', THEME_TD ),
+			'inputIcon': 'search-input',
+			'options': countries,
+			'maxVisible': 10,
+			'offset': 25,
+			'urlParams': 'filter'
+			} %}
+
+			{% include 'parts/components/form-fields/select.twig' with select only %}
+		{% endif %}
+
+		{% if languages %}
+			{% set select = {
+			'id': 'language',
+			'action': 'add',
+			'name': 'languages_search',
+			'label': __( 'Language', THEME_TD ),
+			'placeholder': __( 'Search', THEME_TD ),
+			'inputIcon': 'search-input',
+			'options': languages,
+			'maxVisible': 10,
+			'offset': 10,
+			'urlParams': 'filter'
+			} %}
+
+			{% include 'parts/components/form-fields/select.twig' with select only %}
+		{% endif %}
+
+		<div class="filter-panel__buttons">
+			<button class="sk-btn sk-btn--secondary"
+				data-url-params="click"
+				data-params-action=""
+				data-params-value=""
+				data-params-key="mobile-filter"
+			>
+				{{ __( 'Cancel', THEME_TD ) }}
+			</button>
+
+			<button class="sk-btn sk-btn--primary"
+				data-url-params="click"
+				data-params-action=""
+				data-params-value=""
+				data-params-key="mobile-filter"
+			>
+				{{ __( 'Apply', THEME_TD ) }}
+			</button>
+		</div>
+	</div>
+</div>

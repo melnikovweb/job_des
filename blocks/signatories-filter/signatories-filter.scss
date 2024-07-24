@@ -1,0 +1,111 @@
+@import "../../resources/scss/theme/mixins/all";
+
+.signatories-filter {
+  padding: 64px 0 32px;
+
+  @include breakpoint-up(sm) {
+    padding: 106px 0 32px;
+  }
+
+  &__wrap-search {
+    margin: 0 auto 96px;
+    max-width: 343px;
+
+    @include breakpoint-up(sm) {
+      margin: 0 auto 74px;
+    }
+  }
+
+  &__row {
+    @include flex_align(center, stretch, wrap);
+
+    margin: 0 -16px;
+  }
+
+  &__col {
+    display: flex;
+    justify-content: center;
+    padding: 0 16px;
+    width: 100%;
+
+    @include breakpoint-up(sm) {
+      @include make-col(6);
+    }
+
+    @include breakpoint-up(md-s) {
+      @include make-col(4);
+    }
+  }
+
+  &__post {
+    background: var(--sk-color-white);
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(16, 24, 40, 0.1), 0 1px 2px rgba(16, 24, 40, 0.06);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 16px;
+    max-width: 343px;
+    padding: 31px 20px 25px;
+    text-align: center;
+    width: 100%;
+
+    @include breakpoint-up(sm) {
+      margin-bottom: 74px;
+      max-width: 100%;
+      padding: 20px 20px 14px;
+    }
+
+    &-image {
+      @include flex_align(center, center, nowrap);
+
+      flex: 1 1 auto;
+      margin: 0 auto 18px;
+      max-width: 207px;
+
+      @include breakpoint-up(sm) {
+        margin-bottom: 17px;
+        max-width: 162px;
+      }
+
+      svg {
+        width: 100%;
+      }
+    }
+
+    &-title {
+      color: var(--sk-color-gray-500);
+      flex: none;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.3125em;
+      margin-bottom: 9px;
+
+      @include breakpoint-up(sm) {
+        font-size: 14px;
+        letter-spacing: -0.01em;
+        line-height: 1.357em;
+      }
+    }
+
+    .sk-btn {
+      flex: none;
+      font-weight: 600;
+
+      @include breakpoint-down(sm) {
+        font-size: 16px;
+        letter-spacing: 0.025em;
+        line-height: 1.5em;
+      }
+
+      svg {
+        order: 1;
+      }
+    }
+  }
+
+  &__results {
+    min-height: 160px;
+    position: relative;
+  }
+}

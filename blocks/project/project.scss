@@ -1,0 +1,212 @@
+@import "../../resources/scss/theme/mixins/flexbox-mixin";
+@import "../../resources/scss/theme/mixins/breakpoints-mixin";
+@import "../../resources/scss/theme/mixins/clamp-calc-function";
+
+.project {
+  color: var(--sk-color-grey-blue-800);
+  font-size: clamp-calc(18px, 20px);
+  font-weight: 400;
+  padding: 0 0 32px;
+
+  @include breakpoint-up(sm) {
+    padding: 48px 0;
+  }
+
+  &-inner-section {
+    padding: 65px 0 72px;
+    background-color: var(--sk-color-bg-second);
+
+    @include breakpoint-up(sm) {
+      padding: 96px 0;
+    }
+  }
+
+  &-subtitle {
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 18px;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--sk-color-indigo-200); /* Indigo/200 */
+  }
+
+  &-title {
+    color: var(--sk-color-primary);
+    font-size: 36px;
+    line-height: 40px;
+    font-weight: 500;
+    margin-bottom: 15px;
+
+    @include breakpoint-down(md) {
+      font-weight: 500;
+      font-size: 30px;
+      line-height: 38px;
+    }
+
+    @include breakpoint-up(sm) {
+      margin-bottom: 20px;
+    }
+  }
+
+  p {
+    color: var(--sk-color-indigo-200);
+    font-size: 20px;
+    line-height: 31px;
+    font-weight: 300;
+    max-width: 768px;
+    letter-spacing: 0.24px;
+
+    @include breakpoint-down(md) {
+      font-size: 18px;
+      line-height: 28px;
+      letter-spacing: 0.22px;
+    }
+  }
+
+  &-items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    gap: 56px;
+    margin-top: 64px;
+
+    @include breakpoint-down(md) {
+      flex-direction: column;
+      margin-top: 43px;
+      gap: 39px;
+    }
+
+    li {
+      width: 100%;
+    }
+  }
+
+  &-item {
+    color: var(--sk-color-indigo-200);
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    position: relative;
+
+    &::before {
+      content: "";
+      background: #fff;
+      height: 56px;
+      border-radius: 90px;
+      width: 56px;
+      top: -4px;
+      left: -4px;
+      z-index: 0;
+      position: absolute;
+      opacity: 0.3333;
+
+      @include breakpoint-down(md) {
+        height: 48px;
+        width: 48px;
+      }
+    }
+
+    .circle-icon::before {
+      content: "";
+      background-color: #bfc1e7;
+      width: 40px;
+      height: 40px;
+      border-radius: 53px;
+      position: absolute;
+      z-index: 0;
+    }
+
+    .circle-icon {
+      background-color: #d2ddf3;
+    }
+
+    .circle-icon svg {
+      height: 22px;
+      width: 22px;
+      z-index: 1;
+    }
+
+    @include breakpoint-down(md) {
+      justify-content: flex-start;
+      align-items: flex-start;
+      flex-wrap: nowrap;
+      display: flex;
+    }
+
+    a {
+      color: var(--sk-color-indigo-200);
+    }
+
+    p {
+      letter-spacing: 0.2px;
+      font-size: 16px;
+      line-height: 24px;
+
+      @include breakpoint-down(md) {
+        font-size: 16px;
+        line-height: 21px;
+      }
+
+      @include breakpoint-up(sm) {
+        line-height: 1.5em;
+      }
+    }
+
+    &-image {
+      flex: none;
+      margin-right: 16px;
+      position: relative;
+    }
+
+    &-title {
+      color: var(--sk-color-primary);
+      font-size: 20px;
+      line-height: 30px;
+      font-weight: 400;
+      margin-bottom: 7px;
+      letter-spacing: 0.2px;
+
+      @include breakpoint-down(md) {
+        font-size: 18px;
+        line-height: 28px;
+      }
+    }
+
+    &-content {
+      flex: 1 1 auto;
+      padding-top: 10px;
+
+      @include breakpoint-up(sm) {
+        padding-top: 20px;
+      }
+    }
+
+    &-button {
+      padding-top: 20px;
+
+      svg {
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        bottom: 0;
+        right: -28px;
+      }
+
+      a {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: 0.24px;
+        color: #fac515;
+        text-decoration: none;
+        position: relative;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

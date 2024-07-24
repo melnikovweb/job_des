@@ -1,0 +1,18 @@
+{% set class = 'search-input' %}
+
+{% if search is not empty %}
+	{% if search.enable %}
+		<div class="{{ class }}">
+			{% include 'parts/components/form-fields/input.twig' with {
+				'id': search.id,
+				'name': search.id,
+				'value': '',
+				'label': search.label ?? '',
+				'placeholder': search.placeholder,
+				'inputIcon': 'search-input',
+				'helpText': search.additText ?? '',
+				'urlParams': search.urlParams,
+			} only %}
+		</div>
+	{% endif %}
+{% endif %}

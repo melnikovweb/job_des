@@ -1,0 +1,11 @@
+{% include "parts/layout/report-parts/top-part.twig" with {
+    'commitmentName': commitmentName,
+    'signatoryName': signatoryName,
+    'nameTemplate': nameTemplate,
+} %}
+
+{% include "parts/layout/report-parts/short-content.twig" with {'shortContent': shortContent} %}
+
+{% include "parts/layout/report-parts/measures-group.twig" with {'measuresGroup': measuresGroup} %}
+
+{% include "parts/layout/report-parts/measures_group_10.twig" with {'measures_group_10': measures_group_10} %}

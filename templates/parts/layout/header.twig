@@ -1,0 +1,37 @@
+<header class="header js-sk-header">
+  <div class="sk-container">
+    <div class="header__inner">
+      <div class="header__inner_left">
+        <a href="{{ site.url }}" rel="home" class="header-logo">
+          {{ site.name }}
+        </a>
+
+        <div class="menu-btn">
+          <svg class="menu-open">
+            <use href="#icon-menu-open"></use>
+          </svg>
+
+          <svg class="menu-close">
+            <use href="#icon-menu-close"></use>
+          </svg>
+        </div>
+      </div>
+
+      <div class="header__inner_center">
+        {% include "parts/components/search-icon.twig" with {'color': '-white'} %}
+        {% include "parts/components/languages-dropdown.twig" %}
+
+        <nav id="nav-main" class="header__inner_nav" role="navigation">
+          {% include "parts/components/menu-header.twig" with {'items': menu.get_items} %}
+        </nav>
+      </div>
+
+
+      <div class="header__inner_right">
+          {% include "parts/components/search-icon.twig" %}
+          {% include "parts/components/languages-dropdown.twig" %}
+      </div>
+    </div>
+  </div>
+</header>
+{% include "parts/components/search-simple-form.twig" %}

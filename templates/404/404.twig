@@ -1,0 +1,22 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	{% include "./blocks/title-block/title-block.twig" with {
+		'class': 'title-block',
+		'fields': {
+		'title': __(404, THEME_TD),
+		'bg_color': 'gray-50',
+		},
+	} %}
+
+	<div class="wrapper">
+		<p>{{ __( "Sorry, we couldn't find what you're looking for.", THEME_TD ) }}</p>
+
+		<button class="sk-btn sk-btn--primary" onclick="window.history.back()">
+			{{ __( 'Go Back', THEME_TD ) }}
+			<svg>
+				<use href="#icon-refresh"></use>
+			</svg>
+		</button>
+	</div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% if items %}
+	{% for item in items %}
+		<tr>
+			<th class="align-middle">
+				{% if item.measures %}
+					{% include "parts/components/round-block.twig" with { title: item.measures, type: 'sm' } %}
+				{% endif %}
+			</th>
+			<td class="align-middle">
+				{% if item.services is empty %}
+					-
+				{% else %}
+					{{ item.services|join(' ; ') }}
+				{% endif %}
+			</td>
+		</tr>
+	{% endfor %}
+{% endif %}

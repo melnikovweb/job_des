@@ -1,0 +1,14 @@
+{% if title and content %}
+	{% set class = 'sk-dropdown' %}
+	<div class="{{ class }}" data-dropdown>
+		<div class="{{ class }}__selected">
+			<span data-dropdown-selected-label>{{ title }}</span>
+			<svg class="{{ class }}__item-icon-open">
+				<use href="#icon-chevron-down"></use>
+			</svg>
+		</div>
+		<div class="{{ class }}__menu" data-dropdown-menu>
+			{{ content }}
+		</div>
+	</div>
+{% endif %}

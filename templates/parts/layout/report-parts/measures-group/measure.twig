@@ -1,0 +1,18 @@
+{# QRE #}
+{% include "parts/layout/report-parts/measures-group/qre.twig" with {'qreItems': qreItems} %}
+{# END QRE #}
+
+{# SLI #}
+{% include "parts/layout/report-parts/measures-group/sli.twig" with {'sliItems': sliItems, 'parentTabId': parentTabId} %}
+{# END SLI #}
+
+{# content #}
+{% if content %}
+    {% set accContent = {
+        'title': __( 'Methodology of data measurement', THEME_TD ),
+        'content': content
+    } %}
+    <div class="{{ classPageContent }}__wrapper {{ classPageContent }}__wrapper-mobile {{ classPageContent }}__methodology">
+        {% include 'parts/components/accordion.twig' with accContent only %}
+    </div>
+{% endif %}

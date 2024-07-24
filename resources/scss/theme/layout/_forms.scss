@@ -1,0 +1,54 @@
+.sk-form {
+  background: var(--sk-color-white);
+  padding: 0;
+  margin-bottom: 40px;
+
+  form {
+    width: 560px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    @include breakpoint-down(sm) {
+      width: 100%;
+    }
+
+    fieldset {
+      width: 100%;
+    }
+  }
+
+  &-field {
+    margin-bottom: 18px;
+    width: 100%;
+  }
+
+  &-wrapper-icon {
+    position: relative;
+  }
+
+  &-wrapper-icon &-control {
+    padding-left: 41px;
+  }
+
+  &-label,
+  &-help-text {
+    display: inline-block;
+    font-size: 14px;
+    letter-spacing: -0.01em;
+    line-height: 1.358em;
+  }
+
+  &-label {
+    color: var(--sk-color-gray-700);
+    font-weight: 500;
+    margin-bottom: 6px;
+    width: 100%;
+  }
+
+  &-help-text {
+    color: var(--sk-color-gray-600);
+    font-weight: 400;
+    margin-top: 8px;
+  }
+}

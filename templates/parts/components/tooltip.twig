@@ -1,0 +1,18 @@
+{% if title or text %}
+	{% set class = 'sk-tooltip' %}
+
+	<div class="{{ class }} js-tooltip-mouseover">
+		<svg>
+			<use href="#icon-help-circle"></use>
+		</svg>
+		<div class="{{ class }}__info js-tooltip-info">
+			{% if title %}
+				<span class="{{ class }}__title">{{ title }}</span>
+			{% endif %}
+
+			{% if text %}
+				{{ text }}
+			{% endif %}
+		</div>
+	</div>
+{% endif %}

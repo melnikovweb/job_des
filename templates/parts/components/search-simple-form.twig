@@ -1,0 +1,26 @@
+{% set search = options.search %}
+{% set bg_color = search.background_color ? search.background_color : '#f2f4f7' %}
+{% set bg_image = search.background_image.url ? search.background_color : '#f2f4f7' %}
+{% set search_title = search.search_title ? search.search_title : __('Search in the website', THEME_TD) %}
+{% set advanced_search = search.advanced_search_link.url ? search.advanced_search_link : __('Go to Advanced Search', THEME_TD) %}
+
+{% if search %}
+	<div class="search-simple fixed" style="--bg-color:{{ search.background_color }};">
+		<div class="sk-container">
+			<div class="search-simple__grid">
+				<div class="search-simple__left">
+					<p class="search-simple__left_title">{{ __('Search in the website', THEME_TD) }}</p>
+					<form class="search-simple__form" action="{{ site.url }}">
+						<input type="search" autocomplete="off" class="search-simple__form_input" placeholder="" value="{{ search_query }}" name="s" id="simple-search">
+						<button class="sk-btn sk-btn--primary">{{ __('Search', THEME_TD) }}</button>
+					</form>
+					<a href="{{ search.advanced_search_link.url }}" class="search-simple__left_advance">{{ advanced_search.title }}</a>
+				</div>
+
+				<div class="search-simple__right">
+					{% include 'parts/components/image.twig' with {'id': options.search.background_image.id, 'class': 'object-fit', 'sizes': '100vw'} only %}
+				</div>
+			</div>
+		</div>
+	</div>
+{% endif %}

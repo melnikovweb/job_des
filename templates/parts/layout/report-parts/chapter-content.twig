@@ -1,0 +1,87 @@
+{% if chapterTitle %}
+    <div class="{{ classPageContent }}__wrapper">
+        <h4 class="{{ classPageContent }}__chapter-title">{{ chapterTitle }}</h4>
+    </div>
+{% endif %}
+
+{% if commitmentName %}
+    <div class="{{ classPageContent }}__wrapper">
+        {% include "parts/components/round-block.twig" with { title: commitmentName } %}
+    </div>
+{% endif %}
+
+{% if commitmentDesc %}
+    <div class="{{ classPageContent }}__wrapper">
+        <div class="{{ classPageContent }}__small-block">
+            <div class="{{ classPageContent }}__small-block-content">
+                <p>{{ commitmentDesc }}</p>
+            </div>
+        </div>
+    </div>
+{% endif %}
+
+<div class="{{ classPageContent }}__wrapper">
+
+    {% if commitmentName %}
+        {% include "parts/components/tooltip.twig" with {
+            'text': __( 'Download Report ' ~ commitmentName ~ ', Signatories All', THEME_TD),
+        } only %}
+    {% endif %}
+
+	<div class="{{ classPageContent }}__btns">
+
+		{% set link = {
+            'title': __( 'Download Report as CSV', THEME_TD ),
+            'url': '#',
+        } %}
+		{% include 'parts/components/link.twig' with {
+            'link': link,
+            'classes': 'sk-btn sk-btn--primary sk-btn--full-w',
+            'spriteSvg': 'icon-download',
+            'showTitle': true,
+        } only %}
+
+		{% set link = {
+            'title': __( 'Download Report as PDF', THEME_TD ),
+            'url': '#',
+        } %}
+		{% include 'parts/components/link.twig' with {
+            'link': link,
+            'classes': 'sk-btn sk-btn--primary sk-btn--full-w',
+            'spriteSvg': 'icon-download',
+            'showTitle': true,
+        } only %}
+
+		{% set link = {
+            'title': __( 'Download Report as JSON', THEME_TD ),
+            'url': '#',
+        } %}
+		{% include 'parts/components/link.twig' with {
+            'link': link,
+            'classes': 'sk-btn sk-btn--primary sk-btn--full-w',
+            'spriteSvg': 'icon-download',
+            'showTitle': true,
+        } only %}
+
+	</div>
+</div>
+
+<div class="{{ classPageContent }}__wrapper js-search-commitment">
+    {% if signatories is not empty %}
+        {% set select = {
+            'id': 'signatory',
+            'action': 'replace',
+            'name': 'signatory',
+            'label': __( 'Search by Signatory', THEME_TD ),
+            'placeholder': __( 'Search', THEME_TD ),
+            'helpText': __( 'Type or select signatory.', THEME_TD ),
+            'inputIcon': 'search-input',
+            'options': signatories,
+            'disableURLParams': false,
+            'single': true,
+            'urlParams': 'commitment'
+        } %}
+
+        {% include 'parts/components/form-fields/select.twig' with select only %}
+    {% endif %}
+</div>

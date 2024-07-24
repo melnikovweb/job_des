@@ -1,0 +1,19 @@
+{% set classPageContent = 'page-content' %}
+
+{% if content is not empty %}
+	<div class="{{ classPageContent }}__specific-measures-block">
+		<table>
+			{% for key, item in content %}
+				{% if (key == 'specific_commitments') %}
+					{% include "parts/layout/report-parts/short-content-parts/" ~ key ~ ".twig" with { 'items': item } %}
+				{% elseif (key == 'specific_measures') %}
+					{% include "parts/layout/report-parts/short-content-parts/" ~ key ~ ".twig" with { 'items': item } %}
+				{% elseif (key == 'specific_services') %}
+					{% include "parts/layout/report-parts/short-content-parts/" ~ key ~ ".twig" with { 'items': item[0] } %}
+				{% elseif (key == 'specific_content') %}
+					{% include "parts/layout/report-parts/short-content-parts/" ~ key ~ ".twig" with { 'item': item } %}
+				{% endif %}
+			{% endfor %}
+		</table>
+	</div>
+{% endif %}

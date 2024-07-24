@@ -1,0 +1,7 @@
+{% if title %}
+	{% set class = 'sk-round-block' %}
+	{% set type = type ? class~'--'~type : '' %}
+	<div class="{{ class }} {{ type }}">
+		{{ title }}
+	</div>
+{% endif %}

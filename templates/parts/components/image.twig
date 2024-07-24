@@ -1,0 +1,40 @@
+{% set img_sizes = [ '100', '200', '400', '600', '800', '1200', '2400' ] %}
+{% set webp_images = [] %}
+{% set jpg_images = [] %}
+
+{% if remote_img_file_exists(id) %}
+
+	{% set image = Image(id) %}
+
+	{% set lazy = disableLoading ? 'eager' : 'lazy' %}
+
+	{% if image.post_mime_type == 'image/svg+xml' %}
+
+		{{ inline_svg( id, true ) }}
+
+	{% else %}
+
+		{% for size in img_sizes|filter(s => s < image.width) %}
+			{% set webp_images = webp_images|merge([ image.src|towebp|resize( size ) ~ ' ' ~ size ~ 'w' ]) %}
+			{% set jpg_images = jpg_images|merge([ image.src|tojpg|resize( size ) ~ ' ' ~ size ~ 'w' ]) %}
+		{% endfor %}
+
+		{% set webp_images = webp_images|merge([ image.src|towebp ~ ' ' ~ image.width ~ 'w' ]) %}
+		{% set jpg_images = jpg_images|merge([ image.src|tojpg ~ ' ' ~ image.width ~ 'w' ]) %}
+
+		<picture>
+			<source type="image/webp" sizes="{{ sizes }}" srcset="{{ webp_images|join(', ') }}">
+			<source type="image/jpeg" sizes="{{ sizes }}" srcset="{{ jpg_images|join(', ') }}">
+			<img class="{{ classes }}" width="{{ image.width }}" height="{{ image.height }}" alt="{{ image.title }}" src="{{ image.src }}" loading="{{ lazy }}">
+		</picture>
+
+	{% endif %}
+
+{% else %}
+	<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 732 410">
+		<title>Placeholder</title>
+		<rect width="100%" height="100%" x="0" y="0" fill="#ccc"></rect>
+	</svg>
+{% endif %}
+
+{# use: {% include 'parts/components/image.twig' with {'id': imageID, 'classes': 'SOME_CLASS', 'sizes': '(max-width: 767px) 200px, (max-width: 991px) 400px, 600px', 'disableLoading': true/false} only %} #}

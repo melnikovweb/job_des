@@ -1,0 +1,28 @@
+<footer class="footer">
+  <div class="sk-container">
+    <div class="footer__top">
+      {% if site.name %}
+      <div class="footer_site_name">
+        <a href="{{ site.url }}" rel="home">{{ site.name }}</a>
+      </div>
+      {% endif %} {% if footer_top_menu.get_items %}
+      <nav id="nav-footer-top" class="nav-footer-top" role="navigation">
+        {% include "parts/components/menu-footer-top.twig" with {'items':
+        footer_top_menu.get_items} %}
+      </nav>
+      {% endif %}
+    </div>
+    <div class="footer__bottom">
+      {% if site.name %}
+      <p class="copyright">
+        <span>© {{"now"|date('Y')}}</span> {{ site.name }}. {{ __('All rights reserved.', THEME_TD) }}
+      </p>
+      {% endif %} {% if footer_menu.get_items %}
+      <nav id="nav-footer" class="nav-footer" role="navigation">
+        {% include "parts/components/menu-footer.twig" with {'items':
+        footer_menu.get_items} %}
+      </nav>
+      {% endif %}
+    </div>
+  </div>
+</footer>

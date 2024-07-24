@@ -1,0 +1,16 @@
+<section class="{{ class }} {{ demo ? class ~ '-' ~ fields.section_height : class ~ '-m' }} {{ classes }} {{ block_classes }} {{ fields.bg_color }}" {{ block.anchor ? 'id=' ~ block.anchor : null }}>
+  <div class="sk-container sk-container--fl">
+
+    <div class="{{ class }}-content sk-container">
+
+      {% if not (fields.description is empty) %}
+      <div class="{{ class }}-description">{{ fields.description }}</div>
+      {% endif %}
+
+      {% if not (fields.title is empty) %}
+        <h1 class="{{ class }}-title">{{ fields.title }}</h1>
+      {% endif %}
+    </div>
+
+  </div>
+</section>
